@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>sqlmap详细使用教程 | Hexo</title>
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/css/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <h1 class='title'>Material X</h1>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/"
+            
+            
+            id="home">
+            <i class='fas fa-rss fa-fw'></i>&nbsp;博文
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/projects/"
+            
+            
+            id="projects">
+            <i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/friends/"
+            
+              rel="nofollow"
+            
+            
+            id="friends">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/about/"
+            
+              rel="nofollow"
+            
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header pure">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="pure"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          Hexo
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/"
+                  
+                  
+                  id="home">
+									<i class='fas fa-grin fa-fw'></i>&nbsp;示例
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogcategories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogtags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/archives/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogarchives">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="blogarchives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/projects/"
+                
+                
+                id="projects">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;开源项目
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="friends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/"
+                
+                  rel="nofollow"
+                
+                
+                id="https:xaoxuu.comwikimaterial-x">
+								<i class='fas fa-book fa-fw'></i>&nbsp;主题文档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="about">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2019/07/04/sqlmap详细使用教程/">
+        sqlmap详细使用教程
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    <a href="http://yoursite.com" rel="nofollow">
+      
+        <i class="fas fa-user" aria-hidden="true"></i>
+      
+      <p>John Doe</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-07-04</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          <p>sqlmap 开源的渗透测工具</p>
+<a id="more"></a>
+
+
+
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>sqlmap 是开源的渗透测试工具，自动化检测sql注入漏洞，利用其漏洞获取数据库服务器的权限。它的检测引擎功能强大，对于不同类型的数据库的渗透测试，拥有不同的功能选项；既可以获取数据库中存储的数据，又可以访问操作系统文件，甚至可以通过外带数据连接的方式执行操作系统命令。</p>
+<h3 id="安装与环境配置"><a href="#安装与环境配置" class="headerlink" title="安装与环境配置"></a>安装与环境配置</h3><p><a href="https://www.python.org/download/releases/2.7/" target="_blank" rel="noopener">sqlmap官网</a></p>
+<p>下载python2.7，安装完成后，配置环境：</p>
+<p>path内添加python安装路径，例如 D:\python</p>
+<p><a href="https://www.cnblogs.com/huangbiquan/p/7784533.html" target="_blank" rel="noopener">环境配置教学</a></p>
+<h2 id="确定探测目标"><a href="#确定探测目标" class="headerlink" title="确定探测目标"></a>确定探测目标</h2><h3 id="直连数据库"><a href="#直连数据库" class="headerlink" title="直连数据库"></a>直连数据库</h3><p><code>-d</code></p>
+<p>数据库类型：文件型数据库（前提是知道数据库绝对路径），关系型数据库（前提是知道数据库用户名和密码）</p>
+<p>连接关系型数据库 操作</p>
+<blockquote>
+<p>sqlmap -d “DBMS://User:Password@DBMS_Ip:DBMS_Port/DB_Name”  -f –banner -users</p>
+<p>-d 表示直连  DBMS有mysql,oracle,microsofe sql server,psql,etc…</p>
+<p>-f fetch 返回</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -d "mysql://root:123456@192.168.1.123:3306/test" -f --banner --users</span><br></pre></td></tr></table></figure>
+
+<p>连接文件型数据库 操作</p>
+<blockquote>
+<p>同上，DBMS的种类有SQLite,microsofe Access,Firebird,etc…</p>
+<p>sqlmap -d “DBMS://db_filepath”</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -d "DBMS://db_filepath"</span><br></pre></td></tr></table></figure>
+
+<h3 id="指定URL"><a href="#指定URL" class="headerlink" title="指定URL"></a>指定URL</h3><p><code>-u</code></p>
+<blockquote>
+<p> sqlmap -u “<a href="http://targeturl[:port]/[目标文件文件夹]&quot;" target="_blank" rel="noopener">http://targeturl[:port]/[目标文件文件夹]&quot;</a></p>
+<p>-u/–url 连接url</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u "http://www.target.com/index.php?id=1" --banner</span><br></pre></td></tr></table></figure>
+
+<h3 id="不同类型文件中读取目标"><a href="#不同类型文件中读取目标" class="headerlink" title="不同类型文件中读取目标"></a>不同类型文件中读取目标</h3><p><code>-l</code>    从burpsuit proxy或web Scarab proxy中读取Http请求的日志文件</p>
+<p><code>-x</code>    从sitemap.xml站点地图文件中读取目标探测</p>
+<p><code>-m</code>    从多行文本格式文件中读取多个目标，对多个目标进行探测</p>
+<p><code>-r</code>    从文本文件中读取Http请求作为sql注入探测的目标</p>
+<p><code>-c</code>    从配置文件sqlmap.conf 中读取目标探测</p>
+<h3 id="google批量扫注入"><a href="#google批量扫注入" class="headerlink" title="google批量扫注入"></a>google批量扫注入</h3><p><code>-g</code></p>
+<p>sqlmap通过-g自动利用Google hack的目标，然后利用交互向导模式进行sqlmap注入探测</p>
+<blockquote>
+<p>python sqlmap.py -g “inurl:&quot;.php?id=1&quot;“</p>
+<p>Google hacking语法</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -g "inurl:.php?id="</span><br></pre></td></tr></table></figure>
+
+<h2 id="请求参数设置"><a href="#请求参数设置" class="headerlink" title="请求参数设置"></a>请求参数设置</h2><h3 id="设置http请求方法"><a href="#设置http请求方法" class="headerlink" title="设置http请求方法"></a>设置http请求方法</h3><p><code>--method</code>=PUT</p>
+<blockquote>
+<p>默认为get    </p>
+</blockquote>
+<h3 id="设置post参数"><a href="#设置post参数" class="headerlink" title="设置post参数"></a>设置post参数</h3><p><code>--data</code></p>
+<p>默认HTTP请求方法为get,但可以隐式的改为post(方法为提供post要发送的数据)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u "http://www.target.php?id=1" --data="uname=adnin" -f --dbs --banner --users</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>-f （fingerprint）指纹</p>
+<p>–data=”uname=admin”    post 发送的数据</p>
+</blockquote>
+<h3 id="设置参数分隔符"><a href="#设置参数分隔符" class="headerlink" title="设置参数分隔符"></a>设置参数分隔符</h3><p><code>--param-del</code>  指定分隔符</p>
+<blockquote>
+<p>默认为“&amp;”做分隔符</p>
+</blockquote>
+<p>在某些情况下，sqlmap需要覆盖默认参数分隔符（例如&amp; in Get和Post数据），才能正确地分割和单独处理每个参数</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u "www.target.com/culnds.php" --data="query=foobar;id=1" --param-del=";" --banner</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>–param-del=”;”，特殊情况下(其中提交的数据是以“；”号做为分割符，sqlmap 无法识别正误)，指定参数分割，sqlmap才能判断。</p>
+</blockquote>
+<h3 id="设置cookie参数"><a href="#设置cookie参数" class="headerlink" title="设置cookie参数"></a>设置cookie参数</h3><p><strong>使用场景</strong></p>
+<p>web应用程序有基于cookie验证的过程</p>
+<p>利用cookie值上的sql注入漏洞</p>
+<p><strong>过程</strong></p>
+<p>登录/浏览页面（无法登录是无法获取正确cookie值的）</p>
+<p>审计工具/代理工具截断，复制cookie</p>
+<p>在使用sqlmap</p>
+<blockquote>
+<p>注：对HTTP cookie值进行sql注入探测，需要设置 –level 2以上</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> sqlmap -r target.txt --level 2 -p uname</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><code>--cookie</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u "http://192.168.127.137/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit" --cookie "security=impossible; PHPSESSID=jeadfeijr3rc9sv6fcaib8" --banner</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果服务器端响应新的cookie值，此时sqlmap 会询问你将要使用哪组cookie</p>
+</blockquote>
+<p><code>--drop-set-cookie</code> </p>
+<p>忽略任何即将到来的set-cookie头,仍然使用我们自己设置的cookie值，丢弃服务端响应的cookie值</p>
+<p><code>--load-cookies</code> </p>
+<p>可以用来加载一些 Netscape/wget格式的特殊文件的cookie</p>
+<p><code>--cookie-del</code> 进行分割的参数</p>
+<h3 id="设置user-agent头"><a href="#设置user-agent头" class="headerlink" title="设置user-agent头"></a>设置user-agent头</h3><blockquote>
+<p>默认情况下，sqlmap使用用户代理头，执行HTTP请求：sqlmap/1.0-dev-xxxxxx(<a href="http://sqlmap.org" target="_blank" rel="noopener">http://sqlmap.org</a>)</p>
+<p>一些站点在服务端检测HTTP user-agent值，如果不是一个合法的值，就会中断连接，同时sqlmap也会报出错误</p>
+</blockquote>
+<p><code>--user-agent</code> 用来伪造（自定义）用户代理</p>
+<p><code>--random-agent</code> 会在<code>./txt/user-agent</code>中随机选择一个用于会话中的所有Http请求(usr/share/sqlmap/txt/user-agents.txt)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u "..." --random-agent --banner</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u "..." --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0" --banner</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注： 对user-agent值（*）探测sql注入，需要设置–level 3</p>
+</blockquote>
+<h3 id="设置host头"><a href="#设置host头" class="headerlink" title="设置host头"></a>设置host头</h3><p>可以手动设置HTTP主机头值，默认情况下，从目标url解析http主机头</p>
+<blockquote>
+<p>注： 对HTTP主机头进行host注入检测，设置level 5</p>
+<p>如果在http头内的host,标了“*”，则可不设置level 5</p>
+</blockquote>
+<h3 id="设置referer头"><a href="#设置referer头" class="headerlink" title="设置referer头"></a>设置referer头</h3><p>伪造http referer 值是可能的，默认情况下，如果没有显式设置，http请求中不会发送http引用头</p>
+<blockquote>
+<p>对于http引用头sql注入测试，应甚至level 3</p>
+</blockquote>
+<h3 id="设置额外的http头"><a href="#设置额外的http头" class="headerlink" title="设置额外的http头"></a>设置额外的http头</h3><p><code>--header</code></p>
+<p><code>--headers</code></p>
+<p>提供额外的 http 标头，每个标头必须要用换行符分隔，在sqlmap.conf 配置文件中设置更方便</p>
+<p>“\n”作为–headers的分隔符</p>
+<h3 id="设置http协议认证"><a href="#设置http协议认证" class="headerlink" title="设置http协议认证"></a>设置http协议认证</h3><p><code>--auth-type</code></p>
+<p>支持Basic,Digest,NTLM</p>
+<p><code>--auth-cred</code></p>
+<p>认证语法为： username：password</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmapd -u "http://url/arit.php?id=1" --auth-type Basic --auth-cred "testuser:testpass"</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置代理"><a href="#设置代理" class="headerlink" title="设置代理"></a>设置代理</h3><p><code>--proxy</code>  设置http代理服务器位置,格式：http(s)://ip[:port]</p>
+<p><code>--proxy-cred</code>  设置http代理服务器认证信息，格式：–proxy-cred username:password</p>
+<p><code>--proxy-file</code> 设置多条代理在文本中，可进行替换，快速完成切换</p>
+<p><code>--ignore-proxy</code> 忽略系统设置的代理服务器</p>
+<h3 id="设置tor隐藏网络"><a href="#设置tor隐藏网络" class="headerlink" title="设置tor隐藏网络"></a>设置tor隐藏网络</h3><p>–tor</p>
+<p>–tor-port </p>
+<p>–tor-type </p>
+<p>–check-tor 检查tor是否可用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install tor #如果没有，需要安装</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service tor start</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u "..." -tor --tor-type https --check-tor</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置延迟"><a href="#设置延迟" class="headerlink" title="设置延迟"></a>设置延迟</h3><p>某些服务器，会在你发包过快发出预警，或中断；默认是不设置延迟的。</p>
+<p>–delay 0.5 设置延迟0.5秒</p>
+<h3 id="设置超时"><a href="#设置超时" class="headerlink" title="设置超时"></a>设置超时</h3><p>指定等待的秒数，默认是30秒</p>
+<p>–timeout 10.5  10秒半</p>
+<h3 id="设置重试次数"><a href="#设置重试次数" class="headerlink" title="设置重试次数"></a>设置重试次数</h3><p>默认重试3次</p>
+<p>–retries 4</p>
+<h3 id="设置随机化参数"><a href="#设置随机化参数" class="headerlink" title="设置随机化参数"></a>设置随机化参数</h3><p>随即更改参数名称所对应的值，（sqlmap默认随机）</p>
+<p>–randomize 参数名称（特定）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u "...?id=1" --randomize id --banner</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置日志过滤目标"><a href="#设置日志过滤目标" class="headerlink" title="设置日志过滤目标"></a>设置日志过滤目标</h3><p>日志解析，并指定有效的Python正则表达式，用于过滤所需的日志</p>
+<p>–scope</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -l burp.log --scope="(www)?\.target\.(com|net|org)"</span><br></pre></td></tr></table></figure>
+
+<p>–skip-urlencode 不进行URL加密，有时中文或符号在服务端不遵循这种加密。</p>
+<h3 id="设置忽略401"><a href="#设置忽略401" class="headerlink" title="设置忽略401"></a>设置忽略401</h3><p>–ignore-401  用来忽略未验证错误</p>
+<p>当你想测试偶尔返回401（未授权的）站点，，你想忽略他并在不提供验证的情况下继续测试</p>
+<h3 id="设置http协议私钥"><a href="#设置http协议私钥" class="headerlink" title="设置http协议私钥"></a>设置http协议私钥</h3><p>当web服务器需要适当地客户端证书和用于身份验证的私钥时，提供的值为pem格式的key-file，其中包含证书和私钥。</p>
+<p>–auth-file 文件名</p>
+<h3 id="设置安全模式"><a href="#设置安全模式" class="headerlink" title="设置安全模式"></a>设置安全模式</h3><p>避免多次请求失败后销毁会话</p>
+<p>可能发生在sqlmap的检测阶段会利用任何盲sql注入类型时，原因是sql有效负载不一定返回输出，因此可能会向应用程序会话管理或检查技术发出信号。</p>
+<p>–safe-url</p>
+<p>–safe-post</p>
+<p>–safe-req</p>
+<p>–safe-freq</p>
+<h3 id="设置忽略URL编码"><a href="#设置忽略URL编码" class="headerlink" title="设置忽略URL编码"></a>设置忽略URL编码</h3><p>–skip-urlencode</p>
+<p>根据参数的位置（例如get）,默认情况下他的值可以是URL编码的。在某些情况下，后端web服务器不遵循RFC标准，需要以原始的非编码形式发送值。</p>
+<h2 id="性能优化设置"><a href="#性能优化设置" class="headerlink" title="性能优化设置"></a>性能优化设置</h2><p><code>-o</code> 可以开启所有性能优化参数</p>
+<h3 id="设置持久http连接"><a href="#设置持久http连接" class="headerlink" title="设置持久http连接"></a>设置持久http连接</h3><p>在HTTP报文中设置Connection：Keep-Alive。可避免服务器资源，性能受到影响</p>
+<p>–keep-alive </p>
+<h3 id="设置不接受http-body"><a href="#设置不接受http-body" class="headerlink" title="设置不接受http body"></a>设置不接受http body</h3><p>sqlmap中检索没有body响应的内容</p>
+<p>–unll-connection</p>
+<h3 id="设置多线程"><a href="#设置多线程" class="headerlink" title="设置多线程"></a>设置多线程</h3><p>默认 1，为不影响服务器的性能和资源，sqlmap最大为 10 </p>
+<p>–threads</p>
+<h3 id="设置预测输出"><a href="#设置预测输出" class="headerlink" title="设置预测输出"></a>设置预测输出</h3><p>与–thread不兼容，在算法中用于检索值字符的顺序统计预测</p>
+<p>–predict-output</p>
+<h2 id="指定位置注入"><a href="#指定位置注入" class="headerlink" title="指定位置注入"></a>指定位置注入</h2><h3 id="注入介绍"><a href="#注入介绍" class="headerlink" title="注入介绍"></a>注入介绍</h3><h3 id="设置指定注入参数"><a href="#设置指定注入参数" class="headerlink" title="设置指定注入参数"></a>设置指定注入参数</h3><p><code>-p</code>指定具体的探测参数（例 -p “id,uesr-agent”）</p>
+<p>–skip:忽略探测具体参数，例如 –level –skip “user-agent,referer”</p>
+<blockquote>
+<p>–level 1-5,5时忽略所有参数</p>
+</blockquote>
+<p>–param-exclude：忽略包含具体内容的参数。例如：–param-exclude=”token|session” 不对包含token或session的参数进行探测</p>
+<p>–skip-static：忽略非动态参数</p>
+<h3 id="设置任意注入位置"><a href="#设置任意注入位置" class="headerlink" title="设置任意注入位置"></a>设置任意注入位置</h3><p>例：参数：值*</p>
+<h2 id="注入参数"><a href="#注入参数" class="headerlink" title="注入参数"></a>注入参数</h2><h3 id="强制设置DBMS"><a href="#强制设置DBMS" class="headerlink" title="强制设置DBMS"></a>强制设置DBMS</h3><p>默认会自动探测目标web应用程序的后端数据库管理系统</p>
+<p>sqlmap完全支持的dbms种类：MySQL，oracle,Microsoft sql server,ibm db2,sqlite,firebird,sybase,sap maxdb,hsqldb,informix</p>
+<p>–dbms 数据库管理系统名称 [版本号]</p>
+<p>例如：–dbms mysql [5.0]    –dbms microsoft sql sever 05</p>
+<h3 id="强制设置OS指定"><a href="#强制设置OS指定" class="headerlink" title="强制设置OS指定"></a>强制设置OS指定</h3><p>默认自动识别探测目标web应用程序的后端操作系统（OS）</p>
+<p>sqlmap全支持的OS种类：Linux，Windows</p>
+<p>–os windows 或 –os linux</p>
+<h3 id="关闭负载转换机制"><a href="#关闭负载转换机制" class="headerlink" title="关闭负载转换机制"></a>关闭负载转换机制</h3><p>–no-cast：防止NULL与字符串连接（dbms版本老旧），将null转换为空格</p>
+<h3 id="关闭字符转义机制"><a href="#关闭字符转义机制" class="headerlink" title="关闭字符转义机制"></a>关闭字符转义机制</h3><p>–no-escape</p>
+<blockquote>
+<p>字符转义机制:’f’    CHAR(102),混淆有效负载内容，防止后端服务器上查询转义机制（例如magic_quotes和/或 mysql_real_escape_string）</p>
+</blockquote>
+<h3 id="强制设置无效值替换"><a href="#强制设置无效值替换" class="headerlink" title="强制设置无效值替换"></a>强制设置无效值替换</h3><p>要使原始参数值无效（例如id=12）时，经典的否定（例如id=-12）</p>
+<p> –invalid-bignum ：强制使用大整数（例如id=99999999）</p>
+<p>–invalid-logical ：强制使用布尔操作来实现相同的目标（例如id=12 and 18=19）</p>
+<p>–invalid-string ：强制使用随机字符串（例如id=adsfa）</p>
+<h3 id="自定义注入负载位置"><a href="#自定义注入负载位置" class="headerlink" title="自定义注入负载位置"></a>自定义注入负载位置</h3><p>–prefix ：sql注入payload前缀</p>
+<p>–suffix  ：sql注入payload后缀</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u "http://target.php?id=1" -p id --prefix "')" --suffix "and ('abc'=abc" --dbs -v 5</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置tamper脚本"><a href="#设置tamper脚本" class="headerlink" title="设置tamper脚本"></a>设置tamper脚本</h3><p>–tamper</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u "..." --tamper "between.py,randomcase.py" -v 3</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>-v 3,5  查看http请求中的payload</p>
+<p>存储脚本位置(usr/share/sqlmap/tamper)</p>
+</blockquote>
+<h3 id="设置dbms认证"><a href="#设置dbms认证" class="headerlink" title="设置dbms认证"></a>设置dbms认证</h3><p>–dbms-cred=”root:toor”</p>
+<h2 id="自定义检测参数"><a href="#自定义检测参数" class="headerlink" title="自定义检测参数"></a>自定义检测参数</h2><h3 id="设置探测等级"><a href="#设置探测等级" class="headerlink" title="设置探测等级"></a>设置探测等级</h3><p>–level 1-5，默认1，探测复杂程度逐步提升</p>
+<p>在xml/payload.xml 中指定了有效负载</p>
+<h3 id="设置风险参数"><a href="#设置风险参数" class="headerlink" title="设置风险参数"></a>设置风险参数</h3><p>–risk 1-3 ，默认1基本无害，2增加了基于时间的sql注入，3又增加了or的sql 注入</p>
+<p>例如update，or 可能会打乱表单</p>
+<h3 id="设置页面比较参数"><a href="#设置页面比较参数" class="headerlink" title="设置页面比较参数"></a>设置页面比较参数</h3><p>–string 指定包含字符穿，查询为true</p>
+<p>–not-string  指定包含字符串，查询为false</p>
+<p>–regexp 指定通过正则表达式匹配字符串，查询为true</p>
+<p>–code 指定匹配http状态响应码，查询为true</p>
+<h3 id="设置内容比较参数"><a href="#设置内容比较参数" class="headerlink" title="设置内容比较参数"></a>设置内容比较参数</h3><p>–text-only 设置页面内容包含文本(–text-only=”welcome!”)</p>
+<p>–titles 设置title中包含文本，前提是知道如何区分查询的真假（–titles=”Login”）</p>
+<h2 id="注入技术参数"><a href="#注入技术参数" class="headerlink" title="注入技术参数"></a>注入技术参数</h2><h3 id="设置具体sql注入技术"><a href="#设置具体sql注入技术" class="headerlink" title="设置具体sql注入技术"></a>设置具体sql注入技术</h3><p>默认 使用所有技术</p>
+<p>–technique</p>
+<p>B:Boolean-based blind 基于布尔的盲注</p>
+<p>E：Error-based 报错注入</p>
+<p>U：Union query-based Union查询注入</p>
+<p>S：Stacked queries 堆叠注入</p>
+<p>T：Time-based blind 基于时间的盲注</p>
+<p>Q：lnline queries 内联查询注入</p>
+<h3 id="设置时间盲注延迟时间"><a href="#设置时间盲注延迟时间" class="headerlink" title="设置时间盲注延迟时间"></a>设置时间盲注延迟时间</h3><p>–time-sec 整数，默认为5秒</p>
+<h3 id="设置union字段数"><a href="#设置union字段数" class="headerlink" title="设置union字段数"></a>设置union字段数</h3><p>默认情况下 使用1-10列的union查询的sql注入技术，但是提高level值，可增加至50列</p>
+<p>–union-cols 12-16</p>
+<h3 id="设置union字符"><a href="#设置union字符" class="headerlink" title="设置union字符"></a>设置union字符</h3><p>–union-char 123 替换unll,可能会使探测成功</p>
+<h3 id="设置union查询表"><a href="#设置union查询表" class="headerlink" title="设置union查询表"></a>设置union查询表</h3><p>–union-from 表名(其他表有限制)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u "" --technique U --union-from users --current-db -v3</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置DNS露出攻击"><a href="#设置DNS露出攻击" class="headerlink" title="设置DNS露出攻击"></a>设置DNS露出攻击</h3><p>针对目标网络可能对外流量进行限制，或者设置WAF。通过dns协议绕过限制，获取数据</p>
+<p>–dns-domain “dns 服务器”（需要用户具有一个开放53端口的dns服务器），通过dns流量来获取数据</p>
+<h3 id="设置二次注入"><a href="#设置二次注入" class="headerlink" title="设置二次注入"></a>设置二次注入</h3><p>–second-order url(url为二次注入的响应页面）</p>
+<h3 id="识别指纹"><a href="#识别指纹" class="headerlink" title="识别指纹"></a>识别指纹</h3><p>–fingerprint -f</p>
+<h2 id="检索DBMS信息"><a href="#检索DBMS信息" class="headerlink" title="检索DBMS信息"></a>检索DBMS信息</h2><h3 id="检索dbms-banner"><a href="#检索dbms-banner" class="headerlink" title="检索dbms banner"></a>检索dbms banner</h3><p>–banner -b 获取后端数据库banner信息</p>
+<h3 id="检索dbms当前用户"><a href="#检索dbms当前用户" class="headerlink" title="检索dbms当前用户"></a>检索dbms当前用户</h3><p>–current-user</p>
+<h3 id="检索dbms当前数据库"><a href="#检索dbms当前数据库" class="headerlink" title="检索dbms当前数据库"></a>检索dbms当前数据库</h3><p>–current-db 获取当前数据库名</p>
+<h3 id="检索当前主机名"><a href="#检索当前主机名" class="headerlink" title="检索当前主机名"></a>检索当前主机名</h3><p>–hostname</p>
+<h3 id="探测当前用户DBA"><a href="#探测当前用户DBA" class="headerlink" title="探测当前用户DBA"></a>探测当前用户DBA</h3><p>–is-dba 探测当前用户是否是数据库管理员</p>
+<h3 id="枚举DBMS用户"><a href="#枚举DBMS用户" class="headerlink" title="枚举DBMS用户"></a>枚举DBMS用户</h3><p>–users 获取dbms所有用户</p>
+<h3 id="枚举dbms用户密码"><a href="#枚举dbms用户密码" class="headerlink" title="枚举dbms用户密码"></a>枚举dbms用户密码</h3><p>–password 获取用户密码</p>
+<h3 id="枚举dbms权限"><a href="#枚举dbms权限" class="headerlink" title="枚举dbms权限"></a>枚举dbms权限</h3><p>–privileges</p>
+<p>–role(角色)</p>
+<h2 id="枚举信息"><a href="#枚举信息" class="headerlink" title="枚举信息"></a>枚举信息</h2><h3 id="列举数据库名"><a href="#列举数据库名" class="headerlink" title="列举数据库名"></a>列举数据库名</h3><p>-dbs</p>
+<h3 id="枚举数据库表"><a href="#枚举数据库表" class="headerlink" title="枚举数据库表"></a>枚举数据库表</h3><p>–tables 枚举表名 -》指定具体数据库 -D 数据库名</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-D security --tables</span><br></pre></td></tr></table></figure>
+
+<p>–exclude-sysdbs 获取除了系统数据库的表名</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--tables --exclude-sysdbs</span><br></pre></td></tr></table></figure>
+
+<h3 id="枚举数据表列"><a href="#枚举数据表列" class="headerlink" title="枚举数据表列"></a>枚举数据表列</h3><p>–columns -D指定数据库 -T指定数据表 </p>
+<h3 id="枚举数据值"><a href="#枚举数据值" class="headerlink" title="枚举数据值"></a>枚举数据值</h3><p>–dump    -D -T -C制定具体字段</p>
+<h3 id="枚举schema信息"><a href="#枚举schema信息" class="headerlink" title="枚举schema信息"></a>枚举schema信息</h3><p>–schema</p>
+<p>–schema –ex clude-sysdbsg    只会检索和显示非系统数据库的模式的一部分</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u "..." --schema --threads 10 --batch</span><br></pre></td></tr></table></figure>
+
+<h3 id="检索数据表数量"><a href="#检索数据表数量" class="headerlink" title="检索数据表数量"></a>检索数据表数量</h3><p>–count -D</p>
+<h3 id="获取数据信息"><a href="#获取数据信息" class="headerlink" title="获取数据信息"></a>获取数据信息</h3><p>–start –stop</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--start 1 --stop 3</span><br></pre></td></tr></table></figure>
+
+<p>不包括第一页，<del>1</del>23</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--stop 1</span><br></pre></td></tr></table></figure>
+
+<p>获取第一张表</p>
+<p>–first –last</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--first 2 --last 5</span><br></pre></td></tr></table></figure>
+
+<p>从第二个出发到第五个字符</p>
+<h3 id="设置条件获取信息"><a href="#设置条件获取信息" class="headerlink" title="设置条件获取信息"></a>设置条件获取信息</h3><p>–pivot-column=id 设置独一无二的列，主键</p>
+<p>–where=”id&gt;3” 设置条件</p>
+<h3 id="暴力破解数据"><a href="#暴力破解数据" class="headerlink" title="暴力破解数据"></a>暴力破解数据</h3><p>使用场景：MySQL&lt;5.0时，MySQL中没有元数据库information_schema</p>
+<p>–common-tables 破解数据库名</p>
+<p>–common-columus 破解表名</p>
+<h3 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h3><p>须有读取权限</p>
+<p>–file-read 路径（绝对路径）     读取对应文件内容</p>
+<h3 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h3><p>须有写入权限</p>
+<p>–file-write 写入本地文件(绝对路径)</p>
+<p>–file-dest 将读取的文件写入到远程绝对路径（结对路径）</p>
+<h3 id="检索所有信息"><a href="#检索所有信息" class="headerlink" title="检索所有信息"></a>检索所有信息</h3><p>-a -all</p>
+<h2 id="系统参数"><a href="#系统参数" class="headerlink" title="系统参数"></a>系统参数</h2><h3 id="执行系统参数"><a href="#执行系统参数" class="headerlink" title="执行系统参数"></a>执行系统参数</h3><p>–os-shell</p>
+<p>（1）网站必须是root权限</p>
+<p>（2）攻击者需要知道网站的绝对路径</p>
+<p>（3）GPC为off，php主动转义的功能关闭</p>
+<h2 id="通用参数"><a href="#通用参数" class="headerlink" title="通用参数"></a>通用参数</h2><h3 id="加载sqlite会话文件"><a href="#加载sqlite会话文件" class="headerlink" title="加载sqlite会话文件"></a>加载sqlite会话文件</h3><p>-s </p>
+<h3 id="加载http文本文件"><a href="#加载http文本文件" class="headerlink" title="加载http文本文件"></a>加载http文本文件</h3><p>-t 将流量加载到文本文件当中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u "..." -t /root/Desktop/target.txt --flush-session -v3 --batch</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置默认选择选项"><a href="#设置默认选择选项" class="headerlink" title="设置默认选择选项"></a>设置默认选择选项</h3><p>–batch</p>
+<h3 id="执行系统命令"><a href="#执行系统命令" class="headerlink" title="执行系统命令"></a>执行系统命令</h3><p>–os-cmd=”命令”</p>
+<h3 id="设置盲注字符集"><a href="#设置盲注字符集" class="headerlink" title="设置盲注字符集"></a>设置盲注字符集</h3><p>在基于时间，布尔盲注中，用户自定义字符集来加速数据检索过程</p>
+<p>–charset=”123456789asdw”</p>
+<h3 id="爬取url"><a href="#爬取url" class="headerlink" title="爬取url"></a>爬取url</h3><p>爬取三层url</p>
+<p>三层</p>
+<h3 id="在CSV输出中使用分割字符"><a href="#在CSV输出中使用分割字符" class="headerlink" title="在CSV输出中使用分割字符"></a>在CSV输出中使用分割字符</h3><p>–csv-del=”;”</p>
+<h3 id="设置输出格式"><a href="#设置输出格式" class="headerlink" title="设置输出格式"></a>设置输出格式</h3><p>在将转储表数据存储到输出目录中的相应文件中时，sqlmap支持三种不同的格式：CSV，HTML和SQLITE。默认的是CSV</p>
+<p>–dump-format=””</p>
+<h3 id="探测之前检测Internet连接"><a href="#探测之前检测Internet连接" class="headerlink" title="探测之前检测Internet连接"></a>探测之前检测Internet连接</h3><p>检测当前计算机Internet连接是否正常（是否能连接sqlmap指定服务器上）</p>
+<p>–check-internet</p>
+<h3 id="解析和测试表单"><a href="#解析和测试表单" class="headerlink" title="解析和测试表单"></a>解析和测试表单</h3><p>–form</p>
+<h3 id="估计时间"><a href="#估计时间" class="headerlink" title="估计时间"></a>估计时间</h3><p>–eta</p>
+<h3 id="刷新会话文件"><a href="#刷新会话文件" class="headerlink" title="刷新会话文件"></a>刷新会话文件</h3><p>避免默认缓存机制</p>
+<p>–flush-session</p>
+<h3 id="忽略会话中存储的结果"><a href="#忽略会话中存储的结果" class="headerlink" title="忽略会话中存储的结果"></a>忽略会话中存储的结果</h3><p>保持会话文件不变</p>
+<p>–fresh-queries</p>
+<p>使用Hex函数检索数据</p>
+<p>确保数据不会丢失，返回正确结果</p>
+<p>–hex</p>
+<h3 id="自定义输出路径"><a href="#自定义输出路径" class="headerlink" title="自定义输出路径"></a>自定义输出路径</h3><p>–output-dir=””</p>
+<h3 id="响应页面解析错误"><a href="#响应页面解析错误" class="headerlink" title="响应页面解析错误"></a>响应页面解析错误</h3><p>–parse-errors 返回错误信息</p>
+<p>–save=“路径” 保存为配置文件（-c）</p>
+<p>–update 更新</p>
+<h3 id="设置DBMS编码"><a href="#设置DBMS编码" class="headerlink" title="设置DBMS编码"></a>设置DBMS编码</h3><p>–encoding=”gbk”</p>
+<h3 id="存储http流量到HAR"><a href="#存储http流量到HAR" class="headerlink" title="存储http流量到HAR"></a>存储http流量到HAR</h3><p>HAR(http archive) 是一个用来储存http请求/响应信息的通用文件格式，基于JSON</p>
+<p>–har=”HARFILE”</p>
+<h3 id="筛选具体payload"><a href="#筛选具体payload" class="headerlink" title="筛选具体payload"></a>筛选具体payload</h3><p>–test-filter=“ROW”</p>
+<h3 id="过滤具体payload"><a href="#过滤具体payload" class="headerlink" title="过滤具体payload"></a>过滤具体payload</h3><p>–test-skip=”BENCHMARK” </p>
+<p>–scope=”regex”  针对proxy日志文件使用正则表达式筛选目标</p>
+<blockquote>
+<p>参考链接</p>
+<p><a href="https://www.freebuf.com/sectool/164608.html" target="_blank" rel="noopener">https://www.freebuf.com/sectool/164608.html</a></p>
+</blockquote>
+
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <hr>
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-04T07:32:35+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>last updated at Aug 4, 2019</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/sqlmap/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>sqlmap</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/07/04/sqlmap详细使用教程/&title=sqlmap详细使用教程 | Hexo&summary=sqlmap 开源的渗透测工具"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2019/07/04/sqlmap详细使用教程/&title=sqlmap详细使用教程 | Hexo&summary=sqlmap 开源的渗透测工具"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/07/04/sqlmap详细使用教程/&title=sqlmap详细使用教程 | Hexo&summary=sqlmap 开源的渗透测工具"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                            <h4>
+                                <a href="/2019/08/04/python笔记/" rel="prev" title="python笔记">
+                                  
+                                      python笔记
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/python/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>python</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/06/02/sql注入/" rel="prev" title="sql注入">
+                                    
+                                        sql注入
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/sql注入/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>sql注入</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'sqlmap详细使用教程',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+        
+          
+          
+            <section class='widget author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/avatar/avatar.png'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="mailto:me@xaoxuu.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/xaoxuu"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=63035382"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;TOC</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装与环境配置"><span class="toc-text">安装与环境配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#确定探测目标"><span class="toc-text">确定探测目标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#直连数据库"><span class="toc-text">直连数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指定URL"><span class="toc-text">指定URL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不同类型文件中读取目标"><span class="toc-text">不同类型文件中读取目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#google批量扫注入"><span class="toc-text">google批量扫注入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#请求参数设置"><span class="toc-text">请求参数设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置http请求方法"><span class="toc-text">设置http请求方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置post参数"><span class="toc-text">设置post参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置参数分隔符"><span class="toc-text">设置参数分隔符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置cookie参数"><span class="toc-text">设置cookie参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置user-agent头"><span class="toc-text">设置user-agent头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置host头"><span class="toc-text">设置host头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置referer头"><span class="toc-text">设置referer头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置额外的http头"><span class="toc-text">设置额外的http头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置http协议认证"><span class="toc-text">设置http协议认证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置代理"><span class="toc-text">设置代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置tor隐藏网络"><span class="toc-text">设置tor隐藏网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置延迟"><span class="toc-text">设置延迟</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置超时"><span class="toc-text">设置超时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置重试次数"><span class="toc-text">设置重试次数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置随机化参数"><span class="toc-text">设置随机化参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置日志过滤目标"><span class="toc-text">设置日志过滤目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置忽略401"><span class="toc-text">设置忽略401</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置http协议私钥"><span class="toc-text">设置http协议私钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置安全模式"><span class="toc-text">设置安全模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置忽略URL编码"><span class="toc-text">设置忽略URL编码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#性能优化设置"><span class="toc-text">性能优化设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置持久http连接"><span class="toc-text">设置持久http连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置不接受http-body"><span class="toc-text">设置不接受http body</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置多线程"><span class="toc-text">设置多线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置预测输出"><span class="toc-text">设置预测输出</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指定位置注入"><span class="toc-text">指定位置注入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注入介绍"><span class="toc-text">注入介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置指定注入参数"><span class="toc-text">设置指定注入参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置任意注入位置"><span class="toc-text">设置任意注入位置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注入参数"><span class="toc-text">注入参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#强制设置DBMS"><span class="toc-text">强制设置DBMS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#强制设置OS指定"><span class="toc-text">强制设置OS指定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭负载转换机制"><span class="toc-text">关闭负载转换机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭字符转义机制"><span class="toc-text">关闭字符转义机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#强制设置无效值替换"><span class="toc-text">强制设置无效值替换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义注入负载位置"><span class="toc-text">自定义注入负载位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置tamper脚本"><span class="toc-text">设置tamper脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置dbms认证"><span class="toc-text">设置dbms认证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义检测参数"><span class="toc-text">自定义检测参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置探测等级"><span class="toc-text">设置探测等级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置风险参数"><span class="toc-text">设置风险参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置页面比较参数"><span class="toc-text">设置页面比较参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置内容比较参数"><span class="toc-text">设置内容比较参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注入技术参数"><span class="toc-text">注入技术参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置具体sql注入技术"><span class="toc-text">设置具体sql注入技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置时间盲注延迟时间"><span class="toc-text">设置时间盲注延迟时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置union字段数"><span class="toc-text">设置union字段数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置union字符"><span class="toc-text">设置union字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置union查询表"><span class="toc-text">设置union查询表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置DNS露出攻击"><span class="toc-text">设置DNS露出攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置二次注入"><span class="toc-text">设置二次注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#识别指纹"><span class="toc-text">识别指纹</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检索DBMS信息"><span class="toc-text">检索DBMS信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#检索dbms-banner"><span class="toc-text">检索dbms banner</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检索dbms当前用户"><span class="toc-text">检索dbms当前用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检索dbms当前数据库"><span class="toc-text">检索dbms当前数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检索当前主机名"><span class="toc-text">检索当前主机名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#探测当前用户DBA"><span class="toc-text">探测当前用户DBA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举DBMS用户"><span class="toc-text">枚举DBMS用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举dbms用户密码"><span class="toc-text">枚举dbms用户密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举dbms权限"><span class="toc-text">枚举dbms权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#枚举信息"><span class="toc-text">枚举信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#列举数据库名"><span class="toc-text">列举数据库名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举数据库表"><span class="toc-text">枚举数据库表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举数据表列"><span class="toc-text">枚举数据表列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举数据值"><span class="toc-text">枚举数据值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举schema信息"><span class="toc-text">枚举schema信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检索数据表数量"><span class="toc-text">检索数据表数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取数据信息"><span class="toc-text">获取数据信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置条件获取信息"><span class="toc-text">设置条件获取信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#暴力破解数据"><span class="toc-text">暴力破解数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读取文件"><span class="toc-text">读取文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写入文件"><span class="toc-text">写入文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检索所有信息"><span class="toc-text">检索所有信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系统参数"><span class="toc-text">系统参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#执行系统参数"><span class="toc-text">执行系统参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通用参数"><span class="toc-text">通用参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#加载sqlite会话文件"><span class="toc-text">加载sqlite会话文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载http文本文件"><span class="toc-text">加载http文本文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置默认选择选项"><span class="toc-text">设置默认选择选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行系统命令"><span class="toc-text">执行系统命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置盲注字符集"><span class="toc-text">设置盲注字符集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#爬取url"><span class="toc-text">爬取url</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在CSV输出中使用分割字符"><span class="toc-text">在CSV输出中使用分割字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置输出格式"><span class="toc-text">设置输出格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#探测之前检测Internet连接"><span class="toc-text">探测之前检测Internet连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解析和测试表单"><span class="toc-text">解析和测试表单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#估计时间"><span class="toc-text">估计时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#刷新会话文件"><span class="toc-text">刷新会话文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#忽略会话中存储的结果"><span class="toc-text">忽略会话中存储的结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义输出路径"><span class="toc-text">自定义输出路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应页面解析错误"><span class="toc-text">响应页面解析错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置DBMS编码"><span class="toc-text">设置DBMS编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储http流量到HAR"><span class="toc-text">存储http流量到HAR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#筛选具体payload"><span class="toc-text">筛选具体payload</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#过滤具体payload"><span class="toc-text">过滤具体payload</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            <section class='widget grid'>
+  
+<header class='pure'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/archives/" href="/blog/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="blogarchives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/projects/" href="/projects/"
+          
+          
+          id="projects">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          开源项目
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/"
+          
+            rel="nofollow"
+          
+          
+          id="https:xaoxuu.comwikimaterial-x">
+          
+            <i class="fas fa-book fa-fw" aria-hidden="true"></i>
+          
+          主题文档
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/"
+          
+            rel="nofollow"
+          
+          
+          id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+          
+        
+      
+        
+          
+          
+            
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/blog/tags/"
+    title="blog/tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/tags/DOS命令/" style="font-size: 14px; color: #999">DOS命令</a> <a href="/tags/google/" style="font-size: 14px; color: #999">google</a> <a href="/tags/kali/" style="font-size: 20.67px; color: #6c6c6c">kali</a> <a href="/tags/linux/" style="font-size: 24px; color: #555">linux</a> <a href="/tags/mysql/" style="font-size: 14px; color: #999">mysql</a> <a href="/tags/python/" style="font-size: 17.33px; color: #828282">python</a> <a href="/tags/python脚本/" style="font-size: 14px; color: #999">python脚本</a> <a href="/tags/shell命令/" style="font-size: 14px; color: #999">shell命令</a> <a href="/tags/sqlmap/" style="font-size: 14px; color: #999">sqlmap</a> <a href="/tags/sql注入/" style="font-size: 14px; color: #999">sql注入</a> <a href="/tags/ss/" style="font-size: 14px; color: #999">ss</a> <a href="/tags/vps/" style="font-size: 14px; color: #999">vps</a> <a href="/tags/web安全/" style="font-size: 14px; color: #999">web安全</a> <a href="/tags/web服务/" style="font-size: 14px; color: #999">web服务</a> <a href="/tags/windoes/" style="font-size: 14px; color: #999">windoes</a> <a href="/tags/xss/" style="font-size: 14px; color: #999">xss</a> <a href="/tags/博客搭建/" style="font-size: 14px; color: #999">博客搭建</a> <a href="/tags/工具/" style="font-size: 14px; color: #999">工具</a> <a href="/tags/无线安全/" style="font-size: 14px; color: #999">无线安全</a>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            
+
+
+  <section class='widget music'>
+    
+<header class='pure'>
+  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;最近在听</div>
+  
+    <a class="rightBtn"
+    
+      rel="external nofollow noopener noreferrer"
+    
+    
+      target="_blank"
+    
+    href="https://music.163.com/#/user/home?id=63035382"
+    title="https://music.163.com/#/user/home?id=63035382">
+    <i class="far fa-heart fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer"
+    data-theme="#1BCDFC"
+    
+    
+    data-mode="circulation"
+    data-server="netease"
+    data-type="playlist"
+    data-id="2615636388"
+    data-volume="0.7">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    </div>
+  </section>
+
+
+          
+        
+      
+    
+
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="/atom.xml"
+            class="social fas fa-rss flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="mailto:me@xaoxuu.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/xaoxuu"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=63035382"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>
+    Use
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    as theme
+    
+      , 
+      total visits
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      times
+    
+    . 
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://img.vim-cn.com/6d/a0c9e6f9efad8b731cb7376504bd10d79d2053.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://img.vim-cn.com/6d/a0c9e6f9efad8b731cb7376504bd10d79d2053.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/app.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/search.js"></script>
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "Copied";
+  let COPY_FAILURE = "Copy failed";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

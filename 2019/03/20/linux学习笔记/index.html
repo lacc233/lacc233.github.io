@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>linux学习笔记 | Hexo</title>
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/css/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <h1 class='title'>Material X</h1>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/"
+            
+            
+            id="home">
+            <i class='fas fa-rss fa-fw'></i>&nbsp;博文
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/projects/"
+            
+            
+            id="projects">
+            <i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/friends/"
+            
+              rel="nofollow"
+            
+            
+            id="friends">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/about/"
+            
+              rel="nofollow"
+            
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header pure">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="pure"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          Hexo
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/"
+                  
+                  
+                  id="home">
+									<i class='fas fa-grin fa-fw'></i>&nbsp;示例
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogcategories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogtags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/archives/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogarchives">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="blogarchives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/projects/"
+                
+                
+                id="projects">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;开源项目
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="friends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/"
+                
+                  rel="nofollow"
+                
+                
+                id="https:xaoxuu.comwikimaterial-x">
+								<i class='fas fa-book fa-fw'></i>&nbsp;主题文档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="about">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2019/03/20/linux学习笔记/">
+        linux学习笔记
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    <a href="http://yoursite.com" rel="nofollow">
+      
+        <i class="fas fa-user" aria-hidden="true"></i>
+      
+      <p>John Doe</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-03-20</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          <blockquote>
+<p>linux基础知识</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p><code>bin</code>  放普通用户也可以使用的命令<br><code>sbin</code>  放管理员才可以执行的命令<br><code>boot</code>  放启动(引导)配置文件<br><code>dev</code>  放存储设备的，例硬盘<br><code>etc</code>  放系统和应用程序的配置文件<br><code>home</code>  普通用户家目录<br><code>lib</code>  放函数库文件<br><code>lib64</code>  放64位函数库文件<br><code>live-build</code>  build自己kali版本<br><code>lost found</code>  出现问题，错误，丢失的文件目录<br><code>media mnt</code>  挂载外来存储介质<br><code>opt</code>  安装外围的大型程序的<br><code>proc</code>  开机生成的配置文件<br><code>root</code>  主目录<br><code>selinux</code>  linux的安全机制<br><code>srv sys tmp</code>  临时目录<br><code>usr</code>  也可安装外围程序<br><code>var</code>  存放经常变化的如日志，邮件的目录</p>
+<h2 id="求助命令"><a href="#求助命令" class="headerlink" title="求助命令"></a>求助命令</h2><h3 id="指令的-–help-求助说明"><a href="#指令的-–help-求助说明" class="headerlink" title="指令的 –help 求助说明"></a>指令的 –help 求助说明</h3><p>几乎linux上指令，在开发的时候，就被开发者将指令的语法与参数写入指令的操作过程中了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls --help</span><br></pre></td></tr></table></figure>
+
+<p>只能用来查询指令，一般用来做协助查询</p>
+<h3 id="man-page"><a href="#man-page" class="headerlink" title="man page"></a>man page</h3><p>man 是 manual(操作说明)的简写；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man ls</span><br></pre></td></tr></table></figure>
+
+<p>左上角的【ls(1)】(1)解释如下:</p>
+<table>
+<thead>
+<tr>
+<th>代号</th>
+<th>代表内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>用户在shell环境中可以操作的指令或可执行文件</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>5</td>
+<td>配置文件或者是某些文件的格式</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>8</td>
+<td>系统管理员可使用的管理命令</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody></table>
+<p>man page内大致内容如下(前四个重要)</p>
+<table>
+<thead>
+<tr>
+<th>代号</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NAME</td>
+<td>简短的指令，数据名称说明</td>
+</tr>
+<tr>
+<td>SYNOPSIS</td>
+<td>简短的指令下达语法</td>
+</tr>
+<tr>
+<td>DESCRIPTION</td>
+<td>较为完整的说明</td>
+</tr>
+<tr>
+<td>OPTIONS</td>
+<td>针对SYNOPSIS 中，列举出所有可用的选项的说明</td>
+</tr>
+</tbody></table>
+<p>man page 常用按键：</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>反应</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>空格键</td>
+<td>向下翻一页</td>
+</tr>
+<tr>
+<td>[Page Down]</td>
+<td>向下翻一页</td>
+</tr>
+<tr>
+<td>[Page Up]</td>
+<td>向上翻一页</td>
+</tr>
+<tr>
+<td>[Home]</td>
+<td>去到第一页</td>
+</tr>
+<tr>
+<td>[End]</td>
+<td>去到最后一页</td>
+</tr>
+<tr>
+<td>/关键字</td>
+<td>向下搜索</td>
+</tr>
+<tr>
+<td>?关键字</td>
+<td>向上搜索</td>
+</tr>
+<tr>
+<td>n,N</td>
+<td>在 ？和 / 的基础上   n向下一个搜索，N反向搜索</td>
+</tr>
+<tr>
+<td>q</td>
+<td>退出</td>
+</tr>
+</tbody></table>
+<p><strong>搜索特定的指令/文件的man page说明文件</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">man -f man	#等同 whatis [指令或是数据]（只能root用户使用）</span><br><span class="line">man 1 man</span><br><span class="line">man 7 man</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man -k man  #搜列出所有含有关键字的说明文件，相当于 apropos [指令或是数据] (root用户)</span><br></pre></td></tr></table></figure>
+
+<h3 id="info-page（kali无info）"><a href="#info-page（kali无info）" class="headerlink" title="info page（kali无info）"></a>info page（kali无info）</h3><p>查询指令和文件的格式，与 man 相似，但是拆分为不同的节点</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">info info</span><br></pre></td></tr></table></figure>
+
+<h3 id="非联网的说明文件"><a href="#非联网的说明文件" class="headerlink" title="非联网的说明文件"></a>非联网的说明文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/share/doc</span><br></pre></td></tr></table></figure>
+
+<h2 id="熟悉命令"><a href="#熟悉命令" class="headerlink" title="熟悉命令"></a>熟悉命令</h2><blockquote>
+<p>命令字 [选项] [参数]<br>linux 命令：用于实现某一功能的指令或程序，执行依赖于解释器程序，（/bin/bash）<br>man 指令 #查询指令用法<br>指令 –help #查询指令选项</p>
+</blockquote>
+<p><code>uname</code><br>uname -r    //系统内核<br>uname -a    //系统详细信息<br>which uname    //查看位置</p>
+<p><code>hostnema</code><br>hostname    //主机名</p>
+<p><code>mkdir</code><br>创建目录<br>-p 递归创建</p>
+<p><code>touch</code><br>创建文件</p>
+<p><code>ls</code><br>浏览目录<br>-l 长格式显示文件名，d-目录，-普通文件，c-字符型设备，l-链接文件，b-块设备（sda）f-堆栈文件，p-命令管道。<br>drwxr-xr-x<br>第一个字符后面有三个字符组，分别表示文件拥有者，文件用户组，系统其他用户。<br>-a 多显示出以.命名的隐藏文件<br>-h 显示大小，（3M)<br>-R 递归浏览</p>
+<p>–fulll-time 完整时间</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lh --sort=size # 以文件大小排序,size可换为time,按时间排</span><br></pre></td></tr></table></figure>
+
+<p><code>cd</code><br>进入目录<br>. 当前目录<br>.. 这个目录的上个目录</p>
+<p><code>ln</code><br>为文件或目录建立链接（link）<br>-s 建立软链接文件（省略此项则显示硬链接）</p>
+<p><code>cp</code><br>复制<br>-r 递归复制整个目录树<br>-p 保持源文件的属性不变<br>-f 强制覆盖目录目标同名文件或目录<br>-i 需要覆盖文件或目录时进行提醒</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp ps ps1 # 拷贝ps 命名为ps1</span><br></pre></td></tr></table></figure>
+
+<p><code>rm</code><br>-f 强行删除文件或目录，不进行提醒<br>-i 删除文件或目录时提醒用户确定<br>-r 递归删除整个目录树</p>
+<p><code>mv</code><br>移动</p>
+<p><code>pwd</code><br>查看当前的工作目录</p>
+<p><code>cat</code><br>查看文本文件内容，全部显示<br>which cat<br>cat /etc/passwd<br>cat /etc/shadow<br>-n 显示行号</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">date &gt; 1</span><br><span class="line">cat 1 2</span><br><span class="line">cat 1 2 &gt; 3  //合并</span><br></pre></td></tr></table></figure>
+
+<p><code>more</code><br>按百分比显示文本内容，逐屏显示，enter:查看下一页， q: 退出</p>
+<p><code>less</code><br>不显示百分比，和more 类似，显示目录位置,q退出</p>
+<p><code>tail</code><br>默认显示最后10行<br>-20 显示最后20行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">watch -n 2 tail -20 /var/log/messages # 每隔两秒显示查看日志变化最后20行（实时查看系统日志变化）有的发行版没有messages这个文件。</span><br></pre></td></tr></table></figure>
+
+<p><code>du</code><br>统计目录及文件的空间占用情况</p>
+<p><code>wc</code><br>统计文件中行数，单词数量，字符数<br>-l 行数<br>-w 单词数<br>-c 字符数</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wc 1.txt 会出现2 4 26</span><br><span class="line">2是行数，4是单词数，26是字符数</span><br></pre></td></tr></table></figure>
+
+<p><code>find</code><br>查找<br>find [查找范围] [查找条件]<br>-name 按文件名称查找<br>-size 按大小查找<br>-user 按文件属主查找<br>-type 按文件类型查找</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /etc -name "resol*.conf"</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find / -iname namp #从/查找不分大小写的namp</span><br><span class="line">find . -name "ps*" -exec cp &#123;&#125; /tmp//&#123;&#125;.bak \: #从本目录下搜索ps开头的文件，并拷贝到目标目录</span><br></pre></td></tr></table></figure>
+
+<p><strong>-iname: 不分大小写， -name: 分大小写</strong></p>
+<p><code>whereis</code><br>查找</p>
+<p><strong>如果是源码安装，不是本地包管理安装，会查找不到</strong><br><strong>如果在whereis的数据库里（本地安装回生成一个whereis数据库），比find快</strong><br><strong>updatedb 更新数据库</strong><br><strong>-b 二进制文件</strong></p>
+<p><code>top</code><br>监视系统性能参数</p>
+<p>q退出，输入k 结束某进程</p>
+<p><img src="/images/kali_top_kill.jpg" alt></p>
+<p><code>ps</code><br>显示进程<br>-ef 详细显示<br>aus 显示的列信息稍有不同</p>
+<p><code>grep</code><br>筛选显示的内容<br>配角：<code>cat</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd # 查看操作系统的本地账号</span><br><span class="line">grep ssh /etc/passwd #只显示包含ssh的内容</span><br></pre></td></tr></table></figure>
+
+<p><code>ifconfig</code><br>配角：<code>maccharger</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ifconfig eth0 down #down掉eth0,再改Mac地址时，需要先执行这步</span><br><span class="line">maccharger -m 00:11:11:11:11:11 eth0 #改Mac地址</span><br><span class="line">ifconfig eth0 up #up eth0</span><br></pre></td></tr></table></figure>
+
+<p><strong>修改的Mac只有在本次使用，改过后可能会上不了网，因为无线路由器绑定了mac地址，下次开机会恢复真实值</strong></p>
+<p><code>netstat</code><br>查看网络的连接信息<br>配角： <code>egrep</code> <code>awk</code> <code>cut</code> <code>sort</code> <code>unip</code> <code>&gt;</code> <code>|</code><br>-pantu tu为tcp,udp连接信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -pantu | egrep -v '0.0.0.0|:::' | awk '&#123;print $5&#125;' | egrep 'and|Address' | cut -d ':' -f 1 | sort | uniq &gt; ip</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>命令行解读:<br>查看tcp,udp连接信息，筛除掉0.0.0.0和:::的信息,只显示第五块（列）,又筛除and和Address, 查看以”:”为界分的第一块，排序，重复只显示一次，最终 <strong>覆盖</strong> 输出到ip内.<br>“&gt;”改为”&gt;&gt;”追加输出到ip内。<br>awk 和 cut 都是对行操作。<br>管道：| 将多个命令在同一行输入，可以协作。</p>
+</blockquote>
+<p><code>mount</code><br>挂载目录操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -o loop klai.iso /media/cdrom #将kali.iso挂载到目标目录下</span><br></pre></td></tr></table></figure>
+
+<p><code>dmesg</code><br>查看message内容</p>
+<p><code>echo</code><br>在当前窗口显示某些信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo "hello world!"</span><br></pre></td></tr></table></figure>
+
+<p><code>ping</code><br>-c 次数</p>
+<p><code>cal</code><br>查看日历</p>
+<p><code>date</code><br>查看时间</p>
+<h3 id="压缩-归档"><a href="#压缩-归档" class="headerlink" title="压缩 归档"></a>压缩 归档</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gzip ***.gz </span><br><span class="line">gzip -d ***.gz</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bzip2 ***.gz</span><br><span class="line">bzip2 -d ***.gz</span><br></pre></td></tr></table></figure>
+
+<p><code>tar</code><br>归档<br>-c 创建归档文件<br>-v 输出详细信息<br>-f 表示使用归档文件<br>-x 解开归档文件<br>-t 列表查看包内的文件（不释放解包）<br>-C 指定释放位置<br>-p 解包时保留原始文件及目录的权限<br>-z/j 调用gzip/bzip2程序 进行解压或压缩 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">归档打包，解包</span></span><br><span class="line">tar -cvf 4.tar 1 2 3 //将文件1 2 3 打包归档为4.tar</span><br><span class="line">tar -xvf 4.tar //解包归档文件4.tar </span><br><span class="line"><span class="meta">#</span><span class="bash">压缩，解压</span></span><br><span class="line">gzip 4.tar 4.tar.gz </span><br><span class="line">tar zxvf 4.tar.gz  //解压</span><br><span class="line"><span class="meta">#</span><span class="bash">压缩，解压</span></span><br><span class="line">bzip2 4.tar 4.tar.bz2</span><br><span class="line">tar jxvf 4.tar.bz2  //解压</span><br></pre></td></tr></table></figure>
+
+<h3 id="管道符"><a href="#管道符" class="headerlink" title="管道符"></a>管道符</h3><p>；无逻辑关系，顺序执行<br>|    依次执行，每个都执行，前一个的正确输出作后一个的操作对象<br>&amp;   依次执行，每个都执行<br>&amp;&amp; 逻辑与，依次执行，执行成功则下一个，失败则退出<br>||    逻辑或，依次执行，执行成功则退出，失败则下一个</p>
+<h3 id="关机重启"><a href="#关机重启" class="headerlink" title="关机重启"></a>关机重启</h3><p>halt：关机<br>reboot:重启</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">who  查看目前有谁在线</span><br><span class="line">netstat -a #查看联机状态</span><br><span class="line">ps -aus #后台执行的程序</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">指令</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">sync</td>
+<td align="left">数据同步写入磁盘</td>
+</tr>
+<tr>
+<td align="left">shutdown</td>
+<td align="left">常用关机命令</td>
+</tr>
+<tr>
+<td align="left">halt</td>
+<td align="left">关机命令，进入系统停止的模式</td>
+</tr>
+<tr>
+<td align="left">poweroff</td>
+<td align="left">关机命令，进入关机模式，直接关机没有提供电力欧</td>
+</tr>
+<tr>
+<td align="left">reboot</td>
+<td align="left">直接重启</td>
+</tr>
+<tr>
+<td align="left">suspend</td>
+<td align="left">进入休眠模式</td>
+</tr>
+</tbody></table>
+<p><strong>关机指令大同小异，习惯用哪个就用哪个</strong></p>
+<p><code>shutdown</code></p>
+<p>-h 20:35 关机+时间</p>
+<p>-r +30 “the system will reboot” 重启+时间</p>
+<p>-k now “the system will reboot” 警告，但不会真关机，吓唬人的</p>
+<h3 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h3><p><code>rpm</code>红帽的包格式<br><code>apt</code><br><code>yum</code><br><code>dpkg</code></p>
+<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><blockquote>
+<p>set mouse-=a  #鼠标右键全部功能开启，可跨文本</p>
+</blockquote>
+<p><strong>命令模式</strong><br>dd    //删除光标行（剪切）<br>ndd    //删除多行， 例2dd<br>u    //撤销<br>p    //（剪切后）粘贴<br>D    //从光标处删除至行尾</p>
+<p>A 行尾<br>I 行首<br>a 光标后<br>i 光标前<br>O 上一行插入<br>o 下一行插入</p>
+<p><strong>插入模式</strong><br>esc返回命令模式</p>
+<p><strong>底行模式</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">: set nu</span><br><span class="line">: wq</span><br><span class="line">: q!</span><br><span class="line">: w</span><br><span class="line">/ 关键字	#向下搜索 n 下一个</span><br><span class="line">？关键字	#向上搜索</span><br><span class="line">: %s/XX/YY/g	#全文替换,XX改为YY,g为不提示</span><br><span class="line">: 1,5s/XX/YY/g	#1到5行</span><br><span class="line">: .	#重复上一条命令</span><br><span class="line">: u	#消上一条命令</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="shell快捷键"><a href="#shell快捷键" class="headerlink" title="shell快捷键"></a>shell快捷键</h2><p>ctrl+l:清屏<br>ctrl+u/k:清空至行首/尾<br>:强行换行<br>tab：命令补全,文件补齐<br>Ctrl+c：退出，相当于exit<br>Ctrl+ins：vim模式<strong>复制</strong>，相当于普通模式的 Ctrl+c<br>Shift+ins：vim模式<strong>粘贴</strong>，相当于普通模式的 Ctrl+v<br>Shift+PgUp/PgDn：上下翻页</p>
+<h2 id="改变文件属性与权限"><a href="#改变文件属性与权限" class="headerlink" title="改变文件属性与权限"></a>改变文件属性与权限</h2><p>chgrp ：改变文件所属群组<br>chown ：改变文件拥有者<br>chmod ：改变文件的权限, SUID, SGID, SBIT 等等的特性</p>
+<blockquote>
+<p>chgrp 要被改变的组名必须要在/etc/group 文件内<em>存在</em>才行，否则就会显示错误<br>chown 要注意的是， 用户必须是<em>已经存在</em>系统中的账号，也就是在/etc/passwd 这个文件中有纪录的用户名称才能改变</p>
+</blockquote>
+<h3 id="改变群组"><a href="#改变群组" class="headerlink" title="改变群组"></a>改变群组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chgrp [-R] 群组名 文件或目录</span><br></pre></td></tr></table></figure>
+
+<p>选项与参数：<br>-R : 进行递归(recursive)的持续变更，亦即连同次目录下的所有文件、目录都更新成为这个群组之意。常常用在变更某一目录内所有的文件之情况。</p>
+<h3 id="拷贝文件，改变所属："><a href="#拷贝文件，改变所属：" class="headerlink" title="拷贝文件，改变所属："></a>拷贝文件，改变所属：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp .bashrc .bashrc_test</span><br><span class="line">ls -la .bashrc*   #查看到仍然属于root</span><br><span class="line">chown bin .bashrc</span><br></pre></td></tr></table></figure>
+
+<h3 id="改变权限"><a href="#改变权限" class="headerlink" title="改变权限"></a>改变权限</h3><p><strong>数字类型改变文件权限</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod [-R] xyz 文件或目录</span><br></pre></td></tr></table></figure>
+
+<p>选项与参数：<br>xyz : 就是刚刚提到的数字类型的权限属性，为 rwx 属性数值的相加。<strong>r:4,w:2,x:1</strong><br>-R : 进行递归(recursive)的持续变更，亦即连同次<em>目录</em>下的所有文件都会变更</p>
+<p>每种身份(owner/group/others)各自的三个权限(r/w/x)分数是需要累加的，例如当权限为： [-rwxrwx—] 分数<br>则是：<br>owner = rwx = 4+2+1 = 7<br>group = rwx = 4+2+1 = 7<br>others= — = 0+0+0 = 0<br>所以等一下我们设定权限的变更时，该文件的权限数字就是 770 啦！<br>变更权限的指令 chmod 的语法是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod [-R] 770 文件或目录</span><br></pre></td></tr></table></figure>
+
+<p><strong>符号类型改变文件权限</strong><br>u:user,g:grope,e:others,a:all<br>+:加入，-：除去，=：设定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod u=rwx,go=rx .bashrc #注意喔！那个 u=rwx,go=rx 是连在一起的，中间并没有任何空格符！</span><br><span class="line">chmod a+w .bashrc  #全部加写权限</span><br><span class="line">ls -al .bashrc</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>对于文件的 rwx 来说， 主要都是针对『文件的内容』而言，与文件档名的存在与否没有关系喔！因为文件记录的是实际的数据嘛</p>
+</blockquote>
+<p>组件 内容          迭代物件      r            w             x<br>文件 <em>详细资料data</em>  文件文件夹  读到文件内容 修改文件内容  执行文件内容<br>目录 <em>档名</em>          可分类抽屉  读到档名     修改档名      进入该目录的权限(key)</p>
+<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $PATH</span><br></pre></td></tr></table></figure>
+
+<p>添加环境变量,将root目录添加到PATH中，可以在任何目录下，执行root目录下的命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PATH=“$&#123;PATH&#125;:/root”</span><br></pre></td></tr></table></figure>
+
+<p>tmp是任何用户都能访问的目录，若将.目录加入到PATH中，则会变得很危险。</p>
+
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <hr>
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-05-12T00:50:34+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>last updated at May 12, 2019</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/shell命令/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>shell命令</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/03/20/linux学习笔记/&title=linux学习笔记 | Hexo&summary=
+linux基础知识
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2019/03/20/linux学习笔记/&title=linux学习笔记 | Hexo&summary=
+linux基础知识
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/03/20/linux学习笔记/&title=linux学习笔记 | Hexo&summary=
+linux基础知识
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                            <h4>
+                                <a href="/2019/03/20/kali之网络配置/" rel="prev" title="kali之网络配置">
+                                  
+                                      kali之网络配置
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/linux/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>linux</a> <a class="tag" href="/tags/kali/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>kali</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/02/15/在usb上安装kali/" rel="prev" title="在usb上安装kali">
+                                    
+                                        在usb上安装kali
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/linux/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>linux</a> <a class="tag" href="/tags/kali/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>kali</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'linux学习笔记',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+        
+          
+          
+            <section class='widget author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/avatar/avatar.png'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="mailto:me@xaoxuu.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/xaoxuu"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=63035382"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;TOC</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录结构"><span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求助命令"><span class="toc-text">求助命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#指令的-–help-求助说明"><span class="toc-text">指令的 –help 求助说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#man-page"><span class="toc-text">man page</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#info-page（kali无info）"><span class="toc-text">info page（kali无info）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非联网的说明文件"><span class="toc-text">非联网的说明文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#熟悉命令"><span class="toc-text">熟悉命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#压缩-归档"><span class="toc-text">压缩 归档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#管道符"><span class="toc-text">管道符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关机重启"><span class="toc-text">关机重启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装软件"><span class="toc-text">安装软件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vim"><span class="toc-text">vim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shell快捷键"><span class="toc-text">shell快捷键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#改变文件属性与权限"><span class="toc-text">改变文件属性与权限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#改变群组"><span class="toc-text">改变群组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拷贝文件，改变所属："><span class="toc-text">拷贝文件，改变所属：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#改变权限"><span class="toc-text">改变权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境变量"><span class="toc-text">环境变量</span></a></li></ol>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            <section class='widget grid'>
+  
+<header class='pure'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/archives/" href="/blog/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="blogarchives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/projects/" href="/projects/"
+          
+          
+          id="projects">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          开源项目
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/"
+          
+            rel="nofollow"
+          
+          
+          id="https:xaoxuu.comwikimaterial-x">
+          
+            <i class="fas fa-book fa-fw" aria-hidden="true"></i>
+          
+          主题文档
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/"
+          
+            rel="nofollow"
+          
+          
+          id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+          
+        
+      
+        
+          
+          
+            
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/blog/tags/"
+    title="blog/tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/tags/DOS命令/" style="font-size: 14px; color: #999">DOS命令</a> <a href="/tags/google/" style="font-size: 14px; color: #999">google</a> <a href="/tags/kali/" style="font-size: 20.67px; color: #6c6c6c">kali</a> <a href="/tags/linux/" style="font-size: 24px; color: #555">linux</a> <a href="/tags/mysql/" style="font-size: 14px; color: #999">mysql</a> <a href="/tags/python/" style="font-size: 17.33px; color: #828282">python</a> <a href="/tags/python脚本/" style="font-size: 14px; color: #999">python脚本</a> <a href="/tags/shell命令/" style="font-size: 14px; color: #999">shell命令</a> <a href="/tags/sqlmap/" style="font-size: 14px; color: #999">sqlmap</a> <a href="/tags/sql注入/" style="font-size: 14px; color: #999">sql注入</a> <a href="/tags/ss/" style="font-size: 14px; color: #999">ss</a> <a href="/tags/vps/" style="font-size: 14px; color: #999">vps</a> <a href="/tags/web安全/" style="font-size: 14px; color: #999">web安全</a> <a href="/tags/web服务/" style="font-size: 14px; color: #999">web服务</a> <a href="/tags/windoes/" style="font-size: 14px; color: #999">windoes</a> <a href="/tags/xss/" style="font-size: 14px; color: #999">xss</a> <a href="/tags/博客搭建/" style="font-size: 14px; color: #999">博客搭建</a> <a href="/tags/工具/" style="font-size: 14px; color: #999">工具</a> <a href="/tags/无线安全/" style="font-size: 14px; color: #999">无线安全</a>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            
+
+
+  <section class='widget music'>
+    
+<header class='pure'>
+  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;最近在听</div>
+  
+    <a class="rightBtn"
+    
+      rel="external nofollow noopener noreferrer"
+    
+    
+      target="_blank"
+    
+    href="https://music.163.com/#/user/home?id=63035382"
+    title="https://music.163.com/#/user/home?id=63035382">
+    <i class="far fa-heart fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+  <div class="aplayer"
+    data-theme="#1BCDFC"
+    
+    
+    data-mode="circulation"
+    data-server="netease"
+    data-type="playlist"
+    data-id="2615636388"
+    data-volume="0.7">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    </div>
+  </section>
+
+
+          
+        
+      
+    
+
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="/atom.xml"
+            class="social fas fa-rss flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="mailto:me@xaoxuu.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/xaoxuu"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=63035382"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>
+    Use
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    as theme
+    
+      , 
+      total visits
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      times
+    
+    . 
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://img.vim-cn.com/6d/a0c9e6f9efad8b731cb7376504bd10d79d2053.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://img.vim-cn.com/6d/a0c9e6f9efad8b731cb7376504bd10d79d2053.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/app.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/search.js"></script>
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "Copied";
+  let COPY_FAILURE = "Copy failed";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
