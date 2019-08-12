@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>windows基础 | 0冻的盒子</title>
+  <title>my first blog | 0冻的盒子</title>
   
   
 
@@ -25,7 +25,7 @@
   
 
   
-  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/lacc233/lacc233.github.io@icn/favorite.jpg">
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/lacc233/lacc233.github.io@v1.0/icon/redbox.png">
   
 
   
@@ -229,8 +229,8 @@
         
   
     <h1 class="title">
-      <a href="/2019/03/20/windows基础/">
-        windows基础
+      <a href="/post/undefined/">
+        my first blog
       </a>
     </h1>
   
@@ -259,7 +259,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-03-20</p>
+    <p>2018-12-08</p>
   </a>
 </div>
 
@@ -304,179 +304,84 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           <blockquote>
-<p>win基础</p>
+<p><code>Hexo + Github</code> 搭建Blog和每次<code>博客</code>的部署</p>
 </blockquote>
+<hr>
 <a id="more"></a>
 
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="安装git-node-js-hexo"><a href="#安装git-node-js-hexo" class="headerlink" title="安装git, node.js, hexo"></a>安装git, node.js, hexo</h3><ul>
+<li>git下载地址：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">链接</a></li>
+<li>安装后验证</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git --version</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>出现类似下面的版本号，皆为成功</li>
+<li>git version 2.19.2.windows.1</li>
+</ul>
+<hr>
+<ul>
+<li>node.js下载地址：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">链接</a></li>
+<li>安装后验证</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
 
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>dxdiag</td>
-<td>诊断工具</td>
-</tr>
-<tr>
-<td>msconfig</td>
-<td>系统配置（启动）</td>
-</tr>
-<tr>
-<td>services.msc</td>
-<td>服务</td>
-</tr>
-<tr>
-<td>mstsc</td>
-<td>远程桌面连接</td>
-</tr>
-<tr>
-<td>gpedit.msc</td>
-<td>本地组策略编辑器</td>
-</tr>
-<tr>
-<td>regedit</td>
-<td>注册表编辑器</td>
-</tr>
-<tr>
-<td>ncpa.cpl</td>
-<td>网络配置</td>
-</tr>
-<tr>
-<td>notepad</td>
-<td>记事本</td>
-</tr>
-<tr>
-<td>control</td>
-<td>控制面板</td>
-</tr>
-<tr>
-<td>cmd</td>
-<td>shell</td>
-</tr>
-<tr>
-<td>calc</td>
-<td>计算器</td>
-</tr>
-</tbody></table>
-<h2 id="系统目录"><a href="#系统目录" class="headerlink" title="系统目录"></a>系统目录</h2><p>1.windows(系统安装目录)-&gt;System32(系统配置文件目录)-&gt;config-&gt;SAM  (pe)<br>2.Program Files/Program Files (x86)  (程序默认安装目录)<br>3.PerfLogs(日志)<br>4.用户-&gt;启动</p>
-<h2 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h2><p>命令 services.msc</p>
-<table>
-<thead>
-<tr>
-<th>名</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>dns</td>
-<td>域名解析服务</td>
-</tr>
-<tr>
-<td>dhcp</td>
-<td>分发ip</td>
-</tr>
-<tr>
-<td>telnet</td>
-<td>远程连接</td>
-</tr>
-<tr>
-<td>ssh</td>
-<td>同上</td>
-</tr>
-<tr>
-<td>ftp</td>
-<td>上传下载</td>
-</tr>
-<tr>
-<td>smb</td>
-<td>文件共享</td>
-</tr>
-</tbody></table>
-<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><table>
-<thead>
-<tr>
-<th>服务</th>
-<th>端口号</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>http</td>
-<td>80,8080,8090,3128,8081,9080</td>
-</tr>
-<tr>
-<td>ftp</td>
-<td>21</td>
-</tr>
-<tr>
-<td>telnet</td>
-<td>23</td>
-</tr>
-<tr>
-<td>tftp</td>
-<td>69/udp</td>
-</tr>
-<tr>
-<td>ssh</td>
-<td>22/tcp</td>
-</tr>
-<tr>
-<td>pop3</td>
-<td>110/tcp</td>
-</tr>
-<tr>
-<td>tomcat</td>
-<td>8080</td>
-</tr>
-<tr>
-<td>win2003远程登录</td>
-<td>3389</td>
-</tr>
-<tr>
-<td>orical</td>
-<td>1521</td>
-</tr>
-<tr>
-<td>mysql mssql</td>
-<td>1433/tcp,1433/udp</td>
-</tr>
-<tr>
-<td>qq</td>
-<td>1080/udp</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>通过端口可以 信息搜集，目标探测，服务判断，系统判断，系统角色分析</p>
-</blockquote>
-<h2 id="注册表"><a href="#注册表" class="headerlink" title="注册表"></a>注册表</h2><p>命令：regedit</p>
-<h2 id="编写批处理文件"><a href="#编写批处理文件" class="headerlink" title="编写批处理文件"></a>编写批处理文件</h2><h2 id="密码爆破"><a href="#密码爆破" class="headerlink" title="密码爆破"></a>密码爆破</h2><p>工具：U盘破解（sam）pe,lc5,彩虹表，hydra</p>
-<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><p>win+e：计算机<br>ctrl+shift+esc:任务管理器<br>win+tab:3D桌面</p>
-<h2 id="手动清除木马"><a href="#手动清除木马" class="headerlink" title="手动清除木马"></a>手动清除木马</h2><p>开机启动项：% Run<br>查询服务： services.msc<br>网络端口： netstat -o (-anp)</p>
-<h2 id="dos命令"><a href="#dos命令" class="headerlink" title="dos命令"></a>dos命令</h2><blockquote>
-<p>命令 /? 多查多用</p>
-</blockquote>
-<p><code>cmd</code>:</p>
-<p>color a //cmd绿字黑底</p>
-<p>ipconfig /all<br>ipconfig /release<br>ipconfig /renew<br>systeminfo 系统配置 (补丁)</p>
-<p>arp -a</p>
-<p>net view</p>
-<p>shutdown -s -t 180 -c “hack”<br>shutdown -a</p>
-<p>cls    //清屏</p>
-<p>md seven    //创建文件夹<br>rd seven    //删除文件夹</p>
-<p>copy con c:/seven.txt    //创建文件<br>hello seven<br>Ctrl+z</p>
-<p>type seven.txt    //查看文件内容<br>start seven.txt    //打开文件查看内容<br>start <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a>    //打开网页<br>del seven.txt    //删除文件</p>
-<p>tree    //文件目录树形输出</p>
-<p>copy 文件 位置<br>例 copy 1.txt c:\windows</p>
-<p>ren //重命名</p>
-<p>net start    //服务<br>net stop telnet<br>net start telnet</p>
-<p>net user<br>net user hack 12314dsf /add<br>net user localgroup administrators hack /add<br>net user hack /del<br>net user guest /active:yes<br>net user guest 123345</p>
-<p>net password 123456    //更改系统登录密码</p>
-<p>net share    //查看本地开启的共享<br>net share k: ipc$<br>net share ipc$ /del<br>net share c$ /del</p>
-<p>net use k: \ip\c$<br>net use k: \192.168.1.122\c$    //拽共享盘</p>
-<p>netstat /?<br>schtasks /?</p>
+<ul>
+<li><p>出现类似下面的版本号(安装最新版本)：</p>
+</li>
+<li><p>v10.14.1</p>
+</li>
+<li><p>安装Hexo</p>
+</li>
+<li><p>命令行输入(cmd):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建本地仓库文件夹：例F:\mysite</p>
+</li>
+<li><p>右键点击该文件夹，Git Bash Here</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化完成！</p>
+</li>
+</ul>
+<h3 id="本地运行"><a href="#本地运行" class="headerlink" title="本地运行"></a>本地运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>本地运行(如果4000端口被占用，使用 hexo service -p 5000 修改端口)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>此时在浏览器输入 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ,访问到博客界面</p>
+</li>
+</ul>
+<h2 id="ssh连接"><a href="#ssh连接" class="headerlink" title="ssh连接"></a>ssh连接</h2><h3 id="创建Github账户"><a href="#创建Github账户" class="headerlink" title="创建Github账户"></a>创建Github账户</h3><p>略，随便百度一下</p>
+<h3 id="配置个人信息"><a href="#配置个人信息" class="headerlink" title="配置个人信息"></a>配置个人信息</h3><ul>
+<li><p>在本地，右键网站根目录，点击Git Bash 输入下列命令， yourname 即为github注册时的用户名， youremail 为注册时的邮箱账号， 第三条命令生成密钥：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"yourname"</span></span><br><span class="line">$ git config --global user.email <span class="string">"yourEmail"</span></span><br><span class="line">$ ssh-keygen -t rsa -C <span class="string">"yourEmail"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>此时在C:\Users下你的当前账户文件夹下会有一个 .ssh 文件，找到id_rsa.pub文件，复制里面的内容，粘贴至GitHub中，点击右上角用户头像下的Settings，之后点击左侧的SSH and GPG keys，找到New SSH key点击，输入title，并将之前复制的内容粘贴到下面的key中，最后点击Add SSH key，完成：</p>
+<h3 id="配置Deployment"><a href="#配置Deployment" class="headerlink" title="配置Deployment"></a>配置Deployment</h3></li>
+<li><p>去博客总目录下的_config.yml文件中，添加如下（yourname就是GitHub的用户名）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="将本地仓库同步到github"><a href="#将本地仓库同步到github" class="headerlink" title="将本地仓库同步到github"></a>将本地仓库同步到github</h2><ul>
+<li><p>在第一次生成以及部署之前，需要安装一个扩展：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清除生成的静态网页缓存数据</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成文章对应的静态页面</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>部署本地站点到github命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
 
         </div>
         
@@ -488,10 +393,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-05-03T18:32:58+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-12T11:25:32+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>最后更新于 2019年5月3日</p>
+    <p>最后更新于 2019年8月12日</p>
   </a>
 </div>
 
@@ -500,7 +405,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/windoes/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>windoes</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/DOS命令/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>DOS命令</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/博客搭建/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>博客搭建</p></a></div>
 
 
         
@@ -522,40 +427,21 @@
                         <span class="art-item-left">
                             <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
                             <h4>
-                                <a href="/2019/05/03/获取banner脚本/" rel="prev" title="获取banner脚本">
+                                <a href="/post/undefined/" rel="prev" title="在usb上安装kali">
                                   
-                                      获取banner脚本
+                                      在usb上安装kali
                                   
                                 </a>
                             </h4>
                             
                                 
                                 <h6 class="tags">
-                                    <a class="tag" href="/tags/python/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>python</a> <a class="tag" href="/tags/python脚本/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>python脚本</a>
+                                    <a class="tag" href="/tags/linux/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>linux</a> <a class="tag" href="/tags/kali/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>kali</a>
                                 </h6>
                             
                         </span>
                     </section>
                 
-                
-                    <section class="next">
-                        <span class="art-item-right" aria-hidden="true">
-                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
-                            <h4>
-                                <a href="/2019/03/20/kali之防火墙/" rel="prev" title="kali防火墙">
-                                    
-                                        kali防火墙
-                                    
-                                </a>
-                            </h4>
-                            
-                                
-                                <h6 class="tags">
-                                    <a class="tag" href="/tags/kali/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>kali</a> <a class="tag" href="/tags/linux/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>linux</a>
-                                </h6>
-                            
-                        </span>
-                    </section>
                 
             </div>
         
@@ -596,7 +482,7 @@
 
   <script>
     window.subData = {
-      title: 'windows基础',
+      title: 'my first blog',
       tools: true
     }
   </script>
@@ -676,7 +562,7 @@
 </header>
 
     <div class='content pure'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#系统目录"><span class="toc-text">系统目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务"><span class="toc-text">服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#端口"><span class="toc-text">端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注册表"><span class="toc-text">注册表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写批处理文件"><span class="toc-text">编写批处理文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#密码爆破"><span class="toc-text">密码爆破</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快捷键"><span class="toc-text">快捷键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手动清除木马"><span class="toc-text">手动清除木马</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dos命令"><span class="toc-text">dos命令</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#准备工作"><span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装git-node-js-hexo"><span class="toc-text">安装git, node.js, hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地运行"><span class="toc-text">本地运行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh连接"><span class="toc-text">ssh连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建Github账户"><span class="toc-text">创建Github账户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置个人信息"><span class="toc-text">配置个人信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置Deployment"><span class="toc-text">配置Deployment</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将本地仓库同步到github"><span class="toc-text">将本地仓库同步到github</span></a></li></ol>
     </div>
   </section>
 
