@@ -16,10 +16,10 @@
 
   <!-- 页面元数据 -->
   
-    <title>kali更新升级,安装与卸载软件包 - bansxf&#39;s blog</title>
+    <title>kali 更新源 - bansxf&#39;s blog</title>
   
   
-    <meta name="description" content="更新升级，安装软件">
+    <meta name="description" content="kali源：用于kali更新，也可在ubunto和debian上安装kali工具">
   
 
   <!-- feed -->
@@ -445,8 +445,8 @@
         
           
   <h1 class="title">
-    <a href="/categories/Kali-Linux/kali%E6%9B%B4%E6%96%B0%E5%8D%87%E7%BA%A7,%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6%E5%8C%85/">
-      kali更新升级,安装与卸载软件包
+    <a href="/categories/Linux/Kali-Linux/kali%20%E6%9B%B4%E6%96%B0%E6%BA%90/">
+      kali 更新源
     </a>
   </h1>
 
@@ -471,9 +471,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/Kali-Linux/' rel="nofollow">
+    <a href='/categories/Linux/Kali-Linux/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Kali Linux</p>
+      <p>Linux/Kali Linux</p>
     </a>
   </div>
 
@@ -484,7 +484,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Apr 3, 2020</p>
+    <p>发布于：Mar 20, 2019</p>
   </a>
 </div>
 
@@ -507,180 +507,21 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <p>更新升级，安装软件</p>
+          <p>kali源：用于kali更新，也可在ubunto和debian上安装kali工具</p>
 <a id="more"></a>
 
-<h2 id="更新升级命令"><a href="#更新升级命令" class="headerlink" title="更新升级命令"></a>更新升级命令</h2><ul>
-<li>路径 </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>添加源</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#kali官方源</span></span><br><span class="line">deb http://http.kali.org/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://http.kali.org/kali kali-rolling main non-free contrib</span><br><span class="line"><span class="comment">#中科大的源</span></span><br><span class="line">deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="line"><span class="comment">#浙江大学源</span></span><br><span class="line">deb http://mirrors.zju.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://mirrors.zju.edu.cn/kali kali-rolling main non-free contrib</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>更新软件包索引文件</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>将更新的软件包下载下来</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get upgrade</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>版本更新</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get dist-upgrade//软件升级</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>更新系统</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt full-upgrade //通过卸载|安装|升级等方式来更新系统</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>自动卸载不需要的软件包</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get autoremove</span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li>自动清除软件包</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get autoclean</span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li>查看系统版本</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grep VERSION /etc/os-release</span><br><span class="line">uname -a</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h2><ul>
-<li>安装中文输入法</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ibus ibus-pinyin</span><br></pre></td></tr></table></figure>
-
-<p>若提示如下，照做即可</p>
-<p><img src="kali%E6%9B%B4%E6%96%B0%E5%8D%87%E7%BA%A7,%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6%E5%8C%85/ibus.png" alt="ibus"></p>
-<ul>
-<li>安装pip</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-pip</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>安装播放器parole</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install parole</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><del>安装falsh插件</del></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install flashplugin-nonfree</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>安装gdebi(图像化安装deb包)</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gdebi</span><br></pre></td></tr></table></figure>
-
-<p>当然在字符界面下，安装deb包命令如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i xxxx.deb</span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li>下载bt</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install qbittorrent</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>简便的程序开发环境geany</li>
-</ul>
-<p>puthon shell脚本..,它都可以</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install geany</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>字典</li>
-</ul>
-<p>翻译软件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install stardict</span><br></pre></td></tr></table></figure>
-
-<p>词库下载<br><a href="http://download.huzheng.org/zh_CN/" target="_blank" rel="noopener">http://download.huzheng.org/zh_CN/</a><br>下载朗道词典</p>
-<ul>
-<li>文件差异比较</li>
-</ul>
-<p>图形化的工具</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install meld</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>字体</li>
-</ul>
-<p>习惯windows字体的可以更换这个</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ttf-wqy-microhei</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>查看chm文件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install kchmviewer</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><del>思维导图</del></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install freemind</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><del>显示网速</del></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install netspeed</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>路由追踪</li>
-</ul>
-<p>图形化</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mtr</span><br></pre></td></tr></table></figure>
-
-<p>也可使用命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">traceroute</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>ftp客户端</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install filezilla filezilla-common</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>chromium浏览器</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install chromium</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>开发.net环境</li>
-</ul>
-<p>mono套件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install monodevelop mono-gmcs</span><br><span class="line">或 mono-xbuild mono-mcs mono-devel</span><br></pre></td></tr></table></figure>
+<p>升级补丁,保持系统最新</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/apt/sources.list #修改 更新源 文件</span><br></pre></td></tr></table></figure>
+<p>更新源</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">官方源</span></span><br><span class="line">deb http://http.kali.org/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://http.kali.org/kali kali-rolling main non-free contrib</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">中科大 Kali源</span></span><br><span class="line">deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">阿里云kali源</span></span><br><span class="line">deb http://mirrors.aliyun.com/kali kali main non-free contrib</span><br><span class="line">deb-src http://mirrors.aliyun.com/kali kali main non-free contrib</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="安装与卸载软件命令"><a href="#安装与卸载软件命令" class="headerlink" title="安装与卸载软件命令"></a>安装与卸载软件命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt-get install software_name :安装软件</span><br><span class="line">apt-get --purge remove  software_name :卸载软件及其配置</span><br><span class="line">apt-get autoremove software_name:卸载软件及其依赖的安装包</span><br><span class="line">dpkg --list:罗列已安装软件</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update #更新索引</span><br><span class="line">apt-get upgrade #根据索引，真正更新</span><br></pre></td></tr></table></figure>
+<p>在ubuntu,debian上更换源后，更新索引需要添加秘钥</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv --keyserver hkp://keys.gnupg.net --recv-keys 7D8D0BF6</span><br></pre></td></tr></table></figure>
 
-<h2 id="问题1-更新系统，空间不足"><a href="#问题1-更新系统，空间不足" class="headerlink" title="问题1:更新系统，空间不足"></a>问题1:更新系统，空间不足</h2><p>E: 您在 /var/cache/apt/archives/ 上没有足够的可用空间。<code>分区多份点</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get clean</span><br></pre></td></tr></table></figure>
-
-<p>软链接到HOME下的一个目录即可，home下新建debs文件夹：<br>在某个空间大的分区建立一个目录，然后把/var/cache/apt/archives换成指向那个目录的软链接</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /var/cache/apt/archives</span><br><span class="line">sudo ln -s “<span class="variable">$HOME</span>/debs” /var/cache/apt/archives</span><br></pre></td></tr></table></figure>
-
-<p>s</p>
-<h2 id="问题2：没有公钥"><a href="#问题2：没有公钥" class="headerlink" title="问题2：没有公钥"></a>问题2：没有公钥</h2><p>W: GPG 错误：<a href="http://archive.ubuntu.com/ubuntu" target="_blank" rel="noopener">http://archive.ubuntu.com/ubuntu</a> trusty Release: 由于没有公钥，无法验证下列签名： NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E40EBBA24FF2FC69</span><br></pre></td></tr></table></figure>
-
-<p>注意<code>E40EBBA24FF2FC69</code>需替换为<code>40976EAF437D05B5</code> <code>3B4FE6ACC0B21F32</code>，也就是要与你的错误提示中的签名一致。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
-
-<h2 id="问题3："><a href="#问题3：" class="headerlink" title="问题3："></a>问题3：</h2><p>dpkg: 处理归档 /var/cache/apt/archives/openjdk-11-amd64.deb (–unpack)时出错：<br> 无法为 ‘./usr/lib/jvm/java-11-openjdk-amd64/lib/m’/usr/lib/jvm/java-11-openjdk-amd64/lib/modules.dp上没有空间)<br>dpkg-deb: 错误: 粘贴 子进程被信号(断开的管道) 终止<br>在处理时有错误发生：<br> /var/cache/apt/archives/openjdk-11-jre-headless_1<br>E: Sub-process /usr/bin/dpkg returned an error cod<br>root@fg:~# </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i --force-overwrite /var/cache/apt/archives/某.deb</span><br></pre></td></tr></table></figure>
-
-<h2 id="问题4-缺乏依赖"><a href="#问题4-缺乏依赖" class="headerlink" title="问题4:缺乏依赖"></a>问题4:缺乏依赖</h2><p>如缺依赖包，执行<code>apt-get install 依赖包名</code></p>
-<p>按提示输入命令<code>apt --fix-broken install</code></p>
-<p>再次执行<code>dpkg -i 文件名.deb</code></p>
+<p>ok,再更新索引吧！</p>
 
           
             <div class='article_footer'>
@@ -717,7 +558,7 @@
           
         
           
-            <p>本文永久链接是：<a href=https://lacc233.github.io/categories/Kali-Linux/kali%E6%9B%B4%E6%96%B0%E5%8D%87%E7%BA%A7,%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6%E5%8C%85/>https://lacc233.github.io/categories/Kali-Linux/kali%E6%9B%B4%E6%96%B0%E5%8D%87%E7%BA%A7,%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6%E5%8C%85/</a></p>
+            <p>本文永久链接是：<a href=https://lacc233.github.io/categories/Linux/Kali-Linux/kali%20%E6%9B%B4%E6%96%B0%E6%BA%90/>https://lacc233.github.io/categories/Linux/Kali-Linux/kali%20%E6%9B%B4%E6%96%B0%E6%BA%90/</a></p>
           
         
       </blockquote>
@@ -768,7 +609,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-10T18:55:30+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-10T21:01:28+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：May 10, 2020</p>
@@ -795,7 +636,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://lacc233.github.io/categories/Kali-Linux/kali%E6%9B%B4%E6%96%B0%E5%8D%87%E7%BA%A7,%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6%E5%8C%85/&title=kali更新升级,安装与卸载软件包 - bansxf's blog&summary=更新升级，安装软件"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://lacc233.github.io/categories/Linux/Kali-Linux/kali%20%E6%9B%B4%E6%96%B0%E6%BA%90/&title=kali 更新源 - bansxf's blog&summary=kali源：用于kali更新，也可在ubunto和debian上安装kali工具"
           
           >
           
@@ -807,7 +648,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lacc233.github.io/categories/Kali-Linux/kali%E6%9B%B4%E6%96%B0%E5%8D%87%E7%BA%A7,%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6%E5%8C%85/&title=kali更新升级,安装与卸载软件包 - bansxf's blog&summary=更新升级，安装软件"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lacc233.github.io/categories/Linux/Kali-Linux/kali%20%E6%9B%B4%E6%96%B0%E6%BA%90/&title=kali 更新源 - bansxf's blog&summary=kali源：用于kali更新，也可在ubunto和debian上安装kali工具"
           
           >
           
@@ -819,7 +660,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://lacc233.github.io/categories/Kali-Linux/kali%E6%9B%B4%E6%96%B0%E5%8D%87%E7%BA%A7,%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6%E5%8C%85/&title=kali更新升级,安装与卸载软件包 - bansxf's blog&summary=更新升级，安装软件"
+          href="http://service.weibo.com/share/share.php?url=https://lacc233.github.io/categories/Linux/Kali-Linux/kali%20%E6%9B%B4%E6%96%B0%E6%BA%90/&title=kali 更新源 - bansxf's blog&summary=kali源：用于kali更新，也可在ubunto和debian上安装kali工具"
           
           >
           
@@ -843,29 +684,20 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/categories/Kali-Linux/kali%E4%BB%A3%E7%90%86/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>kali代理</p>
-                <p class='content'>kali linux 网络代理设置
-
-
-tor代理
-下载  https://www.torproject.org/download/
-配置（configure）
-Tor is censored ...</p>
+              <a class='prev' href='/categories/Linux/Kali-Linux/kali%20ssh%E8%BF%9E%E6%8E%A5/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>linux ssh连接</p>
+                <p class='content'>SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Group）所制定；SSH 为建立在应用层基础上的安全协议。SSH 是目前较可靠，专为远程...</p>
               </a>
             
             
-              <a class='next' href='/categories/Windows/win%E4%B8%8B%E8%A7%A3%E5%86%B3python2%E4%B8%8E3%E5%88%87%E6%8D%A2%EF%BC%8Cpip%E5%85%B1%E5%AD%98/'>
-                <p class='title'>win下解决python2与3切换，pip共存<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>Windows下解决python2与3切换，pip共存
+              <a class='next' href='/categories/Linux/Kali-Linux/kali%E4%B9%8B%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/'>
+                <p class='title'>kali之网络配置<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>基础配置
 
 
-python2与3切换
-安装py2，py3
-
-python官网:https://www.python.org/
-
-添加py2/py3的...</p>
+网络配置
+临时ip地址
+12345678910ifconfig eth0 #查询eth0网卡配置dhclient eth0 #向DHCP服务器发送请求自动获得IP地址 ，执行此步需...</p>
               </a>
             
           </div>
@@ -910,7 +742,7 @@ python官网:https://www.python.org/
 
   <script>
     window.subData = {
-      title: 'kali更新升级,安装与卸载软件包',
+      title: 'kali 更新源',
       tools: true
     }
   </script>
@@ -925,20 +757,6 @@ python官网:https://www.python.org/
     
     
 
-
-  <section class="widget toc-wrapper shadow desktop mobile">
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#更新升级命令"><span class="toc-text">更新升级命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装软件"><span class="toc-text">安装软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装与卸载软件命令"><span class="toc-text">安装与卸载软件命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题1-更新系统，空间不足"><span class="toc-text">问题1:更新系统，空间不足</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题2：没有公钥"><span class="toc-text">问题2：没有公钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题3："><span class="toc-text">问题3：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题4-缺乏依赖"><span class="toc-text">问题4:缺乏依赖</span></a></li></ol>
-    </div>
-  </section>
 
 
   

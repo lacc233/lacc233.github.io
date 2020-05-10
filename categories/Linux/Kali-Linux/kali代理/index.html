@@ -16,10 +16,10 @@
 
   <!-- 页面元数据 -->
   
-    <title>kali之网络配置 - bansxf&#39;s blog</title>
+    <title>kali代理 - bansxf&#39;s blog</title>
   
   
-    <meta name="description" content="基础配置">
+    <meta name="description" content="kali linux 网络代理设置">
   
 
   <!-- feed -->
@@ -445,8 +445,8 @@
         
           
   <h1 class="title">
-    <a href="/categories/Kali-Linux/kali%E4%B9%8B%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/">
-      kali之网络配置
+    <a href="/categories/Linux/Kali-Linux/kali%E4%BB%A3%E7%90%86/">
+      kali代理
     </a>
   </h1>
 
@@ -471,9 +471,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/Kali-Linux/' rel="nofollow">
+    <a href='/categories/Linux/Kali-Linux/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Kali Linux</p>
+      <p>Linux/Kali Linux</p>
     </a>
   </div>
 
@@ -484,7 +484,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Mar 20, 2019</p>
+    <p>发布于：Apr 7, 2020</p>
   </a>
 </div>
 
@@ -507,30 +507,26 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <p>基础配置</p>
+          <p>kali linux 网络代理设置</p>
 <a id="more"></a>
 
-<p><strong>网络配置</strong></p>
-<p>临时ip地址</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ifconfig eth0 <span class="comment">#查询eth0网卡配置</span></span><br><span class="line"></span><br><span class="line">dhclient eth0 <span class="comment">#向DHCP服务器发送请求自动获得IP地址 ，执行此步需要网卡配置为动态获取（dhcp）</span></span><br><span class="line"> </span><br><span class="line">ifconfig eth0 192.168.1.10/24 <span class="comment">#指定获得ip地址</span></span><br><span class="line"></span><br><span class="line">route add default gw 192.168.1.1 <span class="comment">#指定网关</span></span><br><span class="line"></span><br><span class="line">netstat -nr <span class="comment">#查询网关 </span></span><br><span class="line">route -n</span><br></pre></td></tr></table></figure>
-<p>添加路由,内部网段（网络地址，不是主机地址/32），网关，网卡 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route add -net 192.168.0.0&#x2F;24 gw 192.168.1.100 eth0</span><br></pre></td></tr></table></figure>
-<p>配置DNS</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim etc/resolv.conf</span><br><span class="line">namaserver 8.8.8.8</span><br><span class="line">namaserver 114.114.114.114</span><br><span class="line">或</span><br><span class="line"><span class="built_in">echo</span> nameserver 192.168.1.1 &gt; /etc/resolv.conf</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这些ifconfig分配的IP和DNS在修改后从开机又会返回原值<br>因此可在静态模式下，制定自己的网卡</p>
-</blockquote>
-<p>网卡配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/nerwork/interfaces</span><br></pre></td></tr></table></figure>
-<p>默认为动态</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The loopback network interface</span></span><br><span class="line">auto lo</span><br><span class="line">iface lo inet loopback</span><br><span class="line"></span><br><span class="line">auto eth0</span><br><span class="line">iface eth0 inet dhcp</span><br></pre></td></tr></table></figure>
-<p>静态为：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The loopback network interface</span></span><br><span class="line">auto lo</span><br><span class="line">iface lo inet loopback</span><br><span class="line"></span><br><span class="line">auto eth0</span><br><span class="line">iface eth0 inet static</span><br><span class="line"></span><br><span class="line">address 172.28.34.88 <span class="comment">#ip</span></span><br><span class="line">netmask 255.255.255.192 <span class="comment">#子网掩码</span></span><br><span class="line">gateway 172.28.34.126 <span class="comment">#网关</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#以下也可写在该网卡配置文件中</span></span><br><span class="line">dns-namaservers 192.168.0.10 192.168.0.20 <span class="comment">#dns服务器开机自动添加到dns文件内</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#up route add -net 172.168.5.0/24 gw 192.168.10.100 eth1 #开机添加路由配置</span></span><br><span class="line"><span class="comment">#down route del -net 172.168.0.0/24 #关机删除掉路由配置</span></span><br><span class="line"><span class="comment">#下面这两个可以不设置</span></span><br><span class="line"><span class="comment">#network 192.168.20.0 #网络地址</span></span><br><span class="line"><span class="comment">#broadcast 192.168.20.255 #广播地址</span></span><br></pre></td></tr></table></figure>
+<h2 id="tor代理"><a href="#tor代理" class="headerlink" title="tor代理"></a>tor代理</h2><ul>
+<li>下载  <a href="https://www.torproject.org/download/" target="_blank" rel="noopener">https://www.torproject.org/download/</a></li>
+<li>配置（configure）</li>
+<li>Tor is censored in my cuntry</li>
+<li>Select a bulit-in bridge 选择meek-azure </li>
+<li>connect</li>
+</ul>
+<h2 id="更新源代理设置"><a href="#更新源代理设置" class="headerlink" title="更新源代理设置"></a>更新源代理设置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/apt/apt.conf</span><br><span class="line">Acquire::ftp::proxy <span class="string">"ftp://127.0.0.1:8087/"</span>;</span><br><span class="line">Acquire::http::proxy <span class="string">"http://127.0.0.1:8087/"</span>;</span><br><span class="line">Acquire::https::proxy <span class="string">"https://127.0.0.1:8087/"</span>;</span><br><span class="line">Acquire::socks::proxy <span class="string">"https://127.0.0.1:8087/"</span>;</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>在虚拟机里，切换到桥接网卡，这个网卡静态配置即可生效</p>
-<p><code>sudo /etc/init.d/networking restart</code> 配置完静态重启一下网络服务</p>
-</blockquote>
+<h2 id="命令行代理设置"><a href="#命令行代理设置" class="headerlink" title="命令行代理设置"></a>命令行代理设置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/bash.bashrc</span><br><span class="line"><span class="built_in">export</span> ftp_proxy=<span class="string">"ftp://user:password@proxyIP:port"</span></span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">"http://user:password@proxyIP:port"</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">"https://user:password@proxyIP:port"</span></span><br><span class="line"><span class="built_in">export</span> socks_proxy=<span class="string">"https://user:password@proxyIP:port"</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="代理链"><a href="#代理链" class="headerlink" title="代理链"></a>代理链</h2><p>公开的代理服务器 </p>
+<p>配置代理链</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/proxychains.conf</span><br><span class="line">proxychains 命令 <span class="comment">#命令走代理</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
 
           
             <div class='article_footer'>
@@ -567,7 +563,7 @@
           
         
           
-            <p>本文永久链接是：<a href=https://lacc233.github.io/categories/Kali-Linux/kali%E4%B9%8B%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/>https://lacc233.github.io/categories/Kali-Linux/kali%E4%B9%8B%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</a></p>
+            <p>本文永久链接是：<a href=https://lacc233.github.io/categories/Linux/Kali-Linux/kali%E4%BB%A3%E7%90%86/>https://lacc233.github.io/categories/Linux/Kali-Linux/kali%E4%BB%A3%E7%90%86/</a></p>
           
         
       </blockquote>
@@ -618,7 +614,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-10T18:37:22+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-10T21:01:37+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：May 10, 2020</p>
@@ -645,7 +641,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://lacc233.github.io/categories/Kali-Linux/kali%E4%B9%8B%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/&title=kali之网络配置 - bansxf's blog&summary=基础配置"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://lacc233.github.io/categories/Linux/Kali-Linux/kali%E4%BB%A3%E7%90%86/&title=kali代理 - bansxf's blog&summary=kali linux 网络代理设置"
           
           >
           
@@ -657,7 +653,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lacc233.github.io/categories/Kali-Linux/kali%E4%B9%8B%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/&title=kali之网络配置 - bansxf's blog&summary=基础配置"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lacc233.github.io/categories/Linux/Kali-Linux/kali%E4%BB%A3%E7%90%86/&title=kali代理 - bansxf's blog&summary=kali linux 网络代理设置"
           
           >
           
@@ -669,7 +665,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://lacc233.github.io/categories/Kali-Linux/kali%E4%B9%8B%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/&title=kali之网络配置 - bansxf's blog&summary=基础配置"
+          href="http://service.weibo.com/share/share.php?url=https://lacc233.github.io/categories/Linux/Kali-Linux/kali%E4%BB%A3%E7%90%86/&title=kali代理 - bansxf's blog&summary=kali linux 网络代理设置"
           
           >
           
@@ -693,24 +689,33 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/categories/Kali-Linux/kali%20%E6%9B%B4%E6%96%B0%E6%BA%90/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>kali 更新源</p>
-                <p class='content'>kali源：用于kali更新，也可在ubunto和debian上安装kali工具
+              <a class='prev' href='/categories/%E5%B7%A5%E5%85%B7/recon-ng%E5%B7%A5%E5%85%B7%E8%AF%A6%E8%A7%A3/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>recon-ng工具详解</p>
+                <p class='content'>web信息搜索框架，基于python开发
+使用方法：模块，数据库，报告
+项目地址： https://github.com/lanmaster53/recon-ng 
 
 
-升级补丁,保持系统最新
-1vim /etc/apt/sources.list #修改 更新源 文件
-更新源
-...</p>
+
+
+recon-ng –...</p>
               </a>
             
             
-              <a class='next' href='/categories/Linux/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/'>
-                <p class='title'>linux基础<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>linux基础知识
+              <a class='next' href='/categories/Linux/Kali-Linux/kali%E6%9B%B4%E6%96%B0%E5%8D%87%E7%BA%A7,%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6%E5%8C%85/'>
+                <p class='title'>kali更新升级,安装与卸载软件包<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>更新升级，安装软件
 
 
-目录结构bin  放普通用户也可以使用的命令sbin  放管理员才可以执行的命令boot  放启动(引导)配置文件dev  放存储设备的，例硬盘etc  放系统和应用程序...</p>
+更新升级命令
+路径 
+
+1vim /etc/apt/sources.list
+
+
+添加源
+
+123456789#kali官方源deb http://http.kali.o...</p>
               </a>
             
           </div>
@@ -755,7 +760,7 @@
 
   <script>
     window.subData = {
-      title: 'kali之网络配置',
+      title: 'kali代理',
       tools: true
     }
   </script>
@@ -770,6 +775,20 @@
     
     
 
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tor代理"><span class="toc-text">tor代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新源代理设置"><span class="toc-text">更新源代理设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令行代理设置"><span class="toc-text">命令行代理设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代理链"><span class="toc-text">代理链</span></a></li></ol>
+    </div>
+  </section>
 
 
   

@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,8 +16,10 @@
 
   <!-- 页面元数据 -->
   
-    <title>Tag: 博客搭建 - bansxf&#39;s blog</title>
+    <title>kali之网络配置 - bansxf&#39;s blog</title>
   
+  
+    <meta name="description" content="基础配置">
   
 
   <!-- feed -->
@@ -83,7 +83,7 @@
   
   <div class="cover-wrapper">
     
-      <cover class='cover  half'>
+      <cover class='cover post half'>
         <div class='cover-body'>
   <div class='a'>
     
@@ -429,25 +429,12 @@
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -457,11 +444,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/categories/%E8%8F%9C%E9%B8%9F%E4%BA%92%E5%8A%A9/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-      博客搭建
+  <h1 class="title">
+    <a href="/categories/Linux/Kali-Linux/kali%E4%B9%8B%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/">
+      kali之网络配置
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -484,9 +471,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E8%8F%9C%E9%B8%9F%E4%BA%92%E5%8A%A9/' rel="nofollow">
+    <a href='/categories/Linux/Kali-Linux/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>菜鸟互助</p>
+      <p>Linux/Kali Linux</p>
     </a>
   </div>
 
@@ -497,14 +484,9 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Dec 8, 2018</p>
+    <p>发布于：Mar 20, 2019</p>
   </a>
 </div>
-
-            
-          
-            
-              
 
             
           
@@ -522,103 +504,73 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Hexo + Github 搭建 Blog 和 每次博客的部署</p>
-<hr>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/categories/%E8%8F%9C%E9%B8%9F%E4%BA%92%E5%8A%A9/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>基础配置</p>
+<a id="more"></a>
 
-          </div>
-        
-      
-    
-  </section>
-  
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
+<p><strong>网络配置</strong></p>
+<p>临时ip地址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ifconfig eth0 <span class="comment">#查询eth0网卡配置</span></span><br><span class="line"></span><br><span class="line">dhclient eth0 <span class="comment">#向DHCP服务器发送请求自动获得IP地址 ，执行此步需要网卡配置为动态获取（dhcp）</span></span><br><span class="line"> </span><br><span class="line">ifconfig eth0 192.168.1.10/24 <span class="comment">#指定获得ip地址</span></span><br><span class="line"></span><br><span class="line">route add default gw 192.168.1.1 <span class="comment">#指定网关</span></span><br><span class="line"></span><br><span class="line">netstat -nr <span class="comment">#查询网关 </span></span><br><span class="line">route -n</span><br></pre></td></tr></table></figure>
+<p>添加路由,内部网段（网络地址，不是主机地址/32），网关，网卡 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route add -net 192.168.0.0&#x2F;24 gw 192.168.1.100 eth0</span><br></pre></td></tr></table></figure>
+<p>配置DNS</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim etc/resolv.conf</span><br><span class="line">namaserver 8.8.8.8</span><br><span class="line">namaserver 114.114.114.114</span><br><span class="line">或</span><br><span class="line"><span class="built_in">echo</span> nameserver 192.168.1.1 &gt; /etc/resolv.conf</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这些ifconfig分配的IP和DNS在修改后从开机又会返回原值<br>因此可在静态模式下，制定自己的网卡</p>
+</blockquote>
+<p>网卡配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/nerwork/interfaces</span><br></pre></td></tr></table></figure>
+<p>默认为动态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The loopback network interface</span></span><br><span class="line">auto lo</span><br><span class="line">iface lo inet loopback</span><br><span class="line"></span><br><span class="line">auto eth0</span><br><span class="line">iface eth0 inet dhcp</span><br></pre></td></tr></table></figure>
+<p>静态为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The loopback network interface</span></span><br><span class="line">auto lo</span><br><span class="line">iface lo inet loopback</span><br><span class="line"></span><br><span class="line">auto eth0</span><br><span class="line">iface eth0 inet static</span><br><span class="line"></span><br><span class="line">address 172.28.34.88 <span class="comment">#ip</span></span><br><span class="line">netmask 255.255.255.192 <span class="comment">#子网掩码</span></span><br><span class="line">gateway 172.28.34.126 <span class="comment">#网关</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#以下也可写在该网卡配置文件中</span></span><br><span class="line">dns-namaservers 192.168.0.10 192.168.0.20 <span class="comment">#dns服务器开机自动添加到dns文件内</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#up route add -net 172.168.5.0/24 gw 192.168.10.100 eth1 #开机添加路由配置</span></span><br><span class="line"><span class="comment">#down route del -net 172.168.0.0/24 #关机删除掉路由配置</span></span><br><span class="line"><span class="comment">#下面这两个可以不设置</span></span><br><span class="line"><span class="comment">#network 192.168.20.0 #网络地址</span></span><br><span class="line"><span class="comment">#broadcast 192.168.20.255 #广播地址</span></span><br></pre></td></tr></table></figure>
 
-  
+<blockquote>
+<p>在虚拟机里，切换到桥接网卡，这个网卡静态配置即可生效</p>
+<p><code>sudo /etc/init.d/networking restart</code> 配置完静态重启一下网络服务</p>
+</blockquote>
 
-
-    
-  
-</div>
-<aside class='l_side'>
-  
+          
+            <div class='article_footer'>
+              
+                
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">bansxf's blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
+      <blockquote>
         
           
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
           
         
           
-            <a href="mailto:me@xaoxuu.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>本文永久链接是：<a href=https://lacc233.github.io/categories/Linux/Kali-Linux/kali%E4%B9%8B%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/>https://lacc233.github.io/categories/Linux/Kali-Linux/kali%E4%B9%8B%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</a></p>
           
         
-          
-            <a href="https://github.com/xaoxuu"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://music.163.com/#/user/home?id=63035382"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
+      </blockquote>
     
   </div>
 </section>
@@ -628,103 +580,197 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
     
-  <header>
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
     
-  </header>
+  </div>
+</section>
+
+  
 
 
-    <div class='content'>
-      <ul class="entry navigation">
+              
+            </div>
+          
+        </div>
         
-          <li><a class="flat-box"
-            title="/categories/Kali-Linux/" href="/categories/Kali-Linux/"
-            id="categoriesKali-Linux"
-            ><div class='name'>Kali Linux</div><div class='badge'>(6)</div></a></li>
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
         
-          <li><a class="flat-box"
-            title="/categories/Linux/" href="/categories/Linux/"
-            id="categoriesLinux"
-            ><div class='name'>Linux</div><div class='badge'>(1)</div></a></li>
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-10T21:01:53+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：May 10, 2020</p>
+  </a>
+</div>
+
         
-          <li><a class="flat-box"
-            title="/categories/Web%E5%AE%89%E5%85%A8/" href="/categories/Web%E5%AE%89%E5%85%A8/"
-            id="categoriesWebE5AE89E585A8"
-            ><div class='name'>Web安全</div><div class='badge'>(3)</div></a></li>
+      
         
-          <li><a class="flat-box"
-            title="/categories/Windows/" href="/categories/Windows/"
-            id="categoriesWindows"
-            ><div class='name'>Windows</div><div class='badge'>(2)</div></a></li>
+          
+
         
-          <li><a class="flat-box"
-            title="/categories/WriteUp/" href="/categories/WriteUp/"
-            id="categoriesWriteUp"
-            ><div class='name'>WriteUp</div><div class='badge'>(2)</div></a></li>
+      
         
-          <li><a class="flat-box"
-            title="/categories/web%E5%AE%89%E5%85%A8/" href="/categories/web%E5%AE%89%E5%85%A8/"
-            id="categorieswebE5AE89E585A8"
-            ><div class='name'>web安全</div><div class='badge'>(5)</div></a></li>
+          
+
         
-          <li><a class="flat-box"
-            title="/categories/%E5%AE%9E%E6%88%98%E9%9D%B6%E5%9C%BA/" href="/categories/%E5%AE%9E%E6%88%98%E9%9D%B6%E5%9C%BA/"
-            id="categoriesE5AE9EE68898E99DB6E59CBA"
-            ><div class='name'>实战靶场</div><div class='badge'>(1)</div></a></li>
+      
         
-          <li><a class="flat-box"
-            title="/categories/%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B7%A5%E5%85%B7/"
-            id="categoriesE5B7A5E585B7"
-            ><div class='name'>工具</div><div class='badge'>(8)</div></a></li>
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://lacc233.github.io/categories/Linux/Kali-Linux/kali%E4%B9%8B%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/&title=kali之网络配置 - bansxf's blog&summary=基础配置"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lacc233.github.io/categories/Linux/Kali-Linux/kali%E4%B9%8B%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/&title=kali之网络配置 - bansxf's blog&summary=基础配置"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://lacc233.github.io/categories/Linux/Kali-Linux/kali%E4%B9%8B%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/&title=kali之网络配置 - bansxf's blog&summary=基础配置"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
         
-          <li><a class="flat-box"
-            title="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"
-            id="categoriesE7BD91E7BB9CE58D8FE8AEAE"
-            ><div class='name'>网络协议</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%84%9A%E6%9C%AC/" href="/categories/%E8%84%9A%E6%9C%AC/"
-            id="categoriesE8849AE69CAC"
-            ><div class='name'>脚本</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%8F%9C%E9%B8%9F%E4%BA%92%E5%8A%A9/" href="/categories/%E8%8F%9C%E9%B8%9F%E4%BA%92%E5%8A%A9/"
-            id="categoriesE88F9CE9B89FE4BA92E58AA9"
-            ><div class='name'>菜鸟互助</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+      
     </div>
   </section>
 
 
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/categories/Linux/Kali-Linux/kali%20%E6%9B%B4%E6%96%B0%E6%BA%90/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>kali 更新源</p>
+                <p class='content'>kali源：用于kali更新，也可在ubunto和debian上安装kali工具
+
+
+升级补丁,保持系统最新
+1vim /etc/apt/sources.list #修改 更新源 文件
+更新源
+...</p>
+              </a>
+            
+            
+              <a class='next' href='/categories/Linux/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/'>
+                <p class='title'>linux基础<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>linux基础知识
+
+
+目录结构bin  放普通用户也可以使用的命令sbin  放管理员才可以执行的命令boot  放启动(引导)配置文件dev  放存储设备的，例硬盘etc  放系统和应用程序...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'kali之网络配置',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
   
 
   
     
     
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
 
 
-    <div class='content'>
-      <a href="/tags/CSRF/" style="font-size: 14px; color: #999">CSRF</a> <a href="/tags/CTF/" style="font-size: 24px; color: #555">CTF</a> <a href="/tags/CTF-Web/" style="font-size: 24px; color: #555">CTF-Web</a> <a href="/tags/Vim/" style="font-size: 14px; color: #999">Vim</a> <a href="/tags/arp/" style="font-size: 14px; color: #999">arp</a> <a href="/tags/python/" style="font-size: 14px; color: #999">python</a> <a href="/tags/python%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">python脚本</a> <a href="/tags/sql/" style="font-size: 14px; color: #999">sql</a> <a href="/tags/sql%E6%B3%A8%E5%85%A5/" style="font-size: 14px; color: #999">sql注入</a> <a href="/tags/ssh/" style="font-size: 14px; color: #999">ssh</a> <a href="/tags/xss/" style="font-size: 14px; color: #999">xss</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 14px; color: #999">博客搭建</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 14px; color: #999">汇编</a>
-    </div>
-  </section>
-
-
-  
 
   
 
@@ -937,6 +983,60 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "s80dT3cYg98LwODISJX86IX8-MdYXbMMI",
+    appKey: "McmNeSHOdVEeoOB5v3V1OgjD",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
 
 
 
