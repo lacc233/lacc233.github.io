@@ -1444,20 +1444,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p> <a href="https://blog.csdn.net/qq_36119192/article/details/82079150" target="_blank" rel="noopener">https://blog.csdn.net/qq_36119192/article/details/82079150</a> </p>
-</blockquote>
-<p>nmap是网络发现和安全审计工具，用来列举网络主机清单，管理服务升级调度，监控主机或服务运行状况。</p>
-<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><h3 id="探索主机是否在线"><a href="#探索主机是否在线" class="headerlink" title="探索主机是否在线"></a>探索主机是否在线</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-sn: Ping Scan 只进行主机发现，不进行端口扫描。</span><br><span class="line">-PE&#x2F;PP&#x2F;PM: 使用ICMP echo、 ICMP timestamp、ICMP netmask 请求包发现主机。</span><br><span class="line">-PS&#x2F;PA&#x2F;PU&#x2F;PY[portlist]: 使用TCP SYN&#x2F;TCP ACK或SCTP INIT&#x2F;ECHO方式进行发现。 </span><br><span class="line">-sL: List Scan 列表扫描，仅将指定的目标的IP列举出来，不进行主机发现。 </span><br><span class="line">-Pn: 将所有指定的主机视作开启的，跳过主机发现的过程。</span><br><span class="line">-PO[protocollist]: 使用IP协议包探测对方主机是否开启。  </span><br><span class="line">-n&#x2F;-R: -n表示不进行DNS解析；-R表示总是进行DNS解析。  </span><br><span class="line">--dns-servers &lt;serv1[,serv2],...&gt;: 指定DNS服务器。   </span><br><span class="line">--system-dns: 指定使用系统的DNS服务器   </span><br><span class="line">--traceroute: 追踪每个路由节点</span><br></pre></td></tr></table></figure>
-
-<h4 id="探索公网IP"><a href="#探索公网IP" class="headerlink" title="探索公网IP"></a>探索公网IP</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sn</span><br></pre></td></tr></table></figure>
-
-<p>Nmap会发送四种不同类型的数据包来探测目标主机是否在线。</p>
-<p>ICMP echo request<br>a TCP SYN packet to port 443(https)<br>a TCP ACK packet to port 80(http)<br>an ICMP timestamp request </p>
-
+        <p>nmap是网络发现和安全审计工具，用来列举网络主机清单，管理服务升级调度，监控主机或服务运行状况。</p>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/namp%E5%92%8Czenmap%E8%AF%A6%E8%A7%A3/">
+            Read More <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -1649,7 +1645,7 @@
 
 
     <div class='content'>
-      <a href="/tags/CSRF/" style="font-size: 14px; color: #999">CSRF</a> <a href="/tags/CTF/" style="font-size: 24px; color: #555">CTF</a> <a href="/tags/CTF-Web/" style="font-size: 24px; color: #555">CTF-Web</a> <a href="/tags/Vim/" style="font-size: 14px; color: #999">Vim</a> <a href="/tags/arp/" style="font-size: 14px; color: #999">arp</a> <a href="/tags/python/" style="font-size: 14px; color: #999">python</a> <a href="/tags/python%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">python脚本</a> <a href="/tags/sql/" style="font-size: 14px; color: #999">sql</a> <a href="/tags/sql%E6%B3%A8%E5%85%A5/" style="font-size: 14px; color: #999">sql注入</a> <a href="/tags/ssh/" style="font-size: 14px; color: #999">ssh</a> <a href="/tags/xss/" style="font-size: 14px; color: #999">xss</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 14px; color: #999">汇编</a>
+      <a href="/tags/CSRF/" style="font-size: 14px; color: #999">CSRF</a> <a href="/tags/CTF/" style="font-size: 24px; color: #555">CTF</a> <a href="/tags/CTF-Web/" style="font-size: 24px; color: #555">CTF-Web</a> <a href="/tags/arp/" style="font-size: 14px; color: #999">arp</a> <a href="/tags/python/" style="font-size: 14px; color: #999">python</a> <a href="/tags/python%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">python脚本</a> <a href="/tags/sql/" style="font-size: 14px; color: #999">sql</a> <a href="/tags/sql%E6%B3%A8%E5%85%A5/" style="font-size: 14px; color: #999">sql注入</a> <a href="/tags/ssh/" style="font-size: 14px; color: #999">ssh</a> <a href="/tags/vim/" style="font-size: 14px; color: #999">vim</a> <a href="/tags/xss/" style="font-size: 14px; color: #999">xss</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 14px; color: #999">汇编</a>
     </div>
   </section>
 
