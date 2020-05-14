@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,8 +16,10 @@
 
   <!-- 页面元数据 -->
   
-    <title>Archive: 2020/4 - bansxf&#39;s blog</title>
+    <title>镜像源更新 - bansxf&#39;s blog</title>
   
+  
+    <meta name="description" content="kali源：用于kali更新，也可在ubunto和debian上安装kali工具">
   
 
   <!-- feed -->
@@ -83,7 +83,7 @@
   
   <div class="cover-wrapper">
     
-      <cover class='cover  half'>
+      <cover class='cover post half'>
         <div class='cover-body'>
   <div class='a'>
     
@@ -386,32 +386,11 @@
       
 
 <div class='l_main'>
-	
-		
-  <section class="post-list ">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
   
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -421,11 +400,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/categories/%E5%B7%A5%E5%85%B7/metasploit%E5%85%A5%E9%97%A8/">
-      metasploit入门
+  <h1 class="title">
+    <a href="/categories/Linux/%E9%95%9C%E5%83%8F%E6%BA%90%E6%9B%B4%E6%96%B0/">
+      镜像源更新
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -448,9 +427,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%B7%A5%E5%85%B7/' rel="nofollow">
+    <a href='/categories/Linux/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>工具</p>
+      <p>Linux</p>
     </a>
   </div>
 
@@ -461,14 +440,9 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Apr 17, 2020</p>
+    <p>发布于：Mar 20, 2019</p>
   </a>
 </div>
-
-            
-          
-            
-              
 
             
           
@@ -486,598 +460,88 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Metasploit基本使用</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/categories/%E5%B7%A5%E5%85%B7/metasploit%E5%85%A5%E9%97%A8/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
           
-  <h2 class="title">
-    <a href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/arp%E5%8D%8F%E8%AE%AE%E4%B9%8B%E8%B7%A8%E7%BD%91%E6%AE%B5%E5%92%8C%E5%90%8C%E7%BD%91%E6%AE%B5/">
-      arp协议之跨网段和同网段
-    </a>
-  </h2>
+          <p>kali源：用于kali更新，也可在ubunto和debian上安装kali工具</p>
+<a id="more"></a>
+
+<h2 id="ubuntu更新源"><a href="#ubuntu更新源" class="headerlink" title="ubuntu更新源"></a>ubuntu更新源</h2><p><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">清华大学开源软件镜像站</a></p>
+<p><img src="1589423609991.png" alt="1589423609991"></p>
+<p>点击问号</p>
+<p><img src="1589423652704.png" alt="1589423652704"></p>
+<p>选择版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>相关命令</li>
+</ul>
+<p>sudo apt-get update  更新源</p>
+<p>sudo apt-get install package 安装包</p>
+<p>sudo apt-get remove package 删除包</p>
+<p>sudo apt-cache search package 搜索软件包</p>
+<p>sudo apt-cache show package  获取包的相关信息，如说明、大小、版本等</p>
+<p>sudo apt-get install package –reinstall   重新安装包</p>
+<p>sudo apt-get -f install   修复安装</p>
+<p>sudo apt-get remove package –purge 删除包，包括配置文件等</p>
+<p>sudo apt-get build-dep package 安装相关的编译环境</p>
+<p>sudo apt-get upgrade 更新已安装的包</p>
+<p>sudo apt-get dist-upgrade 升级系统</p>
+<p>sudo apt-cache depends package 了解使用该包依赖那些包</p>
+<p>sudo apt-cache rdepends package 查看该包被哪些包依赖</p>
+<p>sudo apt-get source package  下载该包的源代码</p>
+<p>sudo apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包</p>
+<p>sudo apt-get check 检查是否有损坏的依赖</p>
+<h2 id="kali更新源"><a href="#kali更新源" class="headerlink" title="kali更新源"></a>kali更新源</h2><p>升级补丁,保持系统最新</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/apt/sources.list <span class="comment">#修改 更新源 文件</span></span><br></pre></td></tr></table></figure>
+<p>更新源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#中科大</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;kali kali-rolling main non-free contrib</span><br><span class="line"> </span><br><span class="line">#阿里云</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;kali kali-rolling main non-free contrib</span><br><span class="line"> </span><br><span class="line">#清华大学</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;kali kali-rolling main contrib non-free</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;kali kali-rolling main contrib non-free</span><br><span class="line"> </span><br><span class="line">#浙大</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.zju.edu.cn&#x2F;kali kali-rolling main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.zju.edu.cn&#x2F;kali kali-rolling main contrib non-free</span><br><span class="line"> </span><br><span class="line">#东软大学</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.neusoft.edu.cn&#x2F;kali kali-rolling&#x2F;main non-free contrib</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.neusoft.edu.cn&#x2F;kali kali-rolling&#x2F;main non-free contrib</span><br><span class="line"> </span><br><span class="line">#官方源</span><br><span class="line">deb http:&#x2F;&#x2F;http.kali.org&#x2F;kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http:&#x2F;&#x2F;http.kali.org&#x2F;kali kali-rolling main non-free contrib</span><br><span class="line"> </span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.163.com&#x2F;debian&#x2F; jessie main non-free contrib</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.163.com&#x2F;debian&#x2F; jessie-updates main non-free contrib</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.163.com&#x2F;debian&#x2F; jessie-backports main non-free contrib</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.163.com&#x2F;debian&#x2F; jessie main non-free contrib</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.163.com&#x2F;debian&#x2F; jessie-updates main non-free contrib</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.163.com&#x2F;debian&#x2F; jessie-backports main non-free contrib</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.163.com&#x2F;debian-security&#x2F; jessie&#x2F;updates main non-free contrib</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.163.com&#x2F;debian-security&#x2F; jessie&#x2F;updates main non-free contrib</span><br></pre></td></tr></table></figure>
 
 
-        
-        <div class='new-meta-box'>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update <span class="comment">#更新索引</span></span><br><span class="line">apt-get upgrade <span class="comment">#根据索引，真正更新</span></span><br></pre></td></tr></table></figure>
+<p>在ubuntu,debian上更换源后，更新索引需要添加秘钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv --keyserver hkp://keys.gnupg.net --recv-keys 7D8D0BF6</span><br></pre></td></tr></table></figure>
+
           
-            
-          
-            
+            <div class='article_footer'>
               
-<div class='new-meta-item author'>
-  <a href="https://lacc233.github.io/archives/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>bansxf</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>网络协议</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Apr 9, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://www.360doc.com/content/18/0723/19/11935121_772679821.shtml" target="_blank" rel="noopener">http://www.360doc.com/content/18/0723/19/11935121_772679821.shtml</a> </p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/arp%E5%8D%8F%E8%AE%AE%E4%B9%8B%E8%B7%A8%E7%BD%91%E6%AE%B5%E5%92%8C%E5%90%8C%E7%BD%91%E6%AE%B5/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/categories/%E5%B7%A5%E5%85%B7/recon-ng%E5%B7%A5%E5%85%B7%E8%AF%A6%E8%A7%A3/">
-      recon-ng工具详解
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://lacc233.github.io/archives/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>bansxf</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E5%B7%A5%E5%85%B7/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>工具</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Apr 8, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>web信息搜索框架，基于python开发</p>
-<p>使用方法：模块，数据库，报告</p>
-<p>项目地址： <a href="https://github.com/lanmaster53/recon-ng" target="_blank" rel="noopener">https://github.com/lanmaster53/recon-ng</a> </p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/categories/%E5%B7%A5%E5%85%B7/recon-ng%E5%B7%A5%E5%85%B7%E8%AF%A6%E8%A7%A3/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/categories/Linux/Kali-Linux/kali%E4%BB%A3%E7%90%86/">
-      kali代理
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://lacc233.github.io/archives/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>bansxf</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/Linux/Kali-Linux/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Linux/Kali Linux</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Apr 7, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>kali linux 网络代理设置</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/categories/Linux/Kali-Linux/kali%E4%BB%A3%E7%90%86/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/categories/Linux/Kali-Linux/kali%E6%9B%B4%E6%96%B0%E5%8D%87%E7%BA%A7,%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6%E5%8C%85/">
-      kali更新升级,安装与卸载软件包
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://lacc233.github.io/archives/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>bansxf</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/Linux/Kali-Linux/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Linux/Kali Linux</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Apr 3, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>更新升级，安装软件</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/categories/Linux/Kali-Linux/kali%E6%9B%B4%E6%96%B0%E5%8D%87%E7%BA%A7,%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6%E5%8C%85/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/categories/Windows/win%E4%B8%8B%E8%A7%A3%E5%86%B3python2%E4%B8%8E3%E5%88%87%E6%8D%A2%EF%BC%8Cpip%E5%85%B1%E5%AD%98/">
-      win下解决python2与3切换，pip共存
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://lacc233.github.io/archives/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>bansxf</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/Windows/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Windows</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Apr 3, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Windows下解决python2与3切换，pip共存</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/categories/Windows/win%E4%B8%8B%E8%A7%A3%E5%86%B3python2%E4%B8%8E3%E5%88%87%E6%8D%A2%EF%BC%8Cpip%E5%85%B1%E5%AD%98/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
-
-  
-
-
-	
-</div>
-<aside class='l_side'>
-  
+                
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">bansxf's blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
+      <blockquote>
         
           
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
           
         
           
-            <a href="mailto:me@xaoxuu.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>本文永久链接是：<a href=https://lacc233.github.io/categories/Linux/%E9%95%9C%E5%83%8F%E6%BA%90%E6%9B%B4%E6%96%B0/>https://lacc233.github.io/categories/Linux/%E9%95%9C%E5%83%8F%E6%BA%90%E6%9B%B4%E6%96%B0/</a></p>
           
         
-          
-            <a href="https://github.com/lacc233"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://music.163.com/#/user/home?id=63035382"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
+      </blockquote>
     
   </div>
 </section>
@@ -1087,98 +551,207 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-14T10:41:16+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：May 14, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://lacc233.github.io/categories/Linux/%E9%95%9C%E5%83%8F%E6%BA%90%E6%9B%B4%E6%96%B0/&title=镜像源更新 - bansxf's blog&summary=kali源：用于kali更新，也可在ubunto和debian上安装kali工具"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lacc233.github.io/categories/Linux/%E9%95%9C%E5%83%8F%E6%BA%90%E6%9B%B4%E6%96%B0/&title=镜像源更新 - bansxf's blog&summary=kali源：用于kali更新，也可在ubunto和debian上安装kali工具"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://lacc233.github.io/categories/Linux/%E9%95%9C%E5%83%8F%E6%BA%90%E6%9B%B4%E6%96%B0/&title=镜像源更新 - bansxf's blog&summary=kali源：用于kali更新，也可在ubunto和debian上安装kali工具"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/categories/Linux/Kali-Linux/kali%20ssh%E8%BF%9E%E6%8E%A5/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>linux ssh连接</p>
+                <p class='content'>SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Group）所制定；SSH 为建立在应用层基础上的安全协议。SSH 是目前较可靠，专为远程...</p>
+              </a>
+            
+            
+              <a class='next' href='/categories/Linux/Kali-Linux/kali%E4%B9%8B%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/'>
+                <p class='title'>kali之网络配置<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>基础配置
+
+
+网络配置
+临时ip地址
+12345678910ifconfig eth0 #查询eth0网卡配置dhclient eth0 #向DHCP服务器发送请求自动获得IP地址 ，执行此步需...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '镜像源更新',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Linux/" href="/categories/Linux/"
-            id="categoriesLinux"
-            ><div class='name'>Linux</div><div class='badge'>(7)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/Linux/Kali-Linux/" href="/categories/Linux/Kali-Linux/"
-            id="categoriesLinuxKali-Linux"
-            ><div class='name'>Kali Linux</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Windows/" href="/categories/Windows/"
-            id="categoriesWindows"
-            ><div class='name'>Windows</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/WriteUp/" href="/categories/WriteUp/"
-            id="categoriesWriteUp"
-            ><div class='name'>WriteUp</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/web%E5%AE%89%E5%85%A8/" href="/categories/web%E5%AE%89%E5%85%A8/"
-            id="categorieswebE5AE89E585A8"
-            ><div class='name'>web安全</div><div class='badge'>(8)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"
-            id="categoriesE58D9AE5AEA2E690ADE5BBBA"
-            ><div class='name'>博客搭建</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B7%A5%E5%85%B7/"
-            id="categoriesE5B7A5E585B7"
-            ><div class='name'>工具</div><div class='badge'>(8)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"
-            id="categoriesE7BD91E7BB9CE58D8FE8AEAE"
-            ><div class='name'>网络协议</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%84%9A%E6%9C%AC/" href="/categories/%E8%84%9A%E6%9C%AC/"
-            id="categoriesE8849AE69CAC"
-            ><div class='name'>脚本</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E9%9D%B6%E5%9C%BA/" href="/categories/%E9%9D%B6%E5%9C%BA/"
-            id="categoriesE99DB6E59CBA"
-            ><div class='name'>靶场</div><div class='badge'>(3)</div></a></li>
-        
-      </ul>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu更新源"><span class="toc-text">ubuntu更新源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kali更新源"><span class="toc-text">kali更新源</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/CSRF/" style="font-size: 14px; color: #999">CSRF</a> <a href="/tags/CTF/" style="font-size: 19px; color: #777">CTF</a> <a href="/tags/CTF-Web/" style="font-size: 19px; color: #777">CTF-Web</a> <a href="/tags/arp/" style="font-size: 14px; color: #999">arp</a> <a href="/tags/python/" style="font-size: 14px; color: #999">python</a> <a href="/tags/python%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">python脚本</a> <a href="/tags/sql%E6%B3%A8%E5%85%A5/" style="font-size: 24px; color: #555">sql注入</a> <a href="/tags/ssh/" style="font-size: 14px; color: #999">ssh</a> <a href="/tags/vim/" style="font-size: 14px; color: #999">vim</a> <a href="/tags/vulhub/" style="font-size: 14px; color: #999">vulhub</a> <a href="/tags/xss/" style="font-size: 14px; color: #999">xss</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 14px; color: #999">汇编</a>
-    </div>
-  </section>
-
-
-  
 
   
 
@@ -1277,14 +850,6 @@
   </footer>
 
 <script>setLoadingBarProgress(80);</script>
-
-
-
-
-	<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-	
-
-	
 
 
       <script>setLoadingBarProgress(60);</script>
@@ -1399,6 +964,60 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "s80dT3cYg98LwODISJX86IX8-MdYXbMMI",
+    appKey: "McmNeSHOdVEeoOB5v3V1OgjD",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
 
 
 
