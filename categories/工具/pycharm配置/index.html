@@ -529,35 +529,38 @@
 
 <p>从File-&gt;Setting-&gt;Editor-&gt;Live Templates-&gt;Python进入代码片段编辑界面 </p>
 <p>1 、哈希加密：sha1        描述：sha1 encode hexdigest</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from hashlib import sha1</span><br><span class="line"></span><br><span class="line">s &#x3D; sha1()</span><br><span class="line"></span><br><span class="line">s.update($password$.encode())</span><br><span class="line"></span><br><span class="line">$password$_sha1 &#x3D; s.hexdigest()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> hashlib <span class="keyword">import</span> sha1</span><br><span class="line"></span><br><span class="line">s = sha1()</span><br><span class="line"></span><br><span class="line">s.update($password$.encode())</span><br><span class="line"></span><br><span class="line">$password$_sha1 = s.hexdigest()</span><br></pre></td></tr></table></figure>
 
 <p>提示：$password$的默认值单独设置为”password”。</p>
 <p>2、处理异常：try         描述：try except finally</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">  $pass$</span><br><span class="line">except Exception as e:</span><br><span class="line">  print(e)</span><br><span class="line">finally:</span><br><span class="line">  $clo$</span><br><span class="line">  pass</span><br><span class="line">$END$</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">  $<span class="keyword">pass</span>$</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">  print(e)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">  $clo$</span><br><span class="line">  <span class="keyword">pass</span></span><br><span class="line">$END$</span><br></pre></td></tr></table></figure>
 
 <p>提示：$pass$的默认值单独设置为”pass”；$clo的默认值设为”conn.close()”</p>
 <p>3、处理异常：tee        描述：try… except… else</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">  $SELECTION$$END$</span><br><span class="line">except Exception as e:</span><br><span class="line">  print(e)</span><br><span class="line">else:</span><br><span class="line">   pass</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">  $SELECTION$$END$</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">  print(e)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">   <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 
 <p>提示：$SELECTION$表示被选中的代码。</p>
 <p>使用时，选中要放入try中的代码，再按ctrl+alt+T，选择tee。</p>
 <p>4、处理异常：tef         描述：try… except… finally</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line"></span><br><span class="line">  $SELECTION$$END$</span><br><span class="line"></span><br><span class="line">except Exception as e:</span><br><span class="line"></span><br><span class="line">  print(e)</span><br><span class="line"></span><br><span class="line">finally:</span><br><span class="line"></span><br><span class="line">   pass</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line"></span><br><span class="line">  $SELECTION$$END$</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line"></span><br><span class="line">  print(e)</span><br><span class="line"></span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line"></span><br><span class="line">   <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 
 <p>提示：$SELECTION$表示被选中的代码。</p>
 <p>使用时，选中要放入try中的代码，再按ctrl+alt+T，选择tef。</p>
 <p>5、加双引号：str        描述：tostring</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;$SELECTION$&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"$SELECTION$"</span></span><br></pre></td></tr></table></figure>
 
 <p>提示：$SELECTION$表示被选中的代码。</p>
 <p>使用时，选中要放入””双引号中的代码，再按ctrl+alt+T，选择str。</p>
 <p>6、返回真：rt         描述：return Ture</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return True$END$</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="literal">True</span>$END$</span><br></pre></td></tr></table></figure>
 
 
 
 <p>7、返回假：rf         描述：return False</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return False$END$</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="literal">False</span>$END$</span><br></pre></td></tr></table></figure>
+
+<p> 8、类：class 描述：class default</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class $ClassName$(object):</span><br><span class="line">    <span class="string">"""docstring for $ClassName$"""</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, arg)</span>:</span></span><br><span class="line">        super($ClassName$, self).__init__()</span><br><span class="line">        self.arg = arg</span><br><span class="line">$END$</span><br></pre></td></tr></table></figure>
 
 
 
@@ -664,7 +667,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-25T18:11:00+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-25T18:41:22+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：May 25, 2020</p>
