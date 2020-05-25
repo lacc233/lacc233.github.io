@@ -466,7 +466,10 @@
           <p>pycharm配置</p>
 <a id="more"></a>
 
-<h2 id="pycharm自定义代码片段"><a href="#pycharm自定义代码片段" class="headerlink" title="pycharm自定义代码片段"></a>pycharm自定义代码片段</h2><h3 id="通用阶段"><a href="#通用阶段" class="headerlink" title="通用阶段"></a>通用阶段</h3><table>
+<h2 id="运行分配内存"><a href="#运行分配内存" class="headerlink" title="运行分配内存"></a>运行分配内存</h2><p>在pycharm安装目录下，bin/pycharm64.exe.vmoptions</p>
+<p>-Xms为最小内存，-Xmx为最大内存</p>
+<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>file-&gt;settings-&gt;plugins,搜索后安装即可</p>
+<h2 id="自定义代码片段"><a href="#自定义代码片段" class="headerlink" title="自定义代码片段"></a>自定义代码片段</h2><h3 id="通用阶段"><a href="#通用阶段" class="headerlink" title="通用阶段"></a>通用阶段</h3><table>
 <thead>
 <tr>
 <th>变量</th>
@@ -519,22 +522,22 @@
 </tr>
 </tbody></table>
 <p>0、新建.py文件模板：</p>
-<p>Setting-》Editor-》File and Code Templates-》Files-》Python Script进入代码片段编辑界面。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line"># Created by $USER on $DATE</span><br><span class="line"></span><br><span class="line"># Copyright (c) $YEAR $USER. All rights reserved.</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line"></span><br><span class="line">  pass</span><br></pre></td></tr></table></figure>
+<p>Setting-&gt;Editor-&gt;File and Code Templates-&gt;Files-&gt;Python Script进入代码片段编辑界面。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># Created by $USER on $DATE</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">  <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 
 
 
-<p>从File-》Setting-》Editor-》Live Templates-》Python进入代码片段编辑界面 </p>
+<p>从File-&gt;Setting-&gt;Editor-&gt;Live Templates-&gt;Python进入代码片段编辑界面 </p>
 <p>1 、哈希加密：sha1        描述：sha1 encode hexdigest</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from hashlib import sha1</span><br><span class="line"></span><br><span class="line">s &#x3D; sha1()</span><br><span class="line"></span><br><span class="line">s.update($password$.encode())</span><br><span class="line"></span><br><span class="line">$password$_sha1 &#x3D; s.hexdigest()</span><br></pre></td></tr></table></figure>
 
 <p>提示：$password$的默认值单独设置为”password”。</p>
 <p>2、处理异常：try         描述：try except finally</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line"></span><br><span class="line">  $pass$</span><br><span class="line"></span><br><span class="line">except Exception as e:</span><br><span class="line"></span><br><span class="line">  print(e)</span><br><span class="line"></span><br><span class="line">finally:</span><br><span class="line"></span><br><span class="line">  $clo$</span><br><span class="line"></span><br><span class="line">  pass</span><br><span class="line"></span><br><span class="line">$END$</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">  $pass$</span><br><span class="line">except Exception as e:</span><br><span class="line">  print(e)</span><br><span class="line">finally:</span><br><span class="line">  $clo$</span><br><span class="line">  pass</span><br><span class="line">$END$</span><br></pre></td></tr></table></figure>
 
 <p>提示：$pass$的默认值单独设置为”pass”；$clo的默认值设为”conn.close()”</p>
 <p>3、处理异常：tee        描述：try… except… else</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line"></span><br><span class="line">  $SELECTION$$END$</span><br><span class="line"></span><br><span class="line">except Exception as e:</span><br><span class="line"></span><br><span class="line">  print(e)</span><br><span class="line"></span><br><span class="line">else:</span><br><span class="line"></span><br><span class="line">   pass</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">  $SELECTION$$END$</span><br><span class="line">except Exception as e:</span><br><span class="line">  print(e)</span><br><span class="line">else:</span><br><span class="line">   pass</span><br></pre></td></tr></table></figure>
 
 <p>提示：$SELECTION$表示被选中的代码。</p>
 <p>使用时，选中要放入try中的代码，再按ctrl+alt+T，选择tee。</p>
@@ -661,10 +664,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-11T15:38:01+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-25T18:11:00+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：May 11, 2020</p>
+    <p>更新于：May 25, 2020</p>
   </a>
 </div>
 
@@ -825,7 +828,7 @@ https://blog.csdn.net/qq_36119192/article/de...</p>
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#pycharm自定义代码片段"><span class="toc-text">pycharm自定义代码片段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通用阶段"><span class="toc-text">通用阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#django阶段"><span class="toc-text">django阶段</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行分配内存"><span class="toc-text">运行分配内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装插件"><span class="toc-text">安装插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义代码片段"><span class="toc-text">自定义代码片段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通用阶段"><span class="toc-text">通用阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#django阶段"><span class="toc-text">django阶段</span></a></li></ol></li></ol>
     </div>
   </section>
 
