@@ -130,17 +130,17 @@
     
     <entry>
       <title>kali之弱点扫描</title>
-      <link href="/categories/linux/kali/kali%E4%B9%8B%E5%BC%B1%E7%82%B9%E6%89%AB%E6%8F%8F/"/>
-      <url>/categories/linux/kali/kali%E4%B9%8B%E5%BC%B1%E7%82%B9%E6%89%AB%E6%8F%8F/</url>
+      <link href="/categories/Linux/kali-Linux/kali%E4%B9%8B%E5%BC%B1%E7%82%B9%E6%89%AB%E6%8F%8F/"/>
+      <url>/categories/Linux/kali-Linux/kali%E4%B9%8B%E5%BC%B1%E7%82%B9%E6%89%AB%E6%8F%8F/</url>
       
         <content type="html"><![CDATA[<p>漏洞发现</p><a id="more"></a><h2 id="漏洞发现"><a href="#漏洞发现" class="headerlink" title="漏洞发现"></a>漏洞发现</h2><ul><li>搜索漏洞利用代码</li></ul><p><a href="https://www.exploit-db.com/" target="_blank" rel="noopener">exploit-db</a></p><p>searchsploit tomcat (kali命令) `/usr/share/exploitdb</p><ul><li>概念</li></ul><p>cve</p><p>oval</p><h3 id="扫描器"><a href="#扫描器" class="headerlink" title="扫描器"></a>扫描器</h3><p>nmap</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/share/nmap/scrits</span><br><span class="line">less script.db | grep vuln | wc -l  <span class="comment"># 漏洞利用脚本个数</span></span><br></pre></td></tr></table></figure><p>nessus</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i 报名 <span class="comment"># 安装</span></span><br><span class="line">/etc/init.d/nessesd start</span><br></pre></td></tr></table></figure><p>nexpose</p><h2 id="漏洞验证"><a href="#漏洞验证" class="headerlink" title="漏洞验证"></a>漏洞验证</h2><p>metasploit</p>]]></content>
       
       
       <categories>
           
-          <category> linux </category>
+          <category> Linux </category>
           
-          <category> kali </category>
+          <category> kali Linux </category>
           
       </categories>
       
