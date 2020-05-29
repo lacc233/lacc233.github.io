@@ -18,10 +18,10 @@
   
     <title>bettercap工具使用 - bansxf&#39;s blog</title>
   
-    <meta name="keywords" content="中间人攻击">
   
-  
-    <meta name="description" content="中间人攻击工具">
+    <meta name="description" content="工具
+ 网络安全工具，用与抓包，中间人工具
+https://github.com/bettercap/bettercap ">
   
 
   <!-- feed -->
@@ -465,8 +465,12 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <p>中间人攻击工具</p>
+          <p>工具</p>
+<p> 网络安全工具，用与抓包，中间人工具</p>
+<p><a href="https://github.com/bettercap/bettercap" target="_blank" rel="noopener">https://github.com/bettercap/bettercap</a> </p>
 <a id="more"></a>
+
+
 
 <p>kali 上，apt-get install bettercap， 安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bettercap -iface 网卡</span><br></pre></td></tr></table></figure>
@@ -478,6 +482,21 @@
 <p>模块名加on或者off，开，关</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net.recon on</span><br><span class="line">net.show 显示主机缓存列表</span><br><span class="line">net.show by seen&#x2F;sent&#x2F;revd 排列顺序</span><br></pre></td></tr></table></figure>
 
+<h2 id="嗅探"><a href="#嗅探" class="headerlink" title="嗅探"></a>嗅探</h2><p>net.sniff模块</p>
+<p>开启模块前设置，模块启动后再修改将在下一次开启后生效</p>
+<p>设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set net.sniff.output 0vox.pcap</span><br></pre></td></tr></table></figure>
+
+<p>开启，查看设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">net.sniff on #启动模块</span><br><span class="line">net.sniff stats #查看模块设置</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="arp欺骗-代理"><a href="#arp欺骗-代理" class="headerlink" title="arp欺骗-代理"></a>arp欺骗-代理</h2><p>arp -a</p>
+<p>arp.spoof模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set arp.spoof.target&#x3D;目标ip</span><br><span class="line">arp.spoof on</span><br></pre></td></tr></table></figure>
+
+<h2 id="加载脚本"><a href="#加载脚本" class="headerlink" title="加载脚本"></a>加载脚本</h2><p>bett/caplets</p>
 
           
             <div class='article_footer'>
@@ -565,7 +584,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-29T09:39:40+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-29T15:25:13+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：May 29, 2020</p>
@@ -576,9 +595,6 @@
       
         
           
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>中间人攻击</p></a></div>
-
 
         
       
@@ -595,7 +611,9 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://lacc233.github.io/categories/%E5%B7%A5%E5%85%B7/bettercap%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/&title=bettercap工具使用 - bansxf's blog&summary=中间人攻击工具"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://lacc233.github.io/categories/%E5%B7%A5%E5%85%B7/bettercap%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/&title=bettercap工具使用 - bansxf's blog&summary=工具
+ 网络安全工具，用与抓包，中间人工具
+https://github.com/bettercap/bettercap "
           
           >
           
@@ -607,7 +625,9 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lacc233.github.io/categories/%E5%B7%A5%E5%85%B7/bettercap%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/&title=bettercap工具使用 - bansxf's blog&summary=中间人攻击工具"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lacc233.github.io/categories/%E5%B7%A5%E5%85%B7/bettercap%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/&title=bettercap工具使用 - bansxf's blog&summary=工具
+ 网络安全工具，用与抓包，中间人工具
+https://github.com/bettercap/bettercap "
           
           >
           
@@ -619,7 +639,9 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://lacc233.github.io/categories/%E5%B7%A5%E5%85%B7/bettercap%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/&title=bettercap工具使用 - bansxf's blog&summary=中间人攻击工具"
+          href="http://service.weibo.com/share/share.php?url=https://lacc233.github.io/categories/%E5%B7%A5%E5%85%B7/bettercap%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/&title=bettercap工具使用 - bansxf's blog&summary=工具
+ 网络安全工具，用与抓包，中间人工具
+https://github.com/bettercap/bettercap "
           
           >
           
@@ -709,6 +731,20 @@
     
     
 
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#嗅探"><span class="toc-text">嗅探</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#arp欺骗-代理"><span class="toc-text">arp欺骗-代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加载脚本"><span class="toc-text">加载脚本</span></a></li></ol>
+    </div>
+  </section>
 
 
   
