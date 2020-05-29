@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>bettercap工具使用</title>
+      <link href="/categories/%E5%B7%A5%E5%85%B7/bettercap%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
+      <url>/categories/%E5%B7%A5%E5%85%B7/bettercap%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<p>中间人攻击工具</p><a id="more"></a><p>kali 上，apt-get install bettercap， 安装</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bettercap -iface 网卡</span><br></pre></td></tr></table></figure><p>help或 ？查看<code>帮助信息</code>和模块是否开启</p><p>get 查看变量</p><p>set 设置变量，退出重连后恢复默认</p><p>quit退出</p><p>模块名加on或者off，开，关</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net.recon on</span><br><span class="line">net.show 显示主机缓存列表</span><br><span class="line">net.show by seen&#x2F;sent&#x2F;revd 排列顺序</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 中间人攻击 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python连接mysql并查表</title>
       <link href="/categories/python/python%E8%BF%9E%E6%8E%A5mysql%E5%B9%B6%E6%9F%A5%E8%A1%A8/"/>
       <url>/categories/python/python%E8%BF%9E%E6%8E%A5mysql%E5%B9%B6%E6%9F%A5%E8%A1%A8/</url>
