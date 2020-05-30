@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,8 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>Tag: python3 - bansxf&#39;s blog</title>
+    <title>proxifier使用教程 - bansxf&#39;s blog</title>
   
+    <meta name="keywords" content="proxifier">
+  
+  
+    <meta name="description" content="转载自：https://blog.csdn.net/u013066730/article/details/88788191">
   
 
   <!-- feed -->
@@ -83,7 +85,7 @@
   
   <div class="cover-wrapper">
     
-      <cover class='cover  half'>
+      <cover class='cover post half'>
         <div class='cover-body'>
   <div class='a'>
     
@@ -385,33 +387,12 @@
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -421,11 +402,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/categories/python/python%E8%BF%9E%E6%8E%A5mysql%E5%B9%B6%E6%9F%A5%E8%A1%A8/">
-      python连接mysql并查表
+  <h1 class="title">
+    <a href="/categories/%E5%B7%A5%E5%85%B7/proxifier%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
+      proxifier使用教程
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -448,9 +429,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/python/' rel="nofollow">
+    <a href='/categories/%E5%B7%A5%E5%85%B7/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>python</p>
+      <p>工具</p>
     </a>
   </div>
 
@@ -461,14 +442,9 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：May 29, 2020</p>
+    <p>发布于：May 30, 2020</p>
   </a>
 </div>
-
-            
-          
-            
-              
 
             
           
@@ -486,498 +462,75 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>连接数据库，查表</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/categories/python/python%E8%BF%9E%E6%8E%A5mysql%E5%B9%B6%E6%9F%A5%E8%A1%A8/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
           
-  <h2 class="title">
-    <a href="/categories/python/python%E8%BF%9B%E5%BA%A6%E6%9D%A1/">
-      python进度条
-    </a>
-  </h2>
+          <p>转载自：<a href="https://blog.csdn.net/u013066730/article/details/88788191" target="_blank" rel="noopener">https://blog.csdn.net/u013066730/article/details/88788191</a></p>
+<a id="more"></a>
 
 
-        
-        <div class='new-meta-box'>
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>成功搭建使用shadowshocks实现代理访问google，然而只能浏览器代理方式使用，不能其他程序使用代理，不利于白帽子匿名安全检测，下面将介绍利用Proxifier实现全局代理。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>官网发布多个版本，其中便携版不需要安装，直接双击运行，安装版则直接安装即可<br>  Windows便携版：官网地址<br>  Windows安装版：官网地址<br>  Mac版：官网地址</p>
+<h2 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h2><p>1.打开软件点击Profile，接下来配置的三步顺序</p>
+<p>代理服务器配置<br>代理规则设置<br>域名解析设置</p>
+<p><img src="proxifier%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/1590839332541.png" alt="1590839332541"></p>
+<p>2.配置第一步</p>
+<p>点击Proxy Server按钮<br>add<br>输入本地shadowshocks的ip（默认127.0.0.1）和端口（默认1080）<br>选择SHOCKS Versin 5<br>然后点击check<br>OK</p>
+<p><img src="proxifier%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/1590839363439.png" alt="1590839363439"></p>
+<p>显示Proxy is ready to work with Proxfier! 则此步骤配置成功，否则认真检查端口是否正确以及shadowsocks是否运行。</p>
+<p> <img src="proxifier%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/1590839378143.png" alt="1590839378143"></p>
+<p>接下来的两步配置至关重要，配置错误可能导致全局代理失败或者循环代理<br>3.配置第二步</p>
+<p>点击Proxification Rule<br>选中localhost,点击Edit<br>Target hosts处添加shadowshocks代理服务器的IP地址（以123.123.123.123示例）<br>Action选择Direct(直连)<br>OK</p>
+<p> <img src="proxifier%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/1590839417697.png" alt="1590839417697"></p>
+<p>注：此配置步骤允许发送到代理服务器的数据包通过，防止循环代理错误<br>配置后如图</p>
+<p> <img src="proxifier%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/1590839431325.png" alt="1590839431325"></p>
+<p>4.配置第三步</p>
+<pre><code>点击Name Resolution
+选择第二个Resolve hostnames through proxy（通过代理服务器解析域名）
+OK</code></pre><p> <img src="proxifier%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/1590839451083.png" alt="1590839451083"></p>
+<p>5.至此，全局代理已经配置完毕，用CMD命令nslookup <a href="http://www.google.com测试是否成功获取其IP地址，也可以直接访问www.ip138.com查看当前外网IP地址。" target="_blank" rel="noopener">www.google.com测试是否成功获取其IP地址，也可以直接访问www.ip138.com查看当前外网IP地址。</a><br>其他使用</p>
+<p>Proxifier的规则设置十分灵活强大，可以默认所有数据流量都通过代理，即以上设置。<br>同时也可以通过对特殊应用或者端口进行更细粒度的代理设置，比如想要QQ数据包不通过代理，只需要添加规则，应用选择QQ,直连即可<br>如果想尽量减小代理的流量 也可以修改默认规则为直连，然后添加需要的特殊应用为代理访问</p>
+
           
-            
-          
-            
+            <div class='article_footer'>
               
-<div class='new-meta-item author'>
-  <a href="https://lacc233.github.io/archives/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>bansxf</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/python/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>python</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：May 29, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>进度条</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/categories/python/python%E8%BF%9B%E5%BA%A6%E6%9D%A1/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/categories/python/python%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/">
-      python文件目录遍历
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://lacc233.github.io/archives/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>bansxf</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/python/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>python</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：May 29, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>遍历目录</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/categories/python/python%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/categories/python/python%E6%AD%A3%E5%88%99%E5%8C%B9%E9%85%8D/">
-      python正则匹配
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://lacc233.github.io/archives/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>bansxf</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/python/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>python</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：May 29, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>正则匹配</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/categories/python/python%E6%AD%A3%E5%88%99%E5%8C%B9%E9%85%8D/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/categories/python/python%E6%89%93%E5%8D%B0%E5%9B%BE%E7%89%87/">
-      python打印图片
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://lacc233.github.io/archives/" rel="nofollow">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>bansxf</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/python/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>python</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：May 29, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>打印图片</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/categories/python/python%E6%89%93%E5%8D%B0%E5%9B%BE%E7%89%87/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
-
-  
-
-
-    
-  
-</div>
-<aside class='l_side'>
-  
+                
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">bansxf's blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
+      <blockquote>
         
           
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
           
         
           
-            <a href="mailto:me@xaoxuu.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>本文永久链接是：<a href=https://lacc233.github.io/categories/%E5%B7%A5%E5%85%B7/proxifier%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/>https://lacc233.github.io/categories/%E5%B7%A5%E5%85%B7/proxifier%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</a></p>
           
         
-          
-            <a href="https://github.com/lacc233"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://music.163.com/#/user/home?id=63035382"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
+      </blockquote>
     
   </div>
 </section>
@@ -987,103 +540,204 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-30T19:56:22+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：May 30, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/proxifier/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>proxifier</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://lacc233.github.io/categories/%E5%B7%A5%E5%85%B7/proxifier%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/&title=proxifier使用教程 - bansxf's blog&summary=转载自：https://blog.csdn.net/u013066730/article/details/88788191"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lacc233.github.io/categories/%E5%B7%A5%E5%85%B7/proxifier%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/&title=proxifier使用教程 - bansxf's blog&summary=转载自：https://blog.csdn.net/u013066730/article/details/88788191"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://lacc233.github.io/categories/%E5%B7%A5%E5%85%B7/proxifier%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/&title=proxifier使用教程 - bansxf's blog&summary=转载自：https://blog.csdn.net/u013066730/article/details/88788191"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/categories/%E5%B7%A5%E5%85%B7/bettercap%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/'>
+                <p class='title'>bettercap工具使用<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>内网 网络安全工具，用与抓包，中间人
+https://github.com/bettercap/bettercap 
+
+
+安装与使用kali 上，apt-get install betterca...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'proxifier使用教程',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Linux/" href="/categories/Linux/"
-            id="categoriesLinux"
-            ><div class='name'>Linux</div><div class='badge'>(8)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/Linux/Kali-Linux/" href="/categories/Linux/Kali-Linux/"
-            id="categoriesLinuxKali-Linux"
-            ><div class='name'>Kali Linux</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Windows/" href="/categories/Windows/"
-            id="categoriesWindows"
-            ><div class='name'>Windows</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/WriteUp/" href="/categories/WriteUp/"
-            id="categoriesWriteUp"
-            ><div class='name'>WriteUp</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/python/" href="/categories/python/"
-            id="categoriespython"
-            ><div class='name'>python</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/web%E5%AE%89%E5%85%A8/" href="/categories/web%E5%AE%89%E5%85%A8/"
-            id="categorieswebE5AE89E585A8"
-            ><div class='name'>web安全</div><div class='badge'>(8)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"
-            id="categoriesE58D9AE5AEA2E690ADE5BBBA"
-            ><div class='name'>博客搭建</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B7%A5%E5%85%B7/"
-            id="categoriesE5B7A5E585B7"
-            ><div class='name'>工具</div><div class='badge'>(10)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"
-            id="categoriesE7BD91E7BB9CE58D8FE8AEAE"
-            ><div class='name'>网络协议</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%84%9A%E6%9C%AC/" href="/categories/%E8%84%9A%E6%9C%AC/"
-            id="categoriesE8849AE69CAC"
-            ><div class='name'>脚本</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E9%9D%B6%E5%9C%BA/" href="/categories/%E9%9D%B6%E5%9C%BA/"
-            id="categoriesE99DB6E59CBA"
-            ><div class='name'>靶场</div><div class='badge'>(3)</div></a></li>
-        
-      </ul>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用教程"><span class="toc-text">使用教程</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/CSRF/" style="font-size: 14px; color: #999">CSRF</a> <a href="/tags/CTF/" style="font-size: 17.33px; color: #828282">CTF</a> <a href="/tags/CTF-Web/" style="font-size: 17.33px; color: #828282">CTF-Web</a> <a href="/tags/arp/" style="font-size: 14px; color: #999">arp</a> <a href="/tags/proxifier/" style="font-size: 14px; color: #999">proxifier</a> <a href="/tags/python/" style="font-size: 14px; color: #999">python</a> <a href="/tags/python3/" style="font-size: 24px; color: #555">python3</a> <a href="/tags/python%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">python脚本</a> <a href="/tags/sql%E6%B3%A8%E5%85%A5/" style="font-size: 20.67px; color: #6c6c6c">sql注入</a> <a href="/tags/ssh/" style="font-size: 14px; color: #999">ssh</a> <a href="/tags/vim/" style="font-size: 14px; color: #999">vim</a> <a href="/tags/vulhub/" style="font-size: 14px; color: #999">vulhub</a> <a href="/tags/xss/" style="font-size: 14px; color: #999">xss</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 14px; color: #999">汇编</a>
-    </div>
-  </section>
-
-
-  
 
   
 
@@ -1296,6 +950,60 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "s80dT3cYg98LwODISJX86IX8-MdYXbMMI",
+    appKey: "McmNeSHOdVEeoOB5v3V1OgjD",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
 
 
 

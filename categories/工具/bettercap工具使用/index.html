@@ -19,8 +19,7 @@
     <title>bettercap工具使用 - bansxf&#39;s blog</title>
   
   
-    <meta name="description" content="工具
- 网络安全工具，用与抓包，中间人工具
+    <meta name="description" content="内网 网络安全工具，用与抓包，中间人
 https://github.com/bettercap/bettercap ">
   
 
@@ -465,14 +464,11 @@ https://github.com/bettercap/bettercap ">
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <p>工具</p>
-<p> 网络安全工具，用与抓包，中间人工具</p>
+          <p>内网 网络安全工具，用与抓包，中间人</p>
 <p><a href="https://github.com/bettercap/bettercap" target="_blank" rel="noopener">https://github.com/bettercap/bettercap</a> </p>
 <a id="more"></a>
 
-
-
-<p>kali 上，apt-get install bettercap， 安装</p>
+<h2 id="安装与使用"><a href="#安装与使用" class="headerlink" title="安装与使用"></a>安装与使用</h2><p>kali 上，apt-get install bettercap， 安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bettercap -iface 网卡</span><br></pre></td></tr></table></figure>
 
 <p>help或 ？查看<code>帮助信息</code>和模块是否开启</p>
@@ -482,21 +478,122 @@ https://github.com/bettercap/bettercap ">
 <p>模块名加on或者off，开，关</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net.recon on</span><br><span class="line">net.show 显示主机缓存列表</span><br><span class="line">net.show by seen&#x2F;sent&#x2F;revd 排列顺序</span><br></pre></td></tr></table></figure>
 
-<h2 id="嗅探"><a href="#嗅探" class="headerlink" title="嗅探"></a>嗅探</h2><p>net.sniff模块</p>
-<p>开启模块前设置，模块启动后再修改将在下一次开启后生效</p>
-<p>设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set net.sniff.output 0vox.pcap</span><br></pre></td></tr></table></figure>
-
-<p>开启，查看设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">net.sniff on #启动模块</span><br><span class="line">net.sniff stats #查看模块设置</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="arp欺骗-代理"><a href="#arp欺骗-代理" class="headerlink" title="arp欺骗-代理"></a>arp欺骗-代理</h2><p>arp -a</p>
-<p>arp.spoof模块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set arp.spoof.target&#x3D;目标ip</span><br><span class="line">arp.spoof on</span><br></pre></td></tr></table></figure>
-
-<h2 id="加载脚本"><a href="#加载脚本" class="headerlink" title="加载脚本"></a>加载脚本</h2><p>bett/caplets</p>
+<h3 id="帮助信息1"><a href="#帮助信息1" class="headerlink" title="帮助信息1"></a>帮助信息1</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-autostart string</td>
+<td>用逗号分隔要自动启动的模块列表(默认“events.stream”)</td>
+</tr>
+<tr>
+<td>-caplet string</td>
+<td>从该文件中读取命令并在交互式会话中执行它们</td>
+</tr>
+<tr>
+<td>-cpu-profile file</td>
+<td>编写cpu配置文件</td>
+</tr>
+<tr>
+<td>-debug</td>
+<td>打印调试信息</td>
+</tr>
+<tr>
+<td>-env-file string</td>
+<td>如果找到此文件中的环境变量，则将其设置为空，以禁用环境持久性</td>
+</tr>
+<tr>
+<td>-eval string</td>
+<td>在交互式会话中使用”;”分隔一个或多个命令，通过命令行设置变量</td>
+</tr>
+<tr>
+<td>-gateway-override string</td>
+<td>使用提供的IP地址而不是默认网关。如果未指定或无效，将使用默认网关</td>
+</tr>
+<tr>
+<td>-iface string</td>
+<td>要绑定到的网络接口，如果为空，则自动选择默认接口</td>
+</tr>
+<tr>
+<td>-mem-profile file</td>
+<td>将内存配置文件写入文件</td>
+</tr>
+<tr>
+<td>-no-colors</td>
+<td>禁用输出颜色效果</td>
+</tr>
+<tr>
+<td>-no-history</td>
+<td>禁用交互式会话历史文件</td>
+</tr>
+<tr>
+<td>-silent</td>
+<td>取消所有非错误的日志</td>
+</tr>
+<tr>
+<td>-version</td>
+<td>打印版本并退出</td>
+</tr>
+</tbody></table>
+<h3 id="帮助信息2"><a href="#帮助信息2" class="headerlink" title="帮助信息2"></a>帮助信息2</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>help MODULE</td>
+<td>列出可用的命令，如果没有提供模块名，则显示模块特定的帮助</td>
+</tr>
+<tr>
+<td>active</td>
+<td>显示有关活动模块的信息</td>
+</tr>
+<tr>
+<td>quit</td>
+<td>关闭会话并退出</td>
+</tr>
+<tr>
+<td>sleep SECONDS</td>
+<td>在给定的时间内睡眠</td>
+</tr>
+<tr>
+<td>get NAME</td>
+<td>获取变量名的值，对所有变量单独使用，或将NAME作为通配符</td>
+</tr>
+<tr>
+<td>set NAME VALUE</td>
+<td>设置变量名的值</td>
+</tr>
+<tr>
+<td>read VARIABLE PROMPT</td>
+<td>显示一个提示，要求用户输入将被保存在变量中</td>
+</tr>
+<tr>
+<td>clear</td>
+<td>清除屏幕</td>
+</tr>
+<tr>
+<td>include CAPLET</td>
+<td>在当前会话中加载并运行这个CAPLET</td>
+</tr>
+<tr>
+<td>! COMMAND</td>
+<td>执行shell命令并打印其输出</td>
+</tr>
+<tr>
+<td>alias MAC NAME</td>
+<td>给定端点的MAC地址，为其分配别名</td>
+</tr>
+</tbody></table>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p> <a href="https://www.bettercap.org/usage/" target="_blank" rel="noopener">https://www.bettercap.org/usage/</a> </p>
+<h2 id="模组"><a href="#模组" class="headerlink" title="模组"></a>模组</h2><p> <a href="https://www.bettercap.org/modules/" target="_blank" rel="noopener">https://www.bettercap.org/modules/</a> </p>
+<p>开启模块前设置，模块启动后，再修改将在下一次开启后生效</p>
+<h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><h3 id="加载脚本"><a href="#加载脚本" class="headerlink" title="加载脚本"></a>加载脚本</h3><p>bett/caplets</p>
 
           
             <div class='article_footer'>
@@ -584,10 +681,10 @@ https://github.com/bettercap/bettercap ">
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-29T15:25:13+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-30T13:06:47+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：May 29, 2020</p>
+    <p>更新于：May 30, 2020</p>
   </a>
 </div>
 
@@ -611,8 +708,7 @@ https://github.com/bettercap/bettercap ">
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://lacc233.github.io/categories/%E5%B7%A5%E5%85%B7/bettercap%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/&title=bettercap工具使用 - bansxf's blog&summary=工具
- 网络安全工具，用与抓包，中间人工具
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://lacc233.github.io/categories/%E5%B7%A5%E5%85%B7/bettercap%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/&title=bettercap工具使用 - bansxf's blog&summary=内网 网络安全工具，用与抓包，中间人
 https://github.com/bettercap/bettercap "
           
           >
@@ -625,8 +721,7 @@ https://github.com/bettercap/bettercap "
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lacc233.github.io/categories/%E5%B7%A5%E5%85%B7/bettercap%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/&title=bettercap工具使用 - bansxf's blog&summary=工具
- 网络安全工具，用与抓包，中间人工具
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lacc233.github.io/categories/%E5%B7%A5%E5%85%B7/bettercap%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/&title=bettercap工具使用 - bansxf's blog&summary=内网 网络安全工具，用与抓包，中间人
 https://github.com/bettercap/bettercap "
           
           >
@@ -639,8 +734,7 @@ https://github.com/bettercap/bettercap "
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://lacc233.github.io/categories/%E5%B7%A5%E5%85%B7/bettercap%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/&title=bettercap工具使用 - bansxf's blog&summary=工具
- 网络安全工具，用与抓包，中间人工具
+          href="http://service.weibo.com/share/share.php?url=https://lacc233.github.io/categories/%E5%B7%A5%E5%85%B7/bettercap%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/&title=bettercap工具使用 - bansxf's blog&summary=内网 网络安全工具，用与抓包，中间人
 https://github.com/bettercap/bettercap "
           
           >
@@ -664,6 +758,16 @@ https://github.com/bettercap/bettercap "
         
         
           <div class="prev-next">
+            
+              <a class='prev' href='/categories/%E5%B7%A5%E5%85%B7/proxifier%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>proxifier使用教程</p>
+                <p class='content'>转载自：https://blog.csdn.net/u013066730/article/details/88788191
+
+
+
+
+前言成功搭建使用shadowshocks实现代理访问googl...</p>
+              </a>
             
             
               <a class='next' href='/categories/python/python%E8%BF%9E%E6%8E%A5mysql%E5%B9%B6%E6%9F%A5%E8%A1%A8/'>
@@ -742,7 +846,7 @@ https://github.com/bettercap/bettercap "
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#嗅探"><span class="toc-text">嗅探</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#arp欺骗-代理"><span class="toc-text">arp欺骗-代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加载脚本"><span class="toc-text">加载脚本</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装与使用"><span class="toc-text">安装与使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#帮助信息1"><span class="toc-text">帮助信息1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#帮助信息2"><span class="toc-text">帮助信息2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用法"><span class="toc-text">用法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模组"><span class="toc-text">模组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#脚本"><span class="toc-text">脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#加载脚本"><span class="toc-text">加载脚本</span></a></li></ol></li></ol>
     </div>
   </section>
 
