@@ -16,12 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>linux ssh连接 - bansxf&#39;s blog</title>
+    <title>sql注入之异或注入 - bansxf&#39;s blog</title>
   
-    <meta name="keywords" content="ssh">
+    <meta name="keywords" content="sql注入">
   
   
-    <meta name="description" content="SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Group）所制定；SSH 为建立在应用层基础上的安全协议。SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题。">
+    <meta name="description" content="异或注入">
   
 
   <!-- feed -->
@@ -403,8 +403,8 @@
         
           
   <h1 class="title">
-    <a href="/categories/Linux/Kali-Linux/kali%20ssh%E8%BF%9E%E6%8E%A5/">
-      linux ssh连接
+    <a href="/categories/web%E5%AE%89%E5%85%A8/sql%E6%B3%A8%E5%85%A5%E4%B9%8B%E5%BC%82%E6%88%96%E6%B3%A8%E5%85%A5/">
+      sql注入之异或注入
     </a>
   </h1>
 
@@ -429,9 +429,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/Linux/Kali-Linux/' rel="nofollow">
+    <a href='/categories/web%E5%AE%89%E5%85%A8/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Linux/Kali Linux</p>
+      <p>web安全</p>
     </a>
   </div>
 
@@ -442,7 +442,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Mar 20, 2019</p>
+    <p>发布于：Jun 9, 2020</p>
   </a>
 </div>
 
@@ -465,18 +465,18 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <p>SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Group）所制定；SSH 为建立在应用层基础上的安全协议。SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题。</p>
+          <p>异或注入</p>
 <a id="more"></a>
 
-<h2 id="ssh连接"><a href="#ssh连接" class="headerlink" title="ssh连接"></a>ssh连接</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd.conf  #ssh配置文件</span><br><span class="line">PasswordAuthentication yes	#允许密码链接</span><br><span class="line">PubkeyAuthentication yes	#允许秘钥登录</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/ssh status #查看状态</span><br><span class="line">/etc/init.d/ssh start #开启ssh</span><br><span class="line">/etc/init.d/ssh restart #重启ssh</span><br><span class="line">update-rc.d ssh enable #打开开机自启</span><br><span class="line">update-rc.d ssh disabled #关闭开机自启</span><br></pre></td></tr></table></figure>
-
-<h3 id="服务器免密互联"><a href="#服务器免密互联" class="headerlink" title="服务器免密互联"></a>服务器免密互联</h3><p>修改hosts</p>
-<p>修改hostname</p>
-<p>可以通过hostname登录</p>
-<p>ssh-keygen</p>
-<p>生成秘钥，上传秘钥</p>
-<p>修改sshd.config,开启秘钥登录</p>
+<p> 两个同为真的条件做异或，结果为假 </p>
+<p> 两个同为假的条件做异或，结果为假 </p>
+<p> 一个条件为真，一个条件为假，结果为真 </p>
+<p> null与任何条件（真、假、null）做异或，结果都为null </p>
+<p>xor与^区别：</p>
+<p> ^运算符会做位异或运算 如1^2=3 1^2=3 </p>
+<p> xor做逻辑运算 1 xor 0 会输出1 其他情况输出其他所有数据 </p>
+<p>用处：</p>
+<p>可用于判断过滤<br> <a href="https://link.jianshu.com?t=http%3A%2F%2F120.24.86.145%3A9004%2F1ndex.php%3Fid%3D1' target="_blank" rel="noopener"">http://120.24.86.145:9004/1ndex.php?id=1’</a>^(length(‘union’)=5)%23<br> 当union被过滤时1^0 输出id=1<br> 当union没被过滤时 1 ^ 1 输出 id=0<br> 回显  error</p>
 
           
             <div class='article_footer'>
@@ -513,7 +513,7 @@
           
         
           
-            <p>本文永久链接是：<a href=https://lacc233.github.io/categories/Linux/Kali-Linux/kali%20ssh%E8%BF%9E%E6%8E%A5/>https://lacc233.github.io/categories/Linux/Kali-Linux/kali%20ssh%E8%BF%9E%E6%8E%A5/</a></p>
+            <p>本文永久链接是：<a href=https://lacc233.github.io/categories/web%E5%AE%89%E5%85%A8/sql%E6%B3%A8%E5%85%A5%E4%B9%8B%E5%BC%82%E6%88%96%E6%B3%A8%E5%85%A5/>https://lacc233.github.io/categories/web%E5%AE%89%E5%85%A8/sql%E6%B3%A8%E5%85%A5%E4%B9%8B%E5%BC%82%E6%88%96%E6%B3%A8%E5%85%A5/</a></p>
           
         
       </blockquote>
@@ -564,10 +564,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-10T21:01:20+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-09T20:39:07+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：May 10, 2020</p>
+    <p>更新于：Jun 9, 2020</p>
   </a>
 </div>
 
@@ -576,7 +576,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/ssh/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>ssh</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/sql%E6%B3%A8%E5%85%A5/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>sql注入</p></a></div>
 
 
         
@@ -594,7 +594,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://lacc233.github.io/categories/Linux/Kali-Linux/kali%20ssh%E8%BF%9E%E6%8E%A5/&title=linux ssh连接 - bansxf's blog&summary=SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Group）所制定；SSH 为建立在应用层基础上的安全协议。SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题。"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://lacc233.github.io/categories/web%E5%AE%89%E5%85%A8/sql%E6%B3%A8%E5%85%A5%E4%B9%8B%E5%BC%82%E6%88%96%E6%B3%A8%E5%85%A5/&title=sql注入之异或注入 - bansxf's blog&summary=异或注入"
           
           >
           
@@ -606,7 +606,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lacc233.github.io/categories/Linux/Kali-Linux/kali%20ssh%E8%BF%9E%E6%8E%A5/&title=linux ssh连接 - bansxf's blog&summary=SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Group）所制定；SSH 为建立在应用层基础上的安全协议。SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题。"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lacc233.github.io/categories/web%E5%AE%89%E5%85%A8/sql%E6%B3%A8%E5%85%A5%E4%B9%8B%E5%BC%82%E6%88%96%E6%B3%A8%E5%85%A5/&title=sql注入之异或注入 - bansxf's blog&summary=异或注入"
           
           >
           
@@ -618,7 +618,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://lacc233.github.io/categories/Linux/Kali-Linux/kali%20ssh%E8%BF%9E%E6%8E%A5/&title=linux ssh连接 - bansxf's blog&summary=SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Group）所制定；SSH 为建立在应用层基础上的安全协议。SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题。"
+          href="http://service.weibo.com/share/share.php?url=https://lacc233.github.io/categories/web%E5%AE%89%E5%85%A8/sql%E6%B3%A8%E5%85%A5%E4%B9%8B%E5%BC%82%E6%88%96%E6%B3%A8%E5%85%A5/&title=sql注入之异或注入 - bansxf's blog&summary=异或注入"
           
           >
           
@@ -642,51 +642,15 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/categories/Windows/windows%E5%9F%BA%E7%A1%80/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>windows基础</p>
-                <p class='content'>win基础
-
-
-运行
-
-
-命令
-作用
-
-
-
-dxdiag
-诊断工具
-
-
-msconfig
-系统配置（启动）
-
-
-services.msc
-服务
-
-
-mstsc
-远程桌面连接
-
-
-gpedit.m...</p>
-              </a>
             
-            
-              <a class='next' href='/categories/Linux/%E9%95%9C%E5%83%8F%E6%BA%90%E6%9B%B4%E6%96%B0/'>
-                <p class='title'>镜像源更新<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>kali源：用于kali更新，也可在ubunto和debian上安装kali工具
+              <a class='next' href='/categories/%E5%B7%A5%E5%85%B7/proxifier%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/'>
+                <p class='title'>proxifier使用教程<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>转载自：https://blog.csdn.net/u013066730/article/details/88788191
 
 
-ubuntu更新源清华大学开源软件镜像站
 
-点击问号
 
-选择版本
-1sudo apt-get update
-...</p>
+前言成功搭建使用shadowshocks实现代理访问googl...</p>
               </a>
             
           </div>
@@ -731,7 +695,7 @@ ubuntu更新源清华大学开源软件镜像站
 
   <script>
     window.subData = {
-      title: 'linux ssh连接',
+      title: 'sql注入之异或注入',
       tools: true
     }
   </script>
@@ -746,20 +710,6 @@ ubuntu更新源清华大学开源软件镜像站
     
     
 
-
-  <section class="widget toc-wrapper shadow desktop mobile">
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh连接"><span class="toc-text">ssh连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器免密互联"><span class="toc-text">服务器免密互联</span></a></li></ol></li></ol>
-    </div>
-  </section>
 
 
   

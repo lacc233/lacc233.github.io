@@ -466,9 +466,7 @@
           <p>win基础</p>
 <a id="more"></a>
 
-
-
-<table>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -525,39 +523,6 @@
 </tr>
 </tbody></table>
 <h2 id="系统目录"><a href="#系统目录" class="headerlink" title="系统目录"></a>系统目录</h2><p>1.windows(系统安装目录)-&gt;System32(系统配置文件目录)-&gt;config-&gt;SAM  (pe)<br>2.Program Files/Program Files (x86)  (程序默认安装目录)<br>3.PerfLogs(日志)<br>4.用户-&gt;启动</p>
-<h2 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h2><p>命令 services.msc</p>
-<table>
-<thead>
-<tr>
-<th>名</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>dns</td>
-<td>域名解析服务</td>
-</tr>
-<tr>
-<td>dhcp</td>
-<td>分发ip</td>
-</tr>
-<tr>
-<td>telnet</td>
-<td>远程连接</td>
-</tr>
-<tr>
-<td>ssh</td>
-<td>同上</td>
-</tr>
-<tr>
-<td>ftp</td>
-<td>上传下载</td>
-</tr>
-<tr>
-<td>smb</td>
-<td>文件共享</td>
-</tr>
-</tbody></table>
 <h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><table>
 <thead>
 <tr>
@@ -567,7 +532,7 @@
 </thead>
 <tbody><tr>
 <td>http</td>
-<td>80,8080,8090,3128,8081,9080</td>
+<td>80,8080,8090,3128,8081,9080…</td>
 </tr>
 <tr>
 <td>ftp</td>
@@ -613,23 +578,27 @@
 <blockquote>
 <p>通过端口可以 信息搜集，目标探测，服务判断，系统判断，系统角色分析</p>
 </blockquote>
-<h2 id="注册表"><a href="#注册表" class="headerlink" title="注册表"></a>注册表</h2><p>命令：regedit</p>
-<h2 id="编写批处理文件"><a href="#编写批处理文件" class="headerlink" title="编写批处理文件"></a>编写批处理文件</h2><h2 id="密码爆破"><a href="#密码爆破" class="headerlink" title="密码爆破"></a>密码爆破</h2><p>工具：U盘破解（sam）pe,lc5,彩虹表，hydra</p>
+<h2 id="密码爆破"><a href="#密码爆破" class="headerlink" title="密码爆破"></a>密码爆破</h2><p>工具：U盘破解（sam）pe,lc5,彩虹表，hydra</p>
 <h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><p>win+e：计算机<br>ctrl+shift+esc:任务管理器<br>win+tab:3D桌面</p>
 <h2 id="手动清除木马"><a href="#手动清除木马" class="headerlink" title="手动清除木马"></a>手动清除木马</h2><p>开机启动项：% Run<br>查询服务： services.msc<br>网络端口： netstat -o (-anp)</p>
-<h2 id="dos命令"><a href="#dos命令" class="headerlink" title="dos命令"></a>dos命令</h2><blockquote>
-<p>命令 /? 多查多用</p>
-</blockquote>
-<p><code>cmd</code>:</p>
+<h2 id="dos命令"><a href="#dos命令" class="headerlink" title="dos命令"></a>dos命令</h2><p><code>cmd</code>:</p>
 <p>color a //cmd绿字黑底</p>
-<p>ipconfig /all<br>ipconfig /release<br>ipconfig /renew<br>systeminfo 系统配置 (补丁)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ipconfig &#x2F;all </span><br><span class="line">ipconfig &#x2F;release</span><br><span class="line">ipconfig &#x2F;renew</span><br><span class="line">systeminfo 系统配置 (补丁)</span><br></pre></td></tr></table></figure>
+
 <p>arp -a</p>
 <p>net view</p>
-<p>shutdown -s -t 180 -c “hack”<br>shutdown -a</p>
+<p>shutdown -s -t 180 -c “hack”</p>
+<p>shutdown -a</p>
 <p>cls    //清屏</p>
-<p>md seven    //创建文件夹<br>rd seven    //删除文件夹</p>
-<p>copy con c:/seven.txt    //创建文件<br>hello seven<br>Ctrl+z</p>
-<p>type seven.txt    //查看文件内容<br>start seven.txt    //打开文件查看内容<br>start <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a>    //打开网页<br>del seven.txt    //删除文件</p>
+<p>md seven    //创建文件夹</p>
+<p>rd seven    //删除文件夹</p>
+<p>copy con c:/seven.txt    //创建文件</p>
+<p>hello seven</p>
+<p>Ctrl+z</p>
+<p>type seven.txt    //查看文件内容</p>
+<p>start seven.txt    //打开文件查看内容</p>
+<p>start <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a>    //打开网页</p>
+<p>del seven.txt    //删除文件</p>
 <p>tree    //文件目录树形输出</p>
 <p>copy 文件 位置<br>例 copy 1.txt c:\windows</p>
 <p>ren //重命名</p>
@@ -726,10 +695,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-10T19:08:46+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-31T18:19:15+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：May 10, 2020</p>
+    <p>更新于：May 31, 2020</p>
   </a>
 </div>
 
@@ -886,7 +855,7 @@ banner：分析可知服务是否有漏洞
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#系统目录"><span class="toc-text">系统目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务"><span class="toc-text">服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#端口"><span class="toc-text">端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注册表"><span class="toc-text">注册表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写批处理文件"><span class="toc-text">编写批处理文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#密码爆破"><span class="toc-text">密码爆破</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快捷键"><span class="toc-text">快捷键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手动清除木马"><span class="toc-text">手动清除木马</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dos命令"><span class="toc-text">dos命令</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行"><span class="toc-text">运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系统目录"><span class="toc-text">系统目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#端口"><span class="toc-text">端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#密码爆破"><span class="toc-text">密码爆破</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快捷键"><span class="toc-text">快捷键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手动清除木马"><span class="toc-text">手动清除木马</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dos命令"><span class="toc-text">dos命令</span></a></li></ol>
     </div>
   </section>
 
