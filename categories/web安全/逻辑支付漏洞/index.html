@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,8 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>Tag: vulhub - bansxf&#39;s blog</title>
+    <title>逻辑支付漏洞 - bansxf&#39;s blog</title>
   
+    <meta name="keywords" content="逻辑漏洞">
+  
+  
+    <meta name="description" content="支付漏洞">
   
 
   <!-- feed -->
@@ -83,7 +85,7 @@
   
   <div class="cover-wrapper">
     
-      <cover class='cover  half'>
+      <cover class='cover post half'>
         <div class='cover-body'>
   <div class='a'>
     
@@ -385,25 +387,12 @@
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -413,11 +402,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/categories/%E9%9D%B6%E5%9C%BA/vulhub/">
-      vulhub
+  <h1 class="title">
+    <a href="/categories/web%E5%AE%89%E5%85%A8/%E9%80%BB%E8%BE%91%E6%94%AF%E4%BB%98%E6%BC%8F%E6%B4%9E/">
+      逻辑支付漏洞
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -440,9 +429,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E9%9D%B6%E5%9C%BA/' rel="nofollow">
+    <a href='/categories/web%E5%AE%89%E5%85%A8/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>靶场</p>
+      <p>web安全</p>
     </a>
   </div>
 
@@ -453,14 +442,9 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：May 14, 2020</p>
+    <p>发布于：Jun 10, 2020</p>
   </a>
 </div>
-
-            
-          
-            
-              
 
             
           
@@ -478,103 +462,74 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> Vulhub是一个面向大众的开源漏洞靶场，无需docker知识，简单执行两条命令即可编译、运行一个完整的漏洞靶场镜像。</p>
-<p><a href="https://github.com/vulhub/vulhub" target="_blank" rel="noopener">vulhub-github</a> </p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/categories/%E9%9D%B6%E5%9C%BA/vulhub/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>支付漏洞</p>
+<a id="more"></a>
 
-          </div>
-        
-      
-    
-  </section>
-  
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
+<p>支付漏洞的理解通常是篡改价格</p>
+<p>例一：</p>
+<p>充值的时候，程序只判断订单没有支付成功，但没有判断金额，例如生成订单跳至支付宝页面，在原网站上点支付失败，这时 可以修改订单，改成更大的金额（订单号没变），回到支付宝支付界面，支付成功，程序并没有重新核对支付宝实际的金额，只是把订单改为已支付。</p>
+<p>例二：</p>
+<p>使用余额支付，把数量改为负数，扣除余额时，负负得正，这时余额增加。</p>
+<p>如何测试交易中是否存在逻辑漏洞？</p>
+<p>1.在购买过程中修改产品价格，数量</p>
+<p>2.在支付时修改总价格或者优惠价格</p>
+<p>3.订单生成后，编辑订单把A商品的价格改为B商品的价格，实现低价支付，测试时修改数量，单价，优惠价格参数为负数，小数，无限大，看是否生成订单，能生成进入支付及说明存在逻辑漏洞了</p>
+<p>交易中支付漏洞的几种常见类型？</p>
+<p>1.修改金额</p>
+<p>2.修改商品数量</p>
+<p>3.修改优惠金额</p>
+<p>4.修改数量，单价，优惠价格参数为负数，小数，无限大</p>
+<p>5.商品价格更改</p>
+<p>6.支付key泄露</p>
+<p>实际安全中会有一些特别的,反正各种能改的参数都去尝试，个数，单价，优惠卷个数，单价，总额。每个值都可能存在问题，就看服务自身处理是否有问题了</p>
+<p>支付漏洞一般分为三类：</p>
+<p>在支付过程中直接发含有支付金额的数据包</p>
+<p>没有对购买的数量进行限制</p>
+<p>程序的异常处理（如：99999999，月份过多超出）</p>
+<p>还有更多的利用方案…</p>
 
-  
-
-
-    
-  
-</div>
-<aside class='l_side'>
-  
+          
+            <div class='article_footer'>
+              
+                
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">bansxf's blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
+      <blockquote>
         
           
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
           
         
           
-            <a href="mailto:me@xaoxuu.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>本文永久链接是：<a href=https://lacc233.github.io/categories/web%E5%AE%89%E5%85%A8/%E9%80%BB%E8%BE%91%E6%94%AF%E4%BB%98%E6%BC%8F%E6%B4%9E/>https://lacc233.github.io/categories/web%E5%AE%89%E5%85%A8/%E9%80%BB%E8%BE%91%E6%94%AF%E4%BB%98%E6%BC%8F%E6%B4%9E/</a></p>
           
         
-          
-            <a href="https://github.com/lacc233"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://music.163.com/#/user/home?id=63035382"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
+      </blockquote>
     
   </div>
 </section>
@@ -584,103 +539,192 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
     
-  <header>
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
     
-  </header>
+  </div>
+</section>
+
+  
 
 
-    <div class='content'>
-      <ul class="entry navigation">
+              
+            </div>
+          
+        </div>
         
-          <li><a class="flat-box"
-            title="/categories/Linux/" href="/categories/Linux/"
-            id="categoriesLinux"
-            ><div class='name'>Linux</div><div class='badge'>(8)</div></a></li>
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
         
-          <li><a class="flat-box child"
-            title="/categories/Linux/Kali-Linux/" href="/categories/Linux/Kali-Linux/"
-            id="categoriesLinuxKali-Linux"
-            ><div class='name'>Kali Linux</div><div class='badge'>(5)</div></a></li>
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-10T12:14:29+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jun 10, 2020</p>
+  </a>
+</div>
+
         
-          <li><a class="flat-box"
-            title="/categories/Windows/" href="/categories/Windows/"
-            id="categoriesWindows"
-            ><div class='name'>Windows</div><div class='badge'>(2)</div></a></li>
+      
         
-          <li><a class="flat-box"
-            title="/categories/WriteUp/" href="/categories/WriteUp/"
-            id="categoriesWriteUp"
-            ><div class='name'>WriteUp</div><div class='badge'>(2)</div></a></li>
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>逻辑漏洞</p></a></div>
+
+
         
-          <li><a class="flat-box"
-            title="/categories/python/" href="/categories/python/"
-            id="categoriespython"
-            ><div class='name'>python</div><div class='badge'>(5)</div></a></li>
+      
         
-          <li><a class="flat-box"
-            title="/categories/web%E5%AE%89%E5%85%A8/" href="/categories/web%E5%AE%89%E5%85%A8/"
-            id="categorieswebE5AE89E585A8"
-            ><div class='name'>web安全</div><div class='badge'>(10)</div></a></li>
+          
+
         
-          <li><a class="flat-box"
-            title="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"
-            id="categoriesE58D9AE5AEA2E690ADE5BBBA"
-            ><div class='name'>博客搭建</div><div class='badge'>(1)</div></a></li>
+      
         
-          <li><a class="flat-box"
-            title="/categories/%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B7%A5%E5%85%B7/"
-            id="categoriesE5B7A5E585B7"
-            ><div class='name'>工具</div><div class='badge'>(10)</div></a></li>
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://lacc233.github.io/categories/web%E5%AE%89%E5%85%A8/%E9%80%BB%E8%BE%91%E6%94%AF%E4%BB%98%E6%BC%8F%E6%B4%9E/&title=逻辑支付漏洞 - bansxf's blog&summary=支付漏洞"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lacc233.github.io/categories/web%E5%AE%89%E5%85%A8/%E9%80%BB%E8%BE%91%E6%94%AF%E4%BB%98%E6%BC%8F%E6%B4%9E/&title=逻辑支付漏洞 - bansxf's blog&summary=支付漏洞"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://lacc233.github.io/categories/web%E5%AE%89%E5%85%A8/%E9%80%BB%E8%BE%91%E6%94%AF%E4%BB%98%E6%BC%8F%E6%B4%9E/&title=逻辑支付漏洞 - bansxf's blog&summary=支付漏洞"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
         
-          <li><a class="flat-box"
-            title="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" href="/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"
-            id="categoriesE7BD91E7BB9CE58D8FE8AEAE"
-            ><div class='name'>网络协议</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%84%9A%E6%9C%AC/" href="/categories/%E8%84%9A%E6%9C%AC/"
-            id="categoriesE8849AE69CAC"
-            ><div class='name'>脚本</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E9%9D%B6%E5%9C%BA/" href="/categories/%E9%9D%B6%E5%9C%BA/"
-            id="categoriesE99DB6E59CBA"
-            ><div class='name'>靶场</div><div class='badge'>(3)</div></a></li>
-        
-      </ul>
+      
     </div>
   </section>
 
 
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/categories/web%E5%AE%89%E5%85%A8/sql%E6%B3%A8%E5%85%A5%E4%B9%8B%E5%BC%82%E6%88%96%E6%B3%A8%E5%85%A5/'>
+                <p class='title'>sql注入之异或注入<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>异或注入
+
+
+ 两个同为真的条件做异或，结果为假 
+ 两个同为假的条件做异或，结果为假 
+ 一个条件为真，一个条件为假，结果为真 
+ null与任何条件（真、假、null）做异或，结果都为nul...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '逻辑支付漏洞',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
   
 
   
     
     
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
 
 
-    <div class='content'>
-      <a href="/tags/CSRF/" style="font-size: 14px; color: #999">CSRF</a> <a href="/tags/CTF/" style="font-size: 17.33px; color: #828282">CTF</a> <a href="/tags/CTF-Web/" style="font-size: 17.33px; color: #828282">CTF-Web</a> <a href="/tags/arp/" style="font-size: 14px; color: #999">arp</a> <a href="/tags/proxifier/" style="font-size: 14px; color: #999">proxifier</a> <a href="/tags/python/" style="font-size: 14px; color: #999">python</a> <a href="/tags/python3/" style="font-size: 24px; color: #555">python3</a> <a href="/tags/python%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">python脚本</a> <a href="/tags/sql%E6%B3%A8%E5%85%A5/" style="font-size: 20.67px; color: #6c6c6c">sql注入</a> <a href="/tags/ssh/" style="font-size: 14px; color: #999">ssh</a> <a href="/tags/vim/" style="font-size: 14px; color: #999">vim</a> <a href="/tags/vulhub/" style="font-size: 14px; color: #999">vulhub</a> <a href="/tags/xss/" style="font-size: 14px; color: #999">xss</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 14px; color: #999">汇编</a> <a href="/tags/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/" style="font-size: 14px; color: #999">逻辑漏洞</a>
-    </div>
-  </section>
-
-
-  
 
   
 
@@ -893,6 +937,60 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "s80dT3cYg98LwODISJX86IX8-MdYXbMMI",
+    appKey: "McmNeSHOdVEeoOB5v3V1OgjD",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
 
 
 
