@@ -16,10 +16,10 @@
 
   <!-- 页面元数据 -->
   
-    <title>更换Linux系统 - bansxf&#39;s blog</title>
+    <title>kali之弱点扫描 - bansxf&#39;s blog</title>
   
   
-    <meta name="description" content="windows 系统更换 Linux（deepin 15.10）系统 ，所遇到的问题。">
+    <meta name="description" content="漏洞发现">
   
 
   <!-- feed -->
@@ -401,8 +401,8 @@
         
           
   <h1 class="title">
-    <a href="/categories/Linux/%E6%9B%B4%E6%8D%A2Linux%E7%B3%BB%E7%BB%9F/">
-      更换Linux系统
+    <a href="/categories/linux/kali/kali%E4%B9%8B%E5%BC%B1%E7%82%B9%E6%89%AB%E6%8F%8F/">
+      kali之弱点扫描
     </a>
   </h1>
 
@@ -427,9 +427,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/Linux/' rel="nofollow">
+    <a href='/categories/linux/kali/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Linux</p>
+      <p>linux/kali</p>
     </a>
   </div>
 
@@ -440,7 +440,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：May 3, 2019</p>
+    <p>发布于：May 17, 2020</p>
   </a>
 </div>
 
@@ -463,35 +463,29 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <p>windows 系统更换 Linux（deepin 15.10）系统 ，所遇到的问题。</p>
+          <p>漏洞发现</p>
 <a id="more"></a>
 
-<h2 id="更换为Linux系统遇到的问题"><a href="#更换为Linux系统遇到的问题" class="headerlink" title="更换为Linux系统遇到的问题"></a>更换为Linux系统遇到的问题</h2><h3 id="问题1：无线网卡无法打开"><a href="#问题1：无线网卡无法打开" class="headerlink" title="问题1：无线网卡无法打开"></a>问题1：无线网卡无法打开</h3><p>首先通过命令查看网卡</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rfkill list all</span><br></pre></td></tr></table></figure>
 
-<p>会显示出 ideapad* 的软件开，硬件关；所以我们关闭它，留下软硬件皆开的。</p>
-<p>移出ideapad无线模块：  </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe -r ideapad_laptop</span><br></pre></td></tr></table></figure>
 
-<p> 写配置文件，开机关闭ideapad无线模块</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo touch /etc/modprobe.d/ideapad.conf</span><br></pre></td></tr></table></figure>
+<h2 id="漏洞发现"><a href="#漏洞发现" class="headerlink" title="漏洞发现"></a>漏洞发现</h2><ul>
+<li>搜索漏洞利用代码</li>
+</ul>
+<p><a href="https://www.exploit-db.com/" target="_blank" rel="noopener">exploit-db</a></p>
+<p>searchsploit tomcat (kali命令) `/usr/share/exploitdb</p>
+<ul>
+<li>概念</li>
+</ul>
+<p>cve</p>
+<p>oval</p>
+<h3 id="扫描器"><a href="#扫描器" class="headerlink" title="扫描器"></a>扫描器</h3><p>nmap</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/share/nmap/scrits</span><br><span class="line">less script.db | grep vuln | wc -l  <span class="comment"># 漏洞利用脚本个数</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/modprobe.d/ideapad.conf</span><br></pre></td></tr></table></figure>
+<p>nessus</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i 报名 <span class="comment"># 安装</span></span><br><span class="line">/etc/init.d/nessesd start</span><br></pre></td></tr></table></figure>
 
-<p>写入 <code>blacklist ideapad_laptop</code></p>
-<p>如果信号易断，可下载安装无线网卡驱动，下命令可查看无线网卡型号</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lspci | grep Wireless</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://github.com/lwfinger/rtlwifi_new" target="_blank" rel="noopener">无线网卡驱动下载地址</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make &amp; make install</span><br></pre></td></tr></table></figure>
-
-<p><code>enjoy</code>!</p>
-<h3 id="问题2：锁屏界面输入密码无法进入桌面"><a href="#问题2：锁屏界面输入密码无法进入桌面" class="headerlink" title="问题2：锁屏界面输入密码无法进入桌面"></a>问题2：锁屏界面输入密码无法进入桌面</h3><p>原因是因为N卡，禁用即可<br><a href="https://blog.csdn.net/lyfmxy/article/details/53533948" target="_blank" rel="noopener">转载</a></p>
-<h3 id="问题3：制作的启动盘，无法载入"><a href="#问题3：制作的启动盘，无法载入" class="headerlink" title="问题3：制作的启动盘，无法载入"></a>问题3：制作的启动盘，无法载入</h3><p>用这个制作做启动盘<br><strong>Win32DiskImager</strong></p>
-<p><a href="https://www.lanzous.com/i41wx1g" target="_blank" rel="noopener">网盘下载地址</a></p>
-<h3 id="问题4：分区"><a href="#问题4：分区" class="headerlink" title="问题4：分区"></a>问题4：分区</h3><p>新手建议全部给“/”，另外EFI是在UEFI模式下必须要有的分区，给个默认大小分区</p>
-<p>建议你的系统盘之外的盘，采用ntfs文件系统格式<br>系统盘ext4</p>
-<p><strong>enjoy!</strong></p>
+<p>nexpose</p>
+<h2 id="漏洞验证"><a href="#漏洞验证" class="headerlink" title="漏洞验证"></a>漏洞验证</h2><p>metasploit</p>
 
           
             <div class='article_footer'>
@@ -528,7 +522,7 @@
           
         
           
-            <p>本文永久链接是：<a href=https://lacc233.github.io/categories/Linux/%E6%9B%B4%E6%8D%A2Linux%E7%B3%BB%E7%BB%9F/>https://lacc233.github.io/categories/Linux/%E6%9B%B4%E6%8D%A2Linux%E7%B3%BB%E7%BB%9F/</a></p>
+            <p>本文永久链接是：<a href=https://lacc233.github.io/categories/linux/kali/kali%E4%B9%8B%E5%BC%B1%E7%82%B9%E6%89%AB%E6%8F%8F/>https://lacc233.github.io/categories/linux/kali/kali%E4%B9%8B%E5%BC%B1%E7%82%B9%E6%89%AB%E6%8F%8F/</a></p>
           
         
       </blockquote>
@@ -579,10 +573,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-10T21:06:56+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-15T11:30:19+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：May 10, 2020</p>
+    <p>更新于：Jun 15, 2020</p>
   </a>
 </div>
 
@@ -606,7 +600,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://lacc233.github.io/categories/Linux/%E6%9B%B4%E6%8D%A2Linux%E7%B3%BB%E7%BB%9F/&title=更换Linux系统 - bansxf's blog&summary=windows 系统更换 Linux（deepin 15.10）系统 ，所遇到的问题。"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://lacc233.github.io/categories/linux/kali/kali%E4%B9%8B%E5%BC%B1%E7%82%B9%E6%89%AB%E6%8F%8F/&title=kali之弱点扫描 - bansxf's blog&summary=漏洞发现"
           
           >
           
@@ -618,7 +612,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lacc233.github.io/categories/Linux/%E6%9B%B4%E6%8D%A2Linux%E7%B3%BB%E7%BB%9F/&title=更换Linux系统 - bansxf's blog&summary=windows 系统更换 Linux（deepin 15.10）系统 ，所遇到的问题。"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lacc233.github.io/categories/linux/kali/kali%E4%B9%8B%E5%BC%B1%E7%82%B9%E6%89%AB%E6%8F%8F/&title=kali之弱点扫描 - bansxf's blog&summary=漏洞发现"
           
           >
           
@@ -630,7 +624,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://lacc233.github.io/categories/Linux/%E6%9B%B4%E6%8D%A2Linux%E7%B3%BB%E7%BB%9F/&title=更换Linux系统 - bansxf's blog&summary=windows 系统更换 Linux（deepin 15.10）系统 ，所遇到的问题。"
+          href="http://service.weibo.com/share/share.php?url=https://lacc233.github.io/categories/linux/kali/kali%E4%B9%8B%E5%BC%B1%E7%82%B9%E6%89%AB%E6%8F%8F/&title=kali之弱点扫描 - bansxf's blog&summary=漏洞发现"
           
           >
           
@@ -654,26 +648,25 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/categories/web%E5%AE%89%E5%85%A8/sql%E6%B3%A8%E5%85%A5/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>sql注入</p>
-                <p class='content'>sql注入原理和sqli靶场
+              <a class='prev' href='/categories/python/python%E6%89%93%E5%8D%B0%E5%9B%BE%E7%89%87/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>python打印图片</p>
+                <p class='content'>打印图片
 
 
-
-
-介绍服务端的sql语句被恶意修改并成功执行的行为。
-原理：
-客户端向服务端发送数据，服务端未严格校验客户端发送数据（sql语言是解释型语言）
-产生具体原因：...</p>
+用在线工具将图片转为ascii
+之后打印代码为：
+12345678910111213141516171819202122232425262728293031323334353637...</p>
               </a>
             
             
-              <a class='next' href='/categories/%E5%B7%A5%E5%85%B7/arpspoof%E5%B7%A5%E5%85%B7/'>
-                <p class='title'>arpspoof工具<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>Arpspoof是一个非常好的ARP欺骗的源代码程序。它的运行不会影响整个网络的通信，该工具通过替换传输中的数据从而达到对目标的欺骗引用
+              <a class='next' href='/categories/%E9%9D%B6%E5%9C%BA/vulhub/'>
+                <p class='title'>vulhub<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'> Vulhub是一个面向大众的开源漏洞靶场，无需docker知识，简单执行两条命令即可编译、运行一个完整的漏洞靶场镜像。
+vulhub-github 
 
 
-中间人流量劫持arp欺骗原理概述：被攻击者：192....</p>
+问题执行这部时，报错
+1docker-...</p>
               </a>
             
           </div>
@@ -718,7 +711,7 @@
 
   <script>
     window.subData = {
-      title: '更换Linux系统',
+      title: 'kali之弱点扫描',
       tools: true
     }
   </script>
@@ -744,7 +737,7 @@
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#更换为Linux系统遇到的问题"><span class="toc-text">更换为Linux系统遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题1：无线网卡无法打开"><span class="toc-text">问题1：无线网卡无法打开</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题2：锁屏界面输入密码无法进入桌面"><span class="toc-text">问题2：锁屏界面输入密码无法进入桌面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题3：制作的启动盘，无法载入"><span class="toc-text">问题3：制作的启动盘，无法载入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题4：分区"><span class="toc-text">问题4：分区</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#漏洞发现"><span class="toc-text">漏洞发现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#扫描器"><span class="toc-text">扫描器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#漏洞验证"><span class="toc-text">漏洞验证</span></a></li></ol>
     </div>
   </section>
 
