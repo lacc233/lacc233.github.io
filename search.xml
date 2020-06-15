@@ -890,17 +890,17 @@
     
     <entry>
       <title>更换Linux系统</title>
-      <link href="/categories/linux/kali-linux/%E6%9B%B4%E6%8D%A2Linux%E7%B3%BB%E7%BB%9F/"/>
-      <url>/categories/linux/kali-linux/%E6%9B%B4%E6%8D%A2Linux%E7%B3%BB%E7%BB%9F/</url>
+      <link href="/categories/Linux/Kali-Linux/%E6%9B%B4%E6%8D%A2Linux%E7%B3%BB%E7%BB%9F/"/>
+      <url>/categories/Linux/Kali-Linux/%E6%9B%B4%E6%8D%A2Linux%E7%B3%BB%E7%BB%9F/</url>
       
         <content type="html"><![CDATA[<p>windows 系统更换 Linux（deepin 15.10）系统 ，所遇到的问题。</p><a id="more"></a><h2 id="更换为Linux系统遇到的问题"><a href="#更换为Linux系统遇到的问题" class="headerlink" title="更换为Linux系统遇到的问题"></a>更换为Linux系统遇到的问题</h2><h3 id="问题1：无线网卡无法打开"><a href="#问题1：无线网卡无法打开" class="headerlink" title="问题1：无线网卡无法打开"></a>问题1：无线网卡无法打开</h3><p>首先通过命令查看网卡</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rfkill list all</span><br></pre></td></tr></table></figure><p>会显示出 ideapad* 的软件开，硬件关；所以我们关闭它，留下软硬件皆开的。</p><p>移出ideapad无线模块：  </p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe -r ideapad_laptop</span><br></pre></td></tr></table></figure><p> 写配置文件，开机关闭ideapad无线模块</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo touch /etc/modprobe.d/ideapad.conf</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/modprobe.d/ideapad.conf</span><br></pre></td></tr></table></figure><p>写入 <code>blacklist ideapad_laptop</code></p><p>如果信号易断，可下载安装无线网卡驱动，下命令可查看无线网卡型号</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lspci | grep Wireless</span><br></pre></td></tr></table></figure><p><a href="https://github.com/lwfinger/rtlwifi_new" target="_blank" rel="noopener">无线网卡驱动下载地址</a></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make &amp; make install</span><br></pre></td></tr></table></figure><p><code>enjoy</code>!</p><h3 id="问题2：锁屏界面输入密码无法进入桌面"><a href="#问题2：锁屏界面输入密码无法进入桌面" class="headerlink" title="问题2：锁屏界面输入密码无法进入桌面"></a>问题2：锁屏界面输入密码无法进入桌面</h3><p>原因是因为N卡，禁用即可<br><a href="https://blog.csdn.net/lyfmxy/article/details/53533948" target="_blank" rel="noopener">转载</a></p><h3 id="问题3：制作的启动盘，无法载入"><a href="#问题3：制作的启动盘，无法载入" class="headerlink" title="问题3：制作的启动盘，无法载入"></a>问题3：制作的启动盘，无法载入</h3><p>用这个制作做启动盘<br><strong>Win32DiskImager</strong></p><p><a href="https://www.lanzous.com/i41wx1g" target="_blank" rel="noopener">网盘下载地址</a></p><h3 id="问题4：分区"><a href="#问题4：分区" class="headerlink" title="问题4：分区"></a>问题4：分区</h3><p>新手建议全部给“/”，另外EFI是在UEFI模式下必须要有的分区，给个默认大小分区</p><p>建议你的系统盘之外的盘，采用ntfs文件系统格式<br>系统盘ext4</p><p><strong>enjoy!</strong></p>]]></content>
       
       
       <categories>
           
-          <category> linux </category>
+          <category> Linux </category>
           
-          <category> kali linux </category>
+          <category> Kali Linux </category>
           
       </categories>
       
