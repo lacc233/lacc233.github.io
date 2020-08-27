@@ -520,6 +520,10 @@
 <p>另外使用–ip-options可以定制IP包的options字段。</p>
 <p>使用-S指定虚假的IP地址，-D指定一组诱骗IP地址（ME代表真实地址）。-e指定发送探测包的网络接口，-g（–source- port）指定源端口，-f指定使用IP分片方式发送探测包，–spoof-mac指定使用欺骗的MAC地址。–ttl指定生存时间。</p>
 <p><strong>扫描防火墙</strong></p>
+<h2 id="使用技巧"><a href="#使用技巧" class="headerlink" title="使用技巧"></a>使用技巧</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--host-timeout 主机超时时间，通常选值 18000</span><br><span class="line">-scan-delay 报文时间间隔 通常1000</span><br><span class="line">-S &lt;源地址&gt; 定义扫描源地址，为了不被发现</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="目标规格"><a href="#目标规格" class="headerlink" title="目标规格"></a>目标规格</h2><p><code>-iL &lt;inputfilename&gt;</code></p>
 <p>从文件中读取目标规格</p>
 <p><code>-iR &lt;num hosts&gt;</code>  </p>
@@ -662,7 +666,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-27T18:59:18+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-27T21:37:43+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Aug 27, 2020</p>
@@ -821,7 +825,7 @@ Internet控制报文协议
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#选项摘要"><span class="toc-text">选项摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本用法"><span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高级用法"><span class="toc-text">高级用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目标规格"><span class="toc-text">目标规格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主机发现"><span class="toc-text">主机发现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#端口扫描"><span class="toc-text">端口扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扫描技术"><span class="toc-text">扫描技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#脚本扫描"><span class="toc-text">脚本扫描</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#选项摘要"><span class="toc-text">选项摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本用法"><span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高级用法"><span class="toc-text">高级用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用技巧"><span class="toc-text">使用技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目标规格"><span class="toc-text">目标规格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主机发现"><span class="toc-text">主机发现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#端口扫描"><span class="toc-text">端口扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扫描技术"><span class="toc-text">扫描技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#脚本扫描"><span class="toc-text">脚本扫描</span></a></li></ol>
     </div>
   </section>
 
