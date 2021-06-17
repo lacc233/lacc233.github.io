@@ -1,0 +1,1 @@
+(self.webpackChunkbansxf_blog=self.webpackChunkbansxf_blog||[]).push([[7],{6353:function(e){"use strict";e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"\u535a\u5ba2\u642d\u5efa","permalink":"/blog/\u535a\u5ba2\u642d\u5efa"}]}')}}]);

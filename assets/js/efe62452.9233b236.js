@@ -1,0 +1,1 @@
+(self.webpackChunkbansxf_blog=self.webpackChunkbansxf_blog||[]).push([[608],{4526:function(s){"use strict";s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"\u7f51\u5b89","name":"\u7f51\u5b89","count":1,"permalink":"/blog/tags/\u7f51\u5b89"}')}}]);

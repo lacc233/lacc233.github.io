@@ -1,0 +1,1 @@
+(self.webpackChunkbansxf_blog=self.webpackChunkbansxf_blog||[]).push([[956],{4576:function(s){"use strict";s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"sec","name":"sec","count":1,"permalink":"/blog/tags/sec"}')}}]);
